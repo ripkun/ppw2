@@ -1,0 +1,1027 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+    <title>Crawling Berita Kompas &#8212; My sample book</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" href="_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/clipboard.min.js"></script>
+    <script src="_static/copybutton.js"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'crawling_berita_kompas';</script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Link Scrapping PTA Teknik Informatika" href="scrapping_link_informatika.html" />
+    <link rel="prev" title="Crawling PTA Trunojoyo" href="crawling_pta.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="_static/logo.png" class="logo__image only-light" alt="My sample book - Home"/>
+    <script>document.write(`<img src="_static/logo.png" class="logo__image only-dark" alt="My sample book - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="intro.html">
+                    Welcome to your Jupyter Book
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="crawling_pta.html">Crawling PTA Trunojoyo</a></li>
+
+
+
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Crawling Berita Kompas</a></li>
+
+
+
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="scrapping_link_informatika.html">Link Scrapping PTA Teknik Informatika</a></li>
+<li class="toctree-l1"><a class="reference internal" href="crawling_manajemen.html">Crawling PTA Trunojoyo Fakultas Ekonomi Prodi Manajemen</a></li>
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="preprocessing_berita.html">Preprocessing Berita</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="preprocessing_pta_manajemen.html">Preprocessing PTA Manajemen</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="ekstraksi_fitur_tfidf_berita.html">Ekstraksi Fitur tf idf Berita</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ekstraksi_fitur_tfidf_pta_manajemen.html">Ekstraksi Fitur tf idf Pta Manajemen</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Cbow_embeding_berita_preprocesed.html">Cbow Embeding Berita Preprocesed</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Cbow_embeding_pta_manajemen_preprocesed.html">Cbow Embeding Pta Manajemen Preprocesed</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tugas6-rifqi.html">Klasifikasi Berita menggunakan Fitur Latent Dirichlet Allocation (LDA)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="UTS_Klasifikasi_Berita_dan_Clustering_Spam.html">Tugas UTS (Klasifikasi Berita dan Clustering Spam)</a></li>
+
+
+<li class="toctree-l1"><a class="reference internal" href="page_rank.html">Analisis Graph Data dari pta_graph.xlsx</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2Fcrawling_berita_kompas.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/crawling_berita_kompas.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Crawling Berita Kompas</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Crawling Berita Kompas</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#berita-yang-akan-di-crawling">Berita yang akan di crawling</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#fungsi-utility-normalisasi-url-ambil-teks">Fungsi Utility: Normalisasi URL &amp; Ambil Teks</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#variabel-untuk-cegah-duplikat">Variabel untuk Cegah Duplikat</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#fungsi-parsing-detail-berita">Fungsi Parsing Detail Berita</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#fungsi-crawling-per-kategori">Fungsi Crawling per Kategori</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#hasil-crawling">Hasil Crawling</a></li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="crawling-berita-kompas">
+<h1>Crawling Berita Kompas<a class="headerlink" href="#crawling-berita-kompas" title="Permalink to this heading">#</a></h1>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">requests</span><span class="o">,</span><span class="w"> </span><span class="nn">uuid</span><span class="o">,</span><span class="w"> </span><span class="nn">time</span><span class="o">,</span><span class="w"> </span><span class="nn">random</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">requests.adapters</span><span class="w"> </span><span class="kn">import</span> <span class="n">HTTPAdapter</span><span class="p">,</span> <span class="n">Retry</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">bs4</span><span class="w"> </span><span class="kn">import</span> <span class="n">BeautifulSoup</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">urllib.parse</span><span class="w"> </span><span class="kn">import</span> <span class="n">urljoin</span><span class="p">,</span> <span class="n">urlparse</span><span class="p">,</span> <span class="n">urlunparse</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
+
+<span class="c1"># Header untuk menyamarkan request agar dianggap seperti browser biasa</span>
+<span class="n">DEFAULT_UA</span> <span class="o">=</span> <span class="p">(</span>
+    <span class="s2">&quot;Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 &quot;</span>
+    <span class="s2">&quot;(KHTML, like Gecko) Chrome/127.0.0.0 Safari/537.36&quot;</span>
+<span class="p">)</span>
+<span class="n">headers</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;User-Agent&quot;</span><span class="p">:</span> <span class="n">DEFAULT_UA</span><span class="p">,</span> <span class="s2">&quot;Accept-Language&quot;</span><span class="p">:</span> <span class="s2">&quot;id,en;q=0.9&quot;</span><span class="p">}</span>
+
+<span class="c1"># Session dengan retry &amp; backoff</span>
+<span class="n">session</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">Session</span><span class="p">()</span>
+<span class="n">retries</span> <span class="o">=</span> <span class="n">Retry</span><span class="p">(</span><span class="n">total</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">backoff_factor</span><span class="o">=</span><span class="mf">0.6</span><span class="p">,</span> <span class="n">status_forcelist</span><span class="o">=</span><span class="p">[</span><span class="mi">429</span><span class="p">,</span> <span class="mi">500</span><span class="p">,</span> <span class="mi">502</span><span class="p">,</span> <span class="mi">503</span><span class="p">,</span> <span class="mi">504</span><span class="p">],</span> <span class="n">allowed_methods</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;GET&quot;</span><span class="p">])</span>
+<span class="n">adapter</span> <span class="o">=</span> <span class="n">HTTPAdapter</span><span class="p">(</span><span class="n">max_retries</span><span class="o">=</span><span class="n">retries</span><span class="p">,</span> <span class="n">pool_connections</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">pool_maxsize</span><span class="o">=</span><span class="mi">20</span><span class="p">)</span>
+<span class="n">session</span><span class="o">.</span><span class="n">mount</span><span class="p">(</span><span class="s2">&quot;http://&quot;</span><span class="p">,</span> <span class="n">adapter</span><span class="p">)</span>
+<span class="n">session</span><span class="o">.</span><span class="n">mount</span><span class="p">(</span><span class="s2">&quot;https://&quot;</span><span class="p">,</span> <span class="n">adapter</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="berita-yang-akan-di-crawling">
+<h1>Berita yang akan di crawling<a class="headerlink" href="#berita-yang-akan-di-crawling" title="Permalink to this heading">#</a></h1>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># URL awal situs (beranda Kompas)</span>
+<span class="n">START_URL</span> <span class="o">=</span> <span class="s2">&quot;https://www.kompas.com/&quot;</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="fungsi-utility-normalisasi-url-ambil-teks">
+<h1>Fungsi Utility: Normalisasi URL &amp; Ambil Teks<a class="headerlink" href="#fungsi-utility-normalisasi-url-ambil-teks" title="Permalink to this heading">#</a></h1>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">canonicalize</span><span class="p">(</span><span class="n">url</span><span class="p">):</span>
+    <span class="c1"># Normalisasi URL supaya tidak ada parameter yang bikin duplikat</span>
+    <span class="n">p</span> <span class="o">=</span> <span class="n">urlparse</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">urlunparse</span><span class="p">((</span><span class="s2">&quot;https&quot;</span><span class="p">,</span> <span class="n">p</span><span class="o">.</span><span class="n">netloc</span><span class="p">,</span> <span class="n">p</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">rstrip</span><span class="p">(</span><span class="s1">&#39;/&#39;</span><span class="p">),</span> <span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">))</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">is_valid_article_url</span><span class="p">(</span><span class="n">url</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
+    <span class="c1"># Batasi hanya artikel teks, exclude video/galeri/dll</span>
+    <span class="n">lower</span> <span class="o">=</span> <span class="n">url</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="p">(</span><span class="s2">&quot;kompas.com&quot;</span> <span class="ow">in</span> <span class="n">lower</span><span class="p">):</span>
+        <span class="k">return</span> <span class="kc">False</span>
+    <span class="k">if</span> <span class="nb">any</span><span class="p">(</span><span class="n">x</span> <span class="ow">in</span> <span class="n">lower</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="p">[</span><span class="s2">&quot;video.kompas.com&quot;</span><span class="p">,</span> <span class="s2">&quot;/galeri/&quot;</span><span class="p">,</span> <span class="s2">&quot;/watch/&quot;</span><span class="p">,</span> <span class="s2">&quot;/foto/&quot;</span><span class="p">,</span> <span class="s2">&quot;/player_&quot;</span><span class="p">,</span> <span class="s2">&quot;/live/&quot;</span><span class="p">,</span> <span class="s2">&quot;kgnow.com&quot;</span><span class="p">]):</span>
+        <span class="k">return</span> <span class="kc">False</span>
+    <span class="k">return</span> <span class="s2">&quot;/read/&quot;</span> <span class="ow">in</span> <span class="n">lower</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">first_text</span><span class="p">(</span><span class="n">soup</span><span class="p">,</span> <span class="n">selectors</span><span class="p">):</span>
+    <span class="c1"># Ambil teks pertama yang cocok dari list CSS selector</span>
+    <span class="k">for</span> <span class="n">sel</span> <span class="ow">in</span> <span class="n">selectors</span><span class="p">:</span>
+        <span class="n">nodes</span> <span class="o">=</span> <span class="n">soup</span><span class="o">.</span><span class="n">select</span><span class="p">(</span><span class="n">sel</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">nodes</span><span class="p">:</span>
+            <span class="k">return</span> <span class="s2">&quot; &quot;</span><span class="o">.</span><span class="n">join</span><span class="p">([</span><span class="n">n</span><span class="o">.</span><span class="n">get_text</span><span class="p">(</span><span class="n">strip</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span> <span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="n">nodes</span><span class="p">])</span>
+    <span class="k">return</span> <span class="kc">None</span>
+
+<span class="n">KNOWN_CATEGORIES</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">&quot;nasional&quot;</span><span class="p">,</span> <span class="s2">&quot;global&quot;</span><span class="p">,</span> <span class="s2">&quot;megapolitan&quot;</span><span class="p">,</span> <span class="s2">&quot;regional&quot;</span><span class="p">,</span> <span class="s2">&quot;pemilu&quot;</span><span class="p">,</span> <span class="s2">&quot;hype&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;tekno&quot;</span><span class="p">,</span> <span class="s2">&quot;money&quot;</span><span class="p">,</span> <span class="s2">&quot;otomotif&quot;</span><span class="p">,</span> <span class="s2">&quot;bola&quot;</span><span class="p">,</span> <span class="s2">&quot;entertainment&quot;</span><span class="p">,</span> <span class="s2">&quot;lifestyle&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;travel&quot;</span><span class="p">,</span> <span class="s2">&quot;properti&quot;</span><span class="p">,</span> <span class="s2">&quot;sains&quot;</span><span class="p">,</span> <span class="s2">&quot;health&quot;</span><span class="p">,</span> <span class="s2">&quot;edukasi&quot;</span><span class="p">,</span> <span class="s2">&quot;tren&quot;</span><span class="p">,</span> <span class="s2">&quot;lestari&quot;</span>
+<span class="p">}</span>
+
+<span class="c1"># Batasi hanya 9 kategori yang diizinkan untuk dikumpulkan</span>
+<span class="n">ALLOWED_CATEGORIES</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">&quot;Nasional&quot;</span><span class="p">,</span> <span class="s2">&quot;Global&quot;</span><span class="p">,</span> <span class="s2">&quot;Megapolitan&quot;</span><span class="p">,</span> <span class="s2">&quot;Regional&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;Tekno&quot;</span><span class="p">,</span> <span class="s2">&quot;Money&quot;</span><span class="p">,</span> <span class="s2">&quot;Otomotif&quot;</span><span class="p">,</span> <span class="s2">&quot;Bola&quot;</span><span class="p">,</span> <span class="s2">&quot;Entertainment&quot;</span>
+<span class="p">}</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">guess_category_from_url</span><span class="p">(</span><span class="n">url</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+    <span class="n">p</span> <span class="o">=</span> <span class="n">urlparse</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>
+    <span class="n">host</span> <span class="o">=</span> <span class="n">p</span><span class="o">.</span><span class="n">netloc</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;.&quot;</span><span class="p">)</span>
+    <span class="n">sub</span> <span class="o">=</span> <span class="n">host</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">host</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">2</span> <span class="k">else</span> <span class="n">host</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>  <span class="c1"># e.g., tekno.kompas.com</span>
+    <span class="k">if</span> <span class="n">sub</span> <span class="ow">and</span> <span class="n">sub</span> <span class="ow">not</span> <span class="ow">in</span> <span class="p">(</span><span class="s2">&quot;www&quot;</span><span class="p">,</span> <span class="s2">&quot;kompas&quot;</span><span class="p">)</span> <span class="ow">and</span> <span class="n">sub</span> <span class="ow">in</span> <span class="n">KNOWN_CATEGORIES</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">sub</span><span class="o">.</span><span class="n">capitalize</span><span class="p">()</span>
+    <span class="c1"># fallback from first path segment</span>
+    <span class="n">path</span> <span class="o">=</span> <span class="n">p</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">strip</span><span class="p">(</span><span class="s2">&quot;/&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;/&quot;</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">path</span><span class="p">:</span>
+        <span class="n">seg</span> <span class="o">=</span> <span class="n">path</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span>
+        <span class="k">if</span> <span class="n">seg</span> <span class="ow">in</span> <span class="n">KNOWN_CATEGORIES</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">seg</span><span class="o">.</span><span class="n">capitalize</span><span class="p">()</span>
+    <span class="k">return</span> <span class="s2">&quot;Kompas&quot;</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="variabel-untuk-cegah-duplikat">
+<h1>Variabel untuk Cegah Duplikat<a class="headerlink" href="#variabel-untuk-cegah-duplikat" title="Permalink to this heading">#</a></h1>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">seen_urls</span> <span class="o">=</span> <span class="nb">set</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="fungsi-parsing-detail-berita">
+<h1>Fungsi Parsing Detail Berita<a class="headerlink" href="#fungsi-parsing-detail-berita" title="Permalink to this heading">#</a></h1>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">parse_news_detail</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">default_category</span><span class="p">):</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="c1"># Request detail berita</span>
+        <span class="n">res</span> <span class="o">=</span> <span class="n">session</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">,</span> <span class="n">timeout</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">res</span><span class="o">.</span><span class="n">status_code</span> <span class="o">!=</span> <span class="mi">200</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;[ERROR] status </span><span class="si">{</span><span class="n">res</span><span class="o">.</span><span class="n">status_code</span><span class="si">}</span><span class="s2"> for </span><span class="si">{</span><span class="n">url</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+            <span class="k">return</span> <span class="kc">None</span>
+        <span class="n">soup</span> <span class="o">=</span> <span class="n">BeautifulSoup</span><span class="p">(</span><span class="n">res</span><span class="o">.</span><span class="n">text</span><span class="p">,</span> <span class="s2">&quot;html.parser&quot;</span><span class="p">)</span>
+
+        <span class="c1"># Ambil canonical URL</span>
+        <span class="n">canon_tag</span> <span class="o">=</span> <span class="n">soup</span><span class="o">.</span><span class="n">select_one</span><span class="p">(</span><span class="s1">&#39;link[rel=&quot;canonical&quot;]&#39;</span><span class="p">)</span>
+        <span class="n">final_url</span> <span class="o">=</span> <span class="n">canonicalize</span><span class="p">(</span><span class="n">canon_tag</span><span class="p">[</span><span class="s1">&#39;href&#39;</span><span class="p">]</span> <span class="k">if</span> <span class="n">canon_tag</span> <span class="ow">and</span> <span class="n">canon_tag</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;href&#39;</span><span class="p">)</span> <span class="k">else</span> <span class="n">res</span><span class="o">.</span><span class="n">url</span><span class="p">)</span>
+        <span class="n">url_key</span> <span class="o">=</span> <span class="n">final_url</span>
+        <span class="k">if</span> <span class="n">url_key</span> <span class="ow">in</span> <span class="n">seen_urls</span><span class="p">:</span>
+            <span class="k">return</span> <span class="kc">None</span>
+        <span class="n">seen_urls</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">url_key</span><span class="p">)</span>
+
+        <span class="c1"># Judul berita</span>
+        <span class="n">title</span> <span class="o">=</span> <span class="n">first_text</span><span class="p">(</span><span class="n">soup</span><span class="p">,</span> <span class="p">[</span><span class="s2">&quot;h1.read__title&quot;</span><span class="p">,</span> <span class="s2">&quot;h1.article__title&quot;</span><span class="p">,</span> <span class="s2">&quot;h1.title&quot;</span><span class="p">,</span> <span class="s2">&quot;h1.read__title__text&quot;</span><span class="p">])</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">title</span><span class="p">:</span>
+            <span class="n">m</span> <span class="o">=</span> <span class="n">soup</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s1">&#39;meta&#39;</span><span class="p">,</span> <span class="nb">property</span><span class="o">=</span><span class="s1">&#39;og:title&#39;</span><span class="p">)</span> <span class="ow">or</span> <span class="n">soup</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s1">&#39;meta&#39;</span><span class="p">,</span> <span class="n">attrs</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="s1">&#39;title&#39;</span><span class="p">})</span>
+            <span class="n">title</span> <span class="o">=</span> <span class="n">m</span><span class="p">[</span><span class="s1">&#39;content&#39;</span><span class="p">]</span> <span class="k">if</span> <span class="n">m</span> <span class="ow">and</span> <span class="n">m</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;content&#39;</span><span class="p">)</span> <span class="k">else</span> <span class="s2">&quot;&quot;</span>
+
+        <span class="c1"># Isi berita</span>
+        <span class="n">content</span> <span class="o">=</span> <span class="n">first_text</span><span class="p">(</span><span class="n">soup</span><span class="p">,</span> <span class="p">[</span>
+            <span class="s2">&quot;div.read__content p&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;div.article__content p&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;div.detail_text p&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;div.article__lead p&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;div._article_content p&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;article p&quot;</span>
+        <span class="p">])</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">content</span><span class="p">:</span>
+            <span class="n">m</span> <span class="o">=</span> <span class="n">soup</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s1">&#39;meta&#39;</span><span class="p">,</span> <span class="nb">property</span><span class="o">=</span><span class="s1">&#39;og:description&#39;</span><span class="p">)</span> <span class="ow">or</span> <span class="n">soup</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s1">&#39;meta&#39;</span><span class="p">,</span> <span class="n">attrs</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="s1">&#39;description&#39;</span><span class="p">})</span>
+            <span class="n">content</span> <span class="o">=</span> <span class="n">m</span><span class="p">[</span><span class="s1">&#39;content&#39;</span><span class="p">]</span> <span class="k">if</span> <span class="n">m</span> <span class="ow">and</span> <span class="n">m</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;content&#39;</span><span class="p">)</span> <span class="k">else</span> <span class="s2">&quot;&quot;</span>
+
+        <span class="c1"># Kategori (ambil breadcrumb jika ada, fallback ke default_category)</span>
+        <span class="n">breadcrumb</span> <span class="o">=</span> <span class="p">[</span><span class="n">a</span><span class="o">.</span><span class="n">get_text</span><span class="p">(</span><span class="n">strip</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span> <span class="k">for</span> <span class="n">a</span> <span class="ow">in</span> <span class="n">soup</span><span class="o">.</span><span class="n">select</span><span class="p">(</span><span class="s2">&quot;a.breadcrumb__link, span.breadcrumb__link, nav.breadcrumb a&quot;</span><span class="p">)]</span>
+        <span class="n">detected_kategori</span> <span class="o">=</span> <span class="n">breadcrumb</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="k">if</span> <span class="n">breadcrumb</span> <span class="k">else</span> <span class="n">default_category</span>
+
+        <span class="c1"># Tanggal publikasi (jika ada)</span>
+        <span class="n">pub</span> <span class="o">=</span> <span class="n">first_text</span><span class="p">(</span><span class="n">soup</span><span class="p">,</span> <span class="p">[</span><span class="s2">&quot;div.read__time&quot;</span><span class="p">,</span> <span class="s2">&quot;div.article__date&quot;</span><span class="p">,</span> <span class="s2">&quot;time.read__time&quot;</span><span class="p">])</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">pub</span><span class="p">:</span>
+            <span class="n">m</span> <span class="o">=</span> <span class="n">soup</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s1">&#39;meta&#39;</span><span class="p">,</span> <span class="nb">property</span><span class="o">=</span><span class="s1">&#39;article:published_time&#39;</span><span class="p">)</span> <span class="ow">or</span> <span class="n">soup</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s1">&#39;meta&#39;</span><span class="p">,</span> <span class="n">attrs</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="s1">&#39;date&#39;</span><span class="p">})</span>
+            <span class="n">pub</span> <span class="o">=</span> <span class="n">m</span><span class="p">[</span><span class="s1">&#39;content&#39;</span><span class="p">]</span> <span class="k">if</span> <span class="n">m</span> <span class="ow">and</span> <span class="n">m</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;content&#39;</span><span class="p">)</span> <span class="k">else</span> <span class="s2">&quot;&quot;</span>
+
+        <span class="k">return</span> <span class="p">{</span>
+            <span class="s2">&quot;id&quot;</span><span class="p">:</span> <span class="nb">str</span><span class="p">(</span><span class="n">uuid</span><span class="o">.</span><span class="n">uuid4</span><span class="p">()),</span>        <span class="c1"># ID unik</span>
+            <span class="s2">&quot;judul&quot;</span><span class="p">:</span> <span class="n">title</span><span class="p">,</span>                 <span class="c1"># Judul berita</span>
+            <span class="s2">&quot;isi&quot;</span><span class="p">:</span> <span class="n">content</span><span class="p">,</span>                 <span class="c1"># Isi berita</span>
+            <span class="s2">&quot;kategori&quot;</span><span class="p">:</span> <span class="n">default_category</span><span class="p">,</span>   <span class="c1"># Kategori awal (hardcode)</span>
+            <span class="s2">&quot;detected_kategori&quot;</span><span class="p">:</span> <span class="n">detected_kategori</span><span class="p">,</span> <span class="c1"># Kategori dari breadcrumb</span>
+            <span class="s2">&quot;tanggal&quot;</span><span class="p">:</span> <span class="n">pub</span><span class="p">,</span>                 <span class="c1"># Tanggal publikasi jika tersedia</span>
+            <span class="s2">&quot;url&quot;</span><span class="p">:</span> <span class="n">final_url</span>                <span class="c1"># URL canonical</span>
+        <span class="p">}</span>
+    <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;[ERROR parsing] </span><span class="si">{</span><span class="n">url</span><span class="si">}</span><span class="s2">: </span><span class="si">{</span><span class="n">e</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+        <span class="k">return</span> <span class="kc">None</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="fungsi-crawling-per-kategori">
+<h1>Fungsi Crawling per Kategori<a class="headerlink" href="#fungsi-crawling-per-kategori" title="Permalink to this heading">#</a></h1>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">same_domain</span><span class="p">(</span><span class="n">url</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">base_host</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
+    <span class="n">p</span> <span class="o">=</span> <span class="n">urlparse</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">p</span><span class="o">.</span><span class="n">netloc</span><span class="o">.</span><span class="n">endswith</span><span class="p">(</span><span class="n">base_host</span><span class="p">)</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">crawl_site</span><span class="p">(</span><span class="n">start_url</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">max_pages</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">2000</span><span class="p">,</span> <span class="n">max_articles</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">10000</span><span class="p">):</span>
+    <span class="n">base_host</span> <span class="o">=</span> <span class="n">urlparse</span><span class="p">(</span><span class="n">start_url</span><span class="p">)</span><span class="o">.</span><span class="n">netloc</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;[CRAWL SITE] </span><span class="si">{</span><span class="n">start_url</span><span class="si">}</span><span class="s2"> (host: </span><span class="si">{</span><span class="n">base_host</span><span class="si">}</span><span class="s2">)&quot;</span><span class="p">)</span>
+
+    <span class="n">to_visit</span> <span class="o">=</span> <span class="p">[</span><span class="n">canonicalize</span><span class="p">(</span><span class="n">start_url</span><span class="p">)]</span>
+    <span class="n">visited_pages</span> <span class="o">=</span> <span class="nb">set</span><span class="p">()</span>
+    <span class="n">collected</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="n">per_category_counts</span> <span class="o">=</span> <span class="p">{}</span>  <span class="c1"># kategori -&gt; jumlah terkumpul</span>
+
+    <span class="k">while</span> <span class="n">to_visit</span> <span class="ow">and</span> <span class="nb">len</span><span class="p">(</span><span class="n">visited_pages</span><span class="p">)</span> <span class="o">&lt;</span> <span class="n">max_pages</span> <span class="ow">and</span> <span class="nb">len</span><span class="p">(</span><span class="n">collected</span><span class="p">)</span> <span class="o">&lt;</span> <span class="n">max_articles</span><span class="p">:</span>
+        <span class="n">current</span> <span class="o">=</span> <span class="n">to_visit</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">current</span> <span class="ow">in</span> <span class="n">visited_pages</span><span class="p">:</span>
+            <span class="k">continue</span>
+        <span class="n">visited_pages</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">current</span><span class="p">)</span>
+
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">res</span> <span class="o">=</span> <span class="n">session</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">current</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">,</span> <span class="n">timeout</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">res</span><span class="o">.</span><span class="n">status_code</span> <span class="o">!=</span> <span class="mi">200</span><span class="p">:</span>
+                <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;  [SKIP] status </span><span class="si">{</span><span class="n">res</span><span class="o">.</span><span class="n">status_code</span><span class="si">}</span><span class="s2"> </span><span class="si">{</span><span class="n">current</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+                <span class="k">continue</span>
+            <span class="n">soup</span> <span class="o">=</span> <span class="n">BeautifulSoup</span><span class="p">(</span><span class="n">res</span><span class="o">.</span><span class="n">text</span><span class="p">,</span> <span class="s2">&quot;html.parser&quot;</span><span class="p">)</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;  [ERR] </span><span class="si">{</span><span class="n">current</span><span class="si">}</span><span class="s2">: </span><span class="si">{</span><span class="n">e</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+            <span class="k">continue</span>
+
+        <span class="c1"># Kumpulkan link baru (same domain)</span>
+        <span class="n">anchors</span> <span class="o">=</span> <span class="n">soup</span><span class="o">.</span><span class="n">select</span><span class="p">(</span><span class="s2">&quot;a[href]&quot;</span><span class="p">)</span>
+        <span class="n">page_links</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="k">for</span> <span class="n">a</span> <span class="ow">in</span> <span class="n">anchors</span><span class="p">:</span>
+            <span class="n">href</span> <span class="o">=</span> <span class="n">a</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;href&quot;</span><span class="p">)</span>
+            <span class="k">if</span> <span class="ow">not</span> <span class="n">href</span><span class="p">:</span>
+                <span class="k">continue</span>
+            <span class="n">full</span> <span class="o">=</span> <span class="n">urljoin</span><span class="p">(</span><span class="n">current</span><span class="p">,</span> <span class="n">href</span><span class="p">)</span>
+            <span class="n">full</span> <span class="o">=</span> <span class="n">canonicalize</span><span class="p">(</span><span class="n">full</span><span class="p">)</span>
+            <span class="k">if</span> <span class="ow">not</span> <span class="n">same_domain</span><span class="p">(</span><span class="n">full</span><span class="p">,</span> <span class="n">base_host</span><span class="p">):</span>
+                <span class="k">continue</span>
+            <span class="c1"># hanya antrekan halaman navigasi/listing; artikel di-parse langsung di bawah</span>
+            <span class="k">if</span> <span class="n">full</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">visited_pages</span> <span class="ow">and</span> <span class="n">full</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">to_visit</span><span class="p">:</span>
+                <span class="n">page_links</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">full</span><span class="p">)</span>
+
+        <span class="c1"># Parse artikel teks pada halaman ini (baik halaman list maupun beranda)</span>
+        <span class="n">article_links</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="k">for</span> <span class="n">a</span> <span class="ow">in</span> <span class="n">anchors</span><span class="p">:</span>
+            <span class="n">href</span> <span class="o">=</span> <span class="n">a</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;href&quot;</span><span class="p">)</span>
+            <span class="k">if</span> <span class="ow">not</span> <span class="n">href</span><span class="p">:</span>
+                <span class="k">continue</span>
+            <span class="n">full</span> <span class="o">=</span> <span class="n">urljoin</span><span class="p">(</span><span class="n">current</span><span class="p">,</span> <span class="n">href</span><span class="p">)</span>
+            <span class="k">if</span> <span class="ow">not</span> <span class="n">is_valid_article_url</span><span class="p">(</span><span class="n">full</span><span class="p">):</span>
+                <span class="k">continue</span>
+            <span class="n">key</span> <span class="o">=</span> <span class="n">canonicalize</span><span class="p">(</span><span class="n">full</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">key</span> <span class="ow">in</span> <span class="n">seen_urls</span><span class="p">:</span>
+                <span class="k">continue</span>
+            <span class="n">article_links</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">key</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="n">article_links</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;  [PAGE] </span><span class="si">{</span><span class="n">current</span><span class="si">}</span><span class="s2"> → </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">article_links</span><span class="p">)</span><span class="si">}</span><span class="s2"> article links&quot;</span><span class="p">)</span>
+
+        <span class="k">for</span> <span class="n">link</span> <span class="ow">in</span> <span class="n">article_links</span><span class="p">:</span>
+            <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">collected</span><span class="p">)</span> <span class="o">&gt;=</span> <span class="n">max_articles</span><span class="p">:</span>
+                <span class="k">break</span>
+            <span class="n">cat</span> <span class="o">=</span> <span class="n">guess_category_from_url</span><span class="p">(</span><span class="n">link</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">cat</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">ALLOWED_CATEGORIES</span><span class="p">:</span>
+                <span class="k">continue</span>
+            <span class="k">if</span> <span class="n">per_category_counts</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">cat</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span> <span class="o">&gt;=</span> <span class="mi">200</span><span class="p">:</span>
+                <span class="k">continue</span>
+            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;    - Fetching: </span><span class="si">{</span><span class="n">link</span><span class="si">}</span><span class="s2"> [</span><span class="si">{</span><span class="n">cat</span><span class="si">}</span><span class="s2">]&quot;</span><span class="p">)</span>
+            <span class="n">news</span> <span class="o">=</span> <span class="n">parse_news_detail</span><span class="p">(</span><span class="n">link</span><span class="p">,</span> <span class="n">default_category</span><span class="o">=</span><span class="n">cat</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">news</span> <span class="ow">and</span> <span class="n">news</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;kategori&quot;</span><span class="p">):</span>
+                <span class="n">collected</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">news</span><span class="p">)</span>
+                <span class="n">per_category_counts</span><span class="p">[</span><span class="n">cat</span><span class="p">]</span> <span class="o">=</span> <span class="n">per_category_counts</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">cat</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span>
+            <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mf">0.6</span> <span class="o">+</span> <span class="n">random</span><span class="o">.</span><span class="n">random</span><span class="p">()</span><span class="o">*</span><span class="mf">0.7</span><span class="p">)</span>
+
+        <span class="c1"># Tambahkan link navigasi untuk BFS (dibatasi untuk menghindari ledakan)</span>
+        <span class="n">random</span><span class="o">.</span><span class="n">shuffle</span><span class="p">(</span><span class="n">page_links</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">nxt</span> <span class="ow">in</span> <span class="n">page_links</span><span class="p">[:</span><span class="mi">200</span><span class="p">]:</span>  <span class="c1"># batasi antrian per halaman</span>
+            <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">visited_pages</span><span class="p">)</span> <span class="o">+</span> <span class="nb">len</span><span class="p">(</span><span class="n">to_visit</span><span class="p">)</span> <span class="o">&gt;=</span> <span class="n">max_pages</span><span class="p">:</span>
+                <span class="k">break</span>
+            <span class="n">to_visit</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">nxt</span><span class="p">)</span>
+
+        <span class="c1"># jeda kecil antar halaman</span>
+        <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mf">0.4</span> <span class="o">+</span> <span class="n">random</span><span class="o">.</span><span class="n">random</span><span class="p">()</span><span class="o">*</span><span class="mf">0.6</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">collected</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="hasil-crawling">
+<h1>Hasil Crawling<a class="headerlink" href="#hasil-crawling" title="Permalink to this heading">#</a></h1>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
+    <span class="n">output_path</span> <span class="o">=</span> <span class="s2">&quot;hasil_crawling_kompas.csv&quot;</span>
+    <span class="n">existing</span> <span class="o">=</span> <span class="nb">set</span><span class="p">()</span>
+    <span class="k">if</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="n">output_path</span><span class="p">):</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">prev</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">output_path</span><span class="p">)</span>
+            <span class="k">for</span> <span class="n">u</span> <span class="ow">in</span> <span class="n">prev</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;url&quot;</span><span class="p">,</span> <span class="p">[]):</span>
+                <span class="n">existing</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">canonicalize</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">u</span><span class="p">)))</span>
+        <span class="k">except</span> <span class="ne">Exception</span><span class="p">:</span>
+            <span class="k">pass</span>
+
+    <span class="n">total</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="n">batch</span> <span class="o">=</span> <span class="n">crawl_site</span><span class="p">(</span><span class="n">START_URL</span><span class="p">,</span> <span class="n">max_pages</span><span class="o">=</span><span class="mi">3000</span><span class="p">,</span> <span class="n">max_articles</span><span class="o">=</span><span class="mi">20000</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">batch</span><span class="p">:</span>
+        <span class="n">filtered</span> <span class="o">=</span> <span class="p">[</span><span class="n">x</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">batch</span> <span class="k">if</span> <span class="n">canonicalize</span><span class="p">(</span><span class="n">x</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;url&quot;</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">))</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">existing</span><span class="p">]</span>
+        <span class="k">if</span> <span class="n">filtered</span><span class="p">:</span>
+            <span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">filtered</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="n">output_path</span><span class="p">):</span>
+                <span class="n">df</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="n">output_path</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="s2">&quot;a&quot;</span><span class="p">,</span> <span class="n">header</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s2">&quot;utf-8-sig&quot;</span><span class="p">)</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">df</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="n">output_path</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s2">&quot;utf-8-sig&quot;</span><span class="p">)</span>
+            <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">filtered</span><span class="p">:</span>
+                <span class="n">existing</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">canonicalize</span><span class="p">(</span><span class="n">x</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;url&quot;</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">)))</span>
+            <span class="n">total</span> <span class="o">+=</span> <span class="nb">len</span><span class="p">(</span><span class="n">filtered</span><span class="p">)</span>
+            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;[WRITE] </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">filtered</span><span class="p">)</span><span class="si">}</span><span class="s2"> rows appended from site crawl&quot;</span><span class="p">)</span>
+
+
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;[DONE] Total appended </span><span class="si">{</span><span class="n">total</span><span class="si">}</span><span class="s2"> berita ke </span><span class="si">{</span><span class="n">output_path</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[CRAWL SITE] https://www.kompas.com/ (host: www.kompas.com)
+  [PAGE] https://www.kompas.com → 89 article links
+    - Fetching: https://tekno.kompas.com/read/2025/11/20/08580037/komdigi-ancam-blokir-cloudflare-di-indonesia [Tekno]
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>    - Fetching: https://nasional.kompas.com/read/2025/11/20/09101251/eks-dirut-asdp-ira-puspadewi-bakal-divonis-hari-ini [Nasional]
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>    - Fetching: https://money.kompas.com/read/2025/11/20/092503226/lanjutkan-kenaikan-ihsg-pagi-melesat-ke-level-8452 [Money]
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>    - Fetching: https://regional.kompas.com/read/2025/11/20/094445178/basarnas-ungkap-kendala-pencarian-korban-longsor-cilacap-lokasi-korban-bisa [Regional]
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>    - Fetching: https://megapolitan.kompas.com/read/2025/11/20/10572821/pramono-pastikan-harimau-di-ragunan-kini-sehat-dan-gemuk [Megapolitan]
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>    - Fetching: https://nasional.kompas.com/read/2025/11/20/08121031/protes-para-mantan-hakim-korup-dituntut-maksimal-oleh-jaksa [Nasional]
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>    - Fetching: https://tekno.kompas.com/read/2025/11/20/08580037/komdigi-ancam-blokir-cloudflare-di-indonesia [Tekno]
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>    - Fetching: https://money.kompas.com/read/2025/11/20/094444826/10-pelajaran-hidup-dari-warren-buffett-di-surat-terakhirnya-kepada-pemegang [Money]
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>    - Fetching: https://money.kompas.com/read/2025/11/20/084807026/pertamina-bersih-bersih-anak-usaha-4-dilepas-2-ditutup-di-luar-negeri [Money]
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>    - Fetching: https://money.kompas.com/read/2025/11/20/094444826/10-pelajaran-hidup-dari-warren-buffett-di-surat-terakhirnya-kepada-pemegang [Money]
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>    - Fetching: https://nasional.kompas.com/read/2025/11/20/09022451/reformasi-kejaksaan-ketika-kejagung-disebut-heboh-di-depan-melempem-di [Nasional]
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>    - Fetching: https://megapolitan.kompas.com/read/2025/11/20/11065491/perayaan-hari-ibu-yang-menyentuh-hati-oma-di-wisma-mulia [Megapolitan]
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>    - Fetching: https://regional.kompas.com/read/2025/11/20/110614878/bmkg-14-wilayah-di-kalteng-berstatus-rawan-banjir-jelang-akhir-2025 [Regional]
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>    - Fetching: https://www.kompas.com/global/read/2025/11/20/110303470/dibenci-masyarakat-polisi-ganti-warna-seragam-untuk-pulihkan-citra [Global]
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>    - Fetching: https://megapolitan.kompas.com/read/2025/11/20/11023131/kabel-milik-pln-di-atas-kali-sekretaris-jakbar-dicuri [Megapolitan]
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>    - Fetching: https://otomotif.kompas.com/read/2025/11/20/110200015/inovasi-bobibos--jerami-jadi-bahan-bakar-fakta-atau-mitos- [Otomotif]
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>    - Fetching: https://tekno.kompas.com/read/2025/11/20/11020037/mulai-sekarang-hp-hp-baru-oppo-lebih-kuat-dan-nggak-gampang-rusak [Tekno]
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>    - Fetching: https://money.kompas.com/read/2025/11/20/110156126/harga-emas-hari-ini-di-pegadaian-20-november-2025-ubs-dan-galeri24-kompak [Money]
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>    - Fetching: https://nasional.kompas.com/read/2025/11/20/10363051/dorong-transisi-energi-ditjen-migas-teken-kontrak-jargas-untuk-15-kabupaten [Nasional]
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>    - Fetching: https://nasional.kompas.com/read/2025/11/20/10363051/dorong-transisi-energi-ditjen-migas-teken-kontrak-jargas-untuk-15-kabupaten [Nasional]
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>    - Fetching: https://regional.kompas.com/read/2025/11/20/102414478/plt-gubri-tegaskan-birokrasi-riau-stabil-meski-ada-kekosongan-jabatan [Regional]
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>    - Fetching: https://nasional.kompas.com/read/2025/11/20/10190191/presiden-prabowo-resmikan-rs-kardiologi-emiratesindonesia-solo-hasil [Nasional]
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>    - Fetching: https://nasional.kompas.com/read/2025/11/20/08201841/radikalisme-gen-z-dan-budaya-literasi [Nasional]
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>    - Fetching: https://money.kompas.com/read/2025/11/20/074708826/bumn-merugi-salah-siapa [Money]
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>    - Fetching: https://nasional.kompas.com/read/2025/11/20/06452561/ketika-kader-gerindra-menolak-budi-arie [Nasional]
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>    - Fetching: https://nasional.kompas.com/read/2025/11/20/05480521/reposisi-polri-menjaga-presiden-atau-demokrasi [Nasional]
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>    - Fetching: https://megapolitan.kompas.com/read/2025/11/20/10572821/pramono-pastikan-harimau-di-ragunan-kini-sehat-dan-gemuk [Megapolitan]
+</pre></div>
+</div>
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">KeyboardInterrupt</span><span class="g g-Whitespace">                         </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">7</span><span class="p">],</span> <span class="n">line</span> <span class="mi">13</span>
+<span class="g g-Whitespace">     </span><span class="mi">10</span>         <span class="k">pass</span>
+<span class="g g-Whitespace">     </span><span class="mi">12</span> <span class="n">total</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="ne">---&gt; </span><span class="mi">13</span> <span class="n">batch</span> <span class="o">=</span> <span class="n">crawl_site</span><span class="p">(</span><span class="n">START_URL</span><span class="p">,</span> <span class="n">max_pages</span><span class="o">=</span><span class="mi">3000</span><span class="p">,</span> <span class="n">max_articles</span><span class="o">=</span><span class="mi">20000</span><span class="p">)</span>
+<span class="g g-Whitespace">     </span><span class="mi">14</span> <span class="k">if</span> <span class="n">batch</span><span class="p">:</span>
+<span class="g g-Whitespace">     </span><span class="mi">15</span>     <span class="n">filtered</span> <span class="o">=</span> <span class="p">[</span><span class="n">x</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">batch</span> <span class="k">if</span> <span class="n">canonicalize</span><span class="p">(</span><span class="n">x</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;url&quot;</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">))</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">existing</span><span class="p">]</span>
+
+<span class="nn">Cell In[6], line 72,</span> in <span class="ni">crawl_site</span><span class="nt">(start_url, max_pages, max_articles)</span>
+<span class="g g-Whitespace">     </span><span class="mi">70</span>     <span class="k">continue</span>
+<span class="g g-Whitespace">     </span><span class="mi">71</span> <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;    - Fetching: </span><span class="si">{</span><span class="n">link</span><span class="si">}</span><span class="s2"> [</span><span class="si">{</span><span class="n">cat</span><span class="si">}</span><span class="s2">]&quot;</span><span class="p">)</span>
+<span class="ne">---&gt; </span><span class="mi">72</span> <span class="n">news</span> <span class="o">=</span> <span class="n">parse_news_detail</span><span class="p">(</span><span class="n">link</span><span class="p">,</span> <span class="n">default_category</span><span class="o">=</span><span class="n">cat</span><span class="p">)</span>
+<span class="g g-Whitespace">     </span><span class="mi">73</span> <span class="k">if</span> <span class="n">news</span> <span class="ow">and</span> <span class="n">news</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;kategori&quot;</span><span class="p">):</span>
+<span class="g g-Whitespace">     </span><span class="mi">74</span>     <span class="n">collected</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">news</span><span class="p">)</span>
+
+<span class="nn">Cell In[5], line 8,</span> in <span class="ni">parse_news_detail</span><span class="nt">(url, default_category)</span>
+<span class="g g-Whitespace">      </span><span class="mi">6</span>     <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;[ERROR] status </span><span class="si">{</span><span class="n">res</span><span class="o">.</span><span class="n">status_code</span><span class="si">}</span><span class="s2"> for </span><span class="si">{</span><span class="n">url</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="g g-Whitespace">      </span><span class="mi">7</span>     <span class="k">return</span> <span class="kc">None</span>
+<span class="ne">----&gt; </span><span class="mi">8</span> <span class="n">soup</span> <span class="o">=</span> <span class="n">BeautifulSoup</span><span class="p">(</span><span class="n">res</span><span class="o">.</span><span class="n">text</span><span class="p">,</span> <span class="s2">&quot;html.parser&quot;</span><span class="p">)</span>
+<span class="g g-Whitespace">     </span><span class="mi">10</span> <span class="c1"># Ambil canonical URL</span>
+<span class="g g-Whitespace">     </span><span class="mi">11</span> <span class="n">canon_tag</span> <span class="o">=</span> <span class="n">soup</span><span class="o">.</span><span class="n">select_one</span><span class="p">(</span><span class="s1">&#39;link[rel=&quot;canonical&quot;]&#39;</span><span class="p">)</span>
+
+<span class="nn">File ~/.local/lib/python3.12/site-packages/bs4/__init__.py:476,</span> in <span class="ni">BeautifulSoup.__init__</span><span class="nt">(self, markup, features, builder, parse_only, from_encoding, exclude_encodings, element_classes, **kwargs)</span>
+<span class="g g-Whitespace">    </span><span class="mi">474</span> <span class="bp">self</span><span class="o">.</span><span class="n">builder</span><span class="o">.</span><span class="n">initialize_soup</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">475</span> <span class="k">try</span><span class="p">:</span>
+<span class="ne">--&gt; </span><span class="mi">476</span>     <span class="bp">self</span><span class="o">.</span><span class="n">_feed</span><span class="p">()</span>
+<span class="g g-Whitespace">    </span><span class="mi">477</span>     <span class="n">success</span> <span class="o">=</span> <span class="kc">True</span>
+<span class="g g-Whitespace">    </span><span class="mi">478</span>     <span class="k">break</span>
+
+<span class="nn">File ~/.local/lib/python3.12/site-packages/bs4/__init__.py:661,</span> in <span class="ni">BeautifulSoup._feed</span><span class="nt">(self)</span>
+<span class="g g-Whitespace">    </span><span class="mi">658</span> <span class="bp">self</span><span class="o">.</span><span class="n">builder</span><span class="o">.</span><span class="n">reset</span><span class="p">()</span>
+<span class="g g-Whitespace">    </span><span class="mi">660</span> <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">markup</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+<span class="ne">--&gt; </span><span class="mi">661</span>     <span class="bp">self</span><span class="o">.</span><span class="n">builder</span><span class="o">.</span><span class="n">feed</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">markup</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">662</span> <span class="c1"># Close out any unfinished strings and close all the open tags.</span>
+<span class="g g-Whitespace">    </span><span class="mi">663</span> <span class="bp">self</span><span class="o">.</span><span class="n">endData</span><span class="p">()</span>
+
+<span class="nn">File ~/.local/lib/python3.12/site-packages/bs4/builder/_htmlparser.py:467,</span> in <span class="ni">HTMLParserTreeBuilder.feed</span><span class="nt">(self, markup)</span>
+<span class="g g-Whitespace">    </span><span class="mi">464</span> <span class="n">parser</span> <span class="o">=</span> <span class="n">BeautifulSoupHTMLParser</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">soup</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">466</span> <span class="k">try</span><span class="p">:</span>
+<span class="ne">--&gt; </span><span class="mi">467</span>     <span class="n">parser</span><span class="o">.</span><span class="n">feed</span><span class="p">(</span><span class="n">markup</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">468</span>     <span class="n">parser</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+<span class="g g-Whitespace">    </span><span class="mi">469</span> <span class="k">except</span> <span class="ne">AssertionError</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">470</span>     <span class="c1"># html.parser raises AssertionError in rare cases to</span>
+<span class="g g-Whitespace">    </span><span class="mi">471</span>     <span class="c1"># indicate a fatal problem with the markup, especially</span>
+<span class="g g-Whitespace">    </span><span class="mi">472</span>     <span class="c1"># when there&#39;s an error in the doctype declaration.</span>
+
+<span class="nn">File /usr/local/python/3.12.1/lib/python3.12/html/parser.py:111,</span> in <span class="ni">HTMLParser.feed</span><span class="nt">(self, data)</span>
+<span class="g g-Whitespace">    </span><span class="mi">105</span><span class="w"> </span><span class="sa">r</span><span class="sd">&quot;&quot;&quot;Feed data to the parser.</span>
+<span class="g g-Whitespace">    </span><span class="mi">106</span><span class="sd"> </span>
+<span class="g g-Whitespace">    </span><span class="mi">107</span><span class="sd"> Call this as often as you want, with as little or as much text</span>
+<span class="g g-Whitespace">    </span><span class="mi">108</span><span class="sd"> as you want (may include &#39;\n&#39;).</span>
+<span class="g g-Whitespace">    </span><span class="mi">109</span><span class="sd"> &quot;&quot;&quot;</span>
+<span class="g g-Whitespace">    </span><span class="mi">110</span> <span class="bp">self</span><span class="o">.</span><span class="n">rawdata</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">rawdata</span> <span class="o">+</span> <span class="n">data</span>
+<span class="ne">--&gt; </span><span class="mi">111</span> <span class="bp">self</span><span class="o">.</span><span class="n">goahead</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+
+<span class="nn">File /usr/local/python/3.12.1/lib/python3.12/html/parser.py:175,</span> in <span class="ni">HTMLParser.goahead</span><span class="nt">(self, end)</span>
+<span class="g g-Whitespace">    </span><span class="mi">173</span>     <span class="n">k</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">parse_endtag</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">174</span> <span class="k">elif</span> <span class="n">startswith</span><span class="p">(</span><span class="s2">&quot;&lt;!--&quot;</span><span class="p">,</span> <span class="n">i</span><span class="p">):</span>
+<span class="ne">--&gt; </span><span class="mi">175</span>     <span class="n">k</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">parse_comment</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">176</span> <span class="k">elif</span> <span class="n">startswith</span><span class="p">(</span><span class="s2">&quot;&lt;?&quot;</span><span class="p">,</span> <span class="n">i</span><span class="p">):</span>
+<span class="g g-Whitespace">    </span><span class="mi">177</span>     <span class="n">k</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">parse_pi</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+
+<span class="nn">File /usr/local/python/3.12.1/lib/python3.12/_markupbase.py:174,</span> in <span class="ni">ParserBase.parse_comment</span><span class="nt">(self, i, report)</span>
+<span class="g g-Whitespace">    </span><span class="mi">172</span> <span class="k">if</span> <span class="n">report</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">173</span>     <span class="n">j</span> <span class="o">=</span> <span class="n">match</span><span class="o">.</span><span class="n">start</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+<span class="ne">--&gt; </span><span class="mi">174</span>     <span class="bp">self</span><span class="o">.</span><span class="n">handle_comment</span><span class="p">(</span><span class="n">rawdata</span><span class="p">[</span><span class="n">i</span><span class="o">+</span><span class="mi">4</span><span class="p">:</span> <span class="n">j</span><span class="p">])</span>
+<span class="g g-Whitespace">    </span><span class="mi">175</span> <span class="k">return</span> <span class="n">match</span><span class="o">.</span><span class="n">end</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+
+<span class="nn">File ~/.local/lib/python3.12/site-packages/bs4/builder/_htmlparser.py:290,</span> in <span class="ni">BeautifulSoupHTMLParser.handle_comment</span><span class="nt">(self, data)</span>
+<span class="g g-Whitespace">    </span><span class="mi">285</span> <span class="k">def</span><span class="w"> </span><span class="nf">handle_comment</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">data</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">286</span><span class="w">     </span><span class="sd">&quot;&quot;&quot;Handle an HTML comment.</span>
+<span class="g g-Whitespace">    </span><span class="mi">287</span><span class="sd"> </span>
+<span class="g g-Whitespace">    </span><span class="mi">288</span><span class="sd">     :param data: The text of the comment.</span>
+<span class="g g-Whitespace">    </span><span class="mi">289</span><span class="sd">     &quot;&quot;&quot;</span>
+<span class="ne">--&gt; </span><span class="mi">290</span>     <span class="bp">self</span><span class="o">.</span><span class="n">soup</span><span class="o">.</span><span class="n">endData</span><span class="p">()</span>
+<span class="g g-Whitespace">    </span><span class="mi">291</span>     <span class="bp">self</span><span class="o">.</span><span class="n">soup</span><span class="o">.</span><span class="n">handle_data</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">292</span>     <span class="bp">self</span><span class="o">.</span><span class="n">soup</span><span class="o">.</span><span class="n">endData</span><span class="p">(</span><span class="n">Comment</span><span class="p">)</span>
+
+<span class="nn">File ~/.local/lib/python3.12/site-packages/bs4/__init__.py:867,</span> in <span class="ni">BeautifulSoup.endData</span><span class="nt">(self, containerClass)</span>
+<span class="g g-Whitespace">    </span><span class="mi">864</span>     <span class="k">return</span>
+<span class="g g-Whitespace">    </span><span class="mi">866</span> <span class="n">containerClass</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">string_container</span><span class="p">(</span><span class="n">containerClass</span><span class="p">)</span>
+<span class="ne">--&gt; </span><span class="mi">867</span> <span class="n">o</span> <span class="o">=</span> <span class="n">containerClass</span><span class="p">(</span><span class="n">current_data</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">868</span> <span class="bp">self</span><span class="o">.</span><span class="n">object_was_parsed</span><span class="p">(</span><span class="n">o</span><span class="p">)</span>
+
+<span class="ne">KeyboardInterrupt</span>: 
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="crawling_pta.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Crawling PTA Trunojoyo</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="scrapping_link_informatika.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Link Scrapping PTA Teknik Informatika</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Crawling Berita Kompas</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#berita-yang-akan-di-crawling">Berita yang akan di crawling</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#fungsi-utility-normalisasi-url-ambil-teks">Fungsi Utility: Normalisasi URL &amp; Ambil Teks</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#variabel-untuk-cegah-duplikat">Variabel untuk Cegah Duplikat</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#fungsi-parsing-detail-berita">Fungsi Parsing Detail Berita</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#fungsi-crawling-per-kategori">Fungsi Crawling per Kategori</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#hasil-crawling">Hasil Crawling</a></li>
+</ul>
+
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By The Jupyter Book Community
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2022.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

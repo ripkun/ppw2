@@ -1,0 +1,1697 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+    <title>Klasifikasi Berita menggunakan Fitur Latent Dirichlet Allocation &#8212; My sample book</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" href="_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/clipboard.min.js"></script>
+    <script src="_static/copybutton.js"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'tugas6-rifqi';</script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Tugas UTS (Klasifikasi Berita dan Clustering Spam)" href="UTS_Klasifikasi_Berita_dan_Clustering_Spam.html" />
+    <link rel="prev" title="Cbow Embeding Pta Manajemen Preprocesed" href="Cbow_embeding_pta_manajemen_preprocesed.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="_static/logo.png" class="logo__image only-light" alt="My sample book - Home"/>
+    <script>document.write(`<img src="_static/logo.png" class="logo__image only-dark" alt="My sample book - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="intro.html">
+                    Welcome to your Jupyter Book
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="crawling_pta.html">Crawling PTA Trunojoyo</a></li>
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="crawling_berita_kompas.html">Crawling Berita Kompas</a></li>
+
+
+
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="scrapping_link_informatika.html">Link Scrapping PTA Teknik Informatika</a></li>
+<li class="toctree-l1"><a class="reference internal" href="crawling_manajemen.html">Crawling PTA Trunojoyo Fakultas Ekonomi Prodi Manajemen</a></li>
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="preprocessing_berita.html">Preprocessing Berita</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="preprocessing_pta_manajemen.html">Preprocessing PTA Manajemen</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="ekstraksi_fitur_tfidf_berita.html">Ekstraksi Fitur tf idf Berita</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ekstraksi_fitur_tfidf_pta_manajemen.html">Ekstraksi Fitur tf idf Pta Manajemen</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Cbow_embeding_berita_preprocesed.html">Cbow Embeding Berita Preprocesed</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Cbow_embeding_pta_manajemen_preprocesed.html">Cbow Embeding Pta Manajemen Preprocesed</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Klasifikasi Berita menggunakan Fitur Latent Dirichlet Allocation (LDA)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="UTS_Klasifikasi_Berita_dan_Clustering_Spam.html">Tugas UTS (Klasifikasi Berita dan Clustering Spam)</a></li>
+
+
+<li class="toctree-l1"><a class="reference internal" href="page_rank.html">Analisis Graph Data dari pta_graph.xlsx</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2Ftugas6-rifqi.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/tugas6-rifqi.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Klasifikasi Berita menggunakan Fitur Latent Dirichlet Allocation</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="klasifikasi-berita-menggunakan-fitur-latent-dirichlet-allocation">
+<h1>Klasifikasi Berita menggunakan Fitur Latent Dirichlet Allocation<a class="headerlink" href="#klasifikasi-berita-menggunakan-fitur-latent-dirichlet-allocation" title="Permalink to this heading">#</a></h1>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+<span class="n">data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;hasil_preprocessing_berita.csv&#39;</span><span class="p">)</span>
+
+<span class="c1"># Tampilkan kolom utama dari file Anda</span>
+<span class="n">data</span><span class="p">[[</span><span class="s1">&#39;isi&#39;</span><span class="p">,</span> <span class="s1">&#39;hasil_preprocessing&#39;</span><span class="p">,</span> <span class="s1">&#39;kategori&#39;</span><span class="p">]]</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">FileNotFoundError</span><span class="g g-Whitespace">                         </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">line</span> <span class="mi">2</span>
+<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+<span class="ne">----&gt; </span><span class="mi">2</span> <span class="n">data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;hasil_preprocessing_berita.csv&#39;</span><span class="p">)</span>
+<span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="c1"># Tampilkan kolom utama dari file Anda</span>
+<span class="g g-Whitespace">      </span><span class="mi">5</span> <span class="n">data</span><span class="p">[[</span><span class="s1">&#39;isi&#39;</span><span class="p">,</span> <span class="s1">&#39;hasil_preprocessing&#39;</span><span class="p">,</span> <span class="s1">&#39;kategori&#39;</span><span class="p">]]</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+
+<span class="nn">File ~/.local/lib/python3.12/site-packages/pandas/io/parsers/readers.py:1026,</span> in <span class="ni">read_csv</span><span class="nt">(filepath_or_buffer, sep, delimiter, header, names, index_col, usecols, dtype, engine, converters, true_values, false_values, skipinitialspace, skiprows, skipfooter, nrows, na_values, keep_default_na, na_filter, verbose, skip_blank_lines, parse_dates, infer_datetime_format, keep_date_col, date_parser, date_format, dayfirst, cache_dates, iterator, chunksize, compression, thousands, decimal, lineterminator, quotechar, quoting, doublequote, escapechar, comment, encoding, encoding_errors, dialect, on_bad_lines, delim_whitespace, low_memory, memory_map, float_precision, storage_options, dtype_backend)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1013</span> <span class="n">kwds_defaults</span> <span class="o">=</span> <span class="n">_refine_defaults_read</span><span class="p">(</span>
+<span class="g g-Whitespace">   </span><span class="mi">1014</span>     <span class="n">dialect</span><span class="p">,</span>
+<span class="g g-Whitespace">   </span><span class="mi">1015</span>     <span class="n">delimiter</span><span class="p">,</span>
+   <span class="p">(</span><span class="o">...</span><span class="p">)</span>   <span class="mi">1022</span>     <span class="n">dtype_backend</span><span class="o">=</span><span class="n">dtype_backend</span><span class="p">,</span>
+<span class="g g-Whitespace">   </span><span class="mi">1023</span> <span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1024</span> <span class="n">kwds</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">kwds_defaults</span><span class="p">)</span>
+<span class="ne">-&gt; </span><span class="mi">1026</span> <span class="k">return</span> <span class="n">_read</span><span class="p">(</span><span class="n">filepath_or_buffer</span><span class="p">,</span> <span class="n">kwds</span><span class="p">)</span>
+
+<span class="nn">File ~/.local/lib/python3.12/site-packages/pandas/io/parsers/readers.py:620,</span> in <span class="ni">_read</span><span class="nt">(filepath_or_buffer, kwds)</span>
+<span class="g g-Whitespace">    </span><span class="mi">617</span> <span class="n">_validate_names</span><span class="p">(</span><span class="n">kwds</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;names&quot;</span><span class="p">,</span> <span class="kc">None</span><span class="p">))</span>
+<span class="g g-Whitespace">    </span><span class="mi">619</span> <span class="c1"># Create the parser.</span>
+<span class="ne">--&gt; </span><span class="mi">620</span> <span class="n">parser</span> <span class="o">=</span> <span class="n">TextFileReader</span><span class="p">(</span><span class="n">filepath_or_buffer</span><span class="p">,</span> <span class="o">**</span><span class="n">kwds</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">622</span> <span class="k">if</span> <span class="n">chunksize</span> <span class="ow">or</span> <span class="n">iterator</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">623</span>     <span class="k">return</span> <span class="n">parser</span>
+
+<span class="nn">File ~/.local/lib/python3.12/site-packages/pandas/io/parsers/readers.py:1620,</span> in <span class="ni">TextFileReader.__init__</span><span class="nt">(self, f, engine, **kwds)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1617</span>     <span class="bp">self</span><span class="o">.</span><span class="n">options</span><span class="p">[</span><span class="s2">&quot;has_index_names&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">kwds</span><span class="p">[</span><span class="s2">&quot;has_index_names&quot;</span><span class="p">]</span>
+<span class="g g-Whitespace">   </span><span class="mi">1619</span> <span class="bp">self</span><span class="o">.</span><span class="n">handles</span><span class="p">:</span> <span class="n">IOHandles</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>
+<span class="ne">-&gt; </span><span class="mi">1620</span> <span class="bp">self</span><span class="o">.</span><span class="n">_engine</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_make_engine</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">engine</span><span class="p">)</span>
+
+<span class="nn">File ~/.local/lib/python3.12/site-packages/pandas/io/parsers/readers.py:1880,</span> in <span class="ni">TextFileReader._make_engine</span><span class="nt">(self, f, engine)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1878</span>     <span class="k">if</span> <span class="s2">&quot;b&quot;</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">mode</span><span class="p">:</span>
+<span class="g g-Whitespace">   </span><span class="mi">1879</span>         <span class="n">mode</span> <span class="o">+=</span> <span class="s2">&quot;b&quot;</span>
+<span class="ne">-&gt; </span><span class="mi">1880</span> <span class="bp">self</span><span class="o">.</span><span class="n">handles</span> <span class="o">=</span> <span class="n">get_handle</span><span class="p">(</span>
+<span class="g g-Whitespace">   </span><span class="mi">1881</span>     <span class="n">f</span><span class="p">,</span>
+<span class="g g-Whitespace">   </span><span class="mi">1882</span>     <span class="n">mode</span><span class="p">,</span>
+<span class="g g-Whitespace">   </span><span class="mi">1883</span>     <span class="n">encoding</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">options</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;encoding&quot;</span><span class="p">,</span> <span class="kc">None</span><span class="p">),</span>
+<span class="g g-Whitespace">   </span><span class="mi">1884</span>     <span class="n">compression</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">options</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;compression&quot;</span><span class="p">,</span> <span class="kc">None</span><span class="p">),</span>
+<span class="g g-Whitespace">   </span><span class="mi">1885</span>     <span class="n">memory_map</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">options</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;memory_map&quot;</span><span class="p">,</span> <span class="kc">False</span><span class="p">),</span>
+<span class="g g-Whitespace">   </span><span class="mi">1886</span>     <span class="n">is_text</span><span class="o">=</span><span class="n">is_text</span><span class="p">,</span>
+<span class="g g-Whitespace">   </span><span class="mi">1887</span>     <span class="n">errors</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">options</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;encoding_errors&quot;</span><span class="p">,</span> <span class="s2">&quot;strict&quot;</span><span class="p">),</span>
+<span class="g g-Whitespace">   </span><span class="mi">1888</span>     <span class="n">storage_options</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">options</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;storage_options&quot;</span><span class="p">,</span> <span class="kc">None</span><span class="p">),</span>
+<span class="g g-Whitespace">   </span><span class="mi">1889</span> <span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1890</span> <span class="k">assert</span> <span class="bp">self</span><span class="o">.</span><span class="n">handles</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span>
+<span class="g g-Whitespace">   </span><span class="mi">1891</span> <span class="n">f</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">handles</span><span class="o">.</span><span class="n">handle</span>
+
+<span class="nn">File ~/.local/lib/python3.12/site-packages/pandas/io/common.py:873,</span> in <span class="ni">get_handle</span><span class="nt">(path_or_buf, mode, encoding, compression, memory_map, is_text, errors, storage_options)</span>
+<span class="g g-Whitespace">    </span><span class="mi">868</span> <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">handle</span><span class="p">,</span> <span class="nb">str</span><span class="p">):</span>
+<span class="g g-Whitespace">    </span><span class="mi">869</span>     <span class="c1"># Check whether the filename is to be opened in binary mode.</span>
+<span class="g g-Whitespace">    </span><span class="mi">870</span>     <span class="c1"># Binary mode does not support &#39;encoding&#39; and &#39;newline&#39;.</span>
+<span class="g g-Whitespace">    </span><span class="mi">871</span>     <span class="k">if</span> <span class="n">ioargs</span><span class="o">.</span><span class="n">encoding</span> <span class="ow">and</span> <span class="s2">&quot;b&quot;</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">ioargs</span><span class="o">.</span><span class="n">mode</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">872</span>         <span class="c1"># Encoding</span>
+<span class="ne">--&gt; </span><span class="mi">873</span>         <span class="n">handle</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span>
+<span class="g g-Whitespace">    </span><span class="mi">874</span>             <span class="n">handle</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">875</span>             <span class="n">ioargs</span><span class="o">.</span><span class="n">mode</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">876</span>             <span class="n">encoding</span><span class="o">=</span><span class="n">ioargs</span><span class="o">.</span><span class="n">encoding</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">877</span>             <span class="n">errors</span><span class="o">=</span><span class="n">errors</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">878</span>             <span class="n">newline</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">879</span>         <span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">880</span>     <span class="k">else</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">881</span>         <span class="c1"># Binary mode</span>
+<span class="g g-Whitespace">    </span><span class="mi">882</span>         <span class="n">handle</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="n">handle</span><span class="p">,</span> <span class="n">ioargs</span><span class="o">.</span><span class="n">mode</span><span class="p">)</span>
+
+<span class="ne">FileNotFoundError</span>: [Errno 2] No such file or directory: &#39;hasil_preprocessing_berita.csv&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Gunakan kolom teks bersih Anda</span>
+<span class="c1"># &#39;hasil_preprocessing&#39; pada file Anda berisi token hasil preprocessing</span>
+<span class="c1"># Kita simpan sebagai kolom tunggal untuk analisis</span>
+
+<span class="n">data_text</span> <span class="o">=</span> <span class="n">data</span><span class="p">[[</span><span class="s1">&#39;hasil_preprocessing&#39;</span><span class="p">]]</span>
+
+<span class="n">data_text</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>hasil_preprocessing</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>['kompascom', 'alam', 'senang', 'kabar', 'alam...</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>['jakarta', 'kompascom', 'tiktokers', 'figha',...</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>['kompascom', 'wakil', 'presiden', 'direktur',...</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>['jakarta', 'kompascom', 'menteri', 'koordinat...</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>['jakarta', 'kompascom', 'menteri', 'tani', 't...</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data_text</span><span class="p">[</span><span class="s1">&#39;index&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">data_text</span><span class="o">.</span><span class="n">index</span>
+
+<span class="n">documents</span> <span class="o">=</span> <span class="n">data_text</span>
+<span class="n">documents</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>C:\Users\NITRO\AppData\Local\Temp\ipykernel_24720\118329293.py:1: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame.
+Try using .loc[row_indexer,col_indexer] = value instead
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  data_text[&#39;index&#39;] = data_text.index
+</pre></div>
+</div>
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>hasil_preprocessing</th>
+      <th>index</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>['kompascom', 'alam', 'senang', 'kabar', 'alam...</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>['jakarta', 'kompascom', 'tiktokers', 'figha',...</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>['kompascom', 'wakil', 'presiden', 'direktur',...</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>['jakarta', 'kompascom', 'menteri', 'koordinat...</td>
+      <td>3</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>['jakarta', 'kompascom', 'menteri', 'tani', 't...</td>
+      <td>4</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">len</span><span class="p">(</span><span class="n">documents</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1432
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">gensim</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">gensim.utils</span><span class="w"> </span><span class="kn">import</span> <span class="n">simple_preprocess</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">nltk.corpus</span><span class="w"> </span><span class="kn">import</span> <span class="n">stopwords</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">nltk.stem.porter</span><span class="w"> </span><span class="kn">import</span> <span class="o">*</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">nltk</span>
+<span class="n">nltk</span><span class="o">.</span><span class="n">download</span><span class="p">(</span><span class="s1">&#39;wordnet&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[nltk_data] Downloading package wordnet to
+[nltk_data]     C:\Users\NITRO\AppData\Roaming\nltk_data...
+[nltk_data]   Package wordnet is already up-to-date!
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>True
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">Sastrawi.Stemmer.StemmerFactory</span><span class="w"> </span><span class="kn">import</span> <span class="n">StemmerFactory</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">nltk.corpus</span><span class="w"> </span><span class="kn">import</span> <span class="n">stopwords</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">nltk</span> 
+
+<span class="n">nltk</span><span class="o">.</span><span class="n">download</span><span class="p">(</span><span class="s1">&#39;stopwords&#39;</span><span class="p">)</span>
+
+<span class="n">factory</span> <span class="o">=</span> <span class="n">StemmerFactory</span><span class="p">()</span>
+<span class="n">stemmer</span> <span class="o">=</span> <span class="n">factory</span><span class="o">.</span><span class="n">create_stemmer</span><span class="p">()</span>
+
+<span class="n">stop_words</span> <span class="o">=</span> <span class="n">stopwords</span><span class="o">.</span><span class="n">words</span><span class="p">(</span><span class="s1">&#39;indonesian&#39;</span><span class="p">)</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">stemming_indonesia</span><span class="p">(</span><span class="n">text</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">stemmer</span><span class="o">.</span><span class="n">stem</span><span class="p">(</span><span class="n">text</span><span class="p">)</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">preprocess</span><span class="p">(</span><span class="n">text</span><span class="p">):</span>
+    <span class="n">result</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">token</span> <span class="ow">in</span> <span class="n">gensim</span><span class="o">.</span><span class="n">utils</span><span class="o">.</span><span class="n">simple_preprocess</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">text</span><span class="p">)):</span>  <span class="c1"># tokenisasi</span>
+        <span class="k">if</span> <span class="n">token</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">stop_words</span> <span class="ow">and</span> <span class="nb">len</span><span class="p">(</span><span class="n">token</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">3</span><span class="p">:</span>
+            <span class="n">result</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">stemming_indonesia</span><span class="p">(</span><span class="n">token</span><span class="p">))</span>
+    <span class="k">return</span> <span class="n">result</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[nltk_data] Downloading package stopwords to
+[nltk_data]     C:\Users\NITRO\AppData\Roaming\nltk_data...
+[nltk_data]   Package stopwords is already up-to-date!
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+
+<span class="c1"># Pakai file dan kolom milik Anda</span>
+<span class="n">data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;hasil_preprocessing_berita.csv&#39;</span><span class="p">)</span>
+<span class="n">document</span> <span class="o">=</span> <span class="n">data</span>  <span class="c1"># alias agar konsisten di cell lain</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Tampilan kolom &#39;isi&#39; dan &#39;hasil_preprocessing&#39;:&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">document</span><span class="p">[[</span><span class="s1">&#39;isi&#39;</span><span class="p">,</span> <span class="s1">&#39;hasil_preprocessing&#39;</span><span class="p">]]</span><span class="o">.</span><span class="n">head</span><span class="p">())</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Jumlah data:&quot;</span><span class="p">,</span> <span class="n">document</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Tampilan kolom &#39;isi&#39; dan &#39;hasil_preprocessing&#39;:
+                                                 isi  \
+0  KOMPAS.com -Pengalaman tak menyenangkan kabarn...   
+1  JAKARTA, KOMPAS.com –Tiktokers Figha Lesmana m...   
+2  KOMPAS.com -Wakil Presiden Direktur PT Toyota ...   
+3  JAKARTA, KOMPAS.com- Menteri Koordinator Bidan...   
+4  JAKARTA, KOMPAS.com- Menteri Pertanian (Mentan...   
+
+                                 hasil_preprocessing  
+0  [&#39;kompascom&#39;, &#39;alam&#39;, &#39;senang&#39;, &#39;kabar&#39;, &#39;alam...  
+1  [&#39;jakarta&#39;, &#39;kompascom&#39;, &#39;tiktokers&#39;, &#39;figha&#39;,...  
+2  [&#39;kompascom&#39;, &#39;wakil&#39;, &#39;presiden&#39;, &#39;direktur&#39;,...  
+3  [&#39;jakarta&#39;, &#39;kompascom&#39;, &#39;menteri&#39;, &#39;koordinat...  
+4  [&#39;jakarta&#39;, &#39;kompascom&#39;, &#39;menteri&#39;, &#39;tani&#39;, &#39;t...  
+
+Jumlah data: (1432, 3)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">ast</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">to_tokens</span><span class="p">(</span><span class="n">text</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
+    <span class="c1"># Jika sudah list, kembalikan langsung</span>
+    <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">text</span><span class="p">,</span> <span class="nb">list</span><span class="p">):</span>
+        <span class="k">return</span> <span class="p">[</span><span class="n">t</span> <span class="k">for</span> <span class="n">t</span> <span class="ow">in</span> <span class="n">text</span> <span class="k">if</span> <span class="n">t</span><span class="p">]</span>
+    <span class="c1"># Jika string: coba parse list-string, kalau gagal split spasi</span>
+    <span class="n">s</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">text</span><span class="p">)</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
+    <span class="k">if</span> <span class="n">s</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s1">&#39;[&#39;</span><span class="p">)</span> <span class="ow">and</span> <span class="n">s</span><span class="o">.</span><span class="n">endswith</span><span class="p">(</span><span class="s1">&#39;]&#39;</span><span class="p">):</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">parsed</span> <span class="o">=</span> <span class="n">ast</span><span class="o">.</span><span class="n">literal_eval</span><span class="p">(</span><span class="n">s</span><span class="p">)</span>
+            <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">parsed</span><span class="p">,</span> <span class="nb">list</span><span class="p">):</span>
+                <span class="k">return</span> <span class="p">[</span><span class="nb">str</span><span class="p">(</span><span class="n">t</span><span class="p">)</span><span class="o">.</span><span class="n">strip</span><span class="p">(</span><span class="s2">&quot;&#39;</span><span class="se">\&quot;</span><span class="s2">&quot;</span><span class="p">)</span> <span class="k">for</span> <span class="n">t</span> <span class="ow">in</span> <span class="n">parsed</span> <span class="k">if</span> <span class="nb">str</span><span class="p">(</span><span class="n">t</span><span class="p">)</span><span class="o">.</span><span class="n">strip</span><span class="p">(</span><span class="s2">&quot;&#39;</span><span class="se">\&quot;</span><span class="s2">&quot;</span><span class="p">)]</span>
+        <span class="k">except</span> <span class="ne">Exception</span><span class="p">:</span>
+            <span class="k">pass</span>
+    <span class="k">return</span> <span class="p">[</span><span class="n">t</span> <span class="k">for</span> <span class="n">t</span> <span class="ow">in</span> <span class="n">s</span><span class="o">.</span><span class="n">split</span><span class="p">()</span> <span class="k">if</span> <span class="n">t</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">document_num</span> <span class="o">=</span> <span class="mi">500</span>
+
+<span class="k">if</span> <span class="n">document_num</span> <span class="o">&lt;</span> <span class="nb">len</span><span class="p">(</span><span class="n">document</span><span class="p">):</span>
+    <span class="n">doc_raw</span> <span class="o">=</span> <span class="n">document</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="n">document_num</span><span class="p">][</span><span class="s1">&#39;isi&#39;</span><span class="p">]</span>
+    <span class="n">doc_tokens</span> <span class="o">=</span> <span class="n">document</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="n">document_num</span><span class="p">][</span><span class="s1">&#39;hasil_preprocessing&#39;</span><span class="p">]</span>
+
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Original document (isi):&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">doc_raw</span><span class="p">)</span>
+
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Hasil preprocessing (hasil_preprocessing):&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">doc_tokens</span><span class="p">)</span>
+
+    <span class="c1"># Token array dari hasil_preprocessing (list-string -&gt; list token)</span>
+    <span class="n">words</span> <span class="o">=</span> <span class="n">to_tokens</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">doc_tokens</span><span class="p">))</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Tokenized words:&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">words</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">⚠️ Nomor </span><span class="si">{</span><span class="n">document_num</span><span class="si">}</span><span class="s2"> melebihi jumlah baris (</span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">document</span><span class="p">)</span><span class="si">}</span><span class="s2">)&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Original document (isi):
+KOMPAS.com -Bek Deportivo Alaves, Facundo Garces, tengah menjadi sorotan usai pengakuannya soal asal-usul darah Malaysia yang memicu kontroversi. Facundo Garces merupakan salah satu rekrutan naturalisasi Timnas Malaysia yang diresmikan pada Juni 2025. Dalam wawancara dengan media Spanyol El Correo pada Agustus lalu, Facundo Garces tanpa sengaja menyebut bahwa darah Malaysia-nya hanya berasal dari buyut. “Karena kakek buyut saya (keturunan Malaysia). Saya memang sudah tahu asal-usulnya, tapi saya tidak pernah membayangkan hal ini bisa terjadi,&quot; ucap Facundo Garces dikutip dariNST. &quot;Malaysia sedang membangun proyek menarik dan saya sangat bersemangat,” lanjutnya. Baca juga:Reaksi Netizen Usai 7 Pemain Timnas Malaysia Diskors 1 Tahun oleh FIFA Garces sudah sempat tampil bersama Timnas Malaysia. Ia bermain penuh 90 menit saat Harimau Malaya menang telak 4-0 atas Vietnam pada laga Kualifikasi Piala Asia 2027, 10 Juni 2025. Facundo Garces termasuk dalam gelombang naturalisasi pemain yang dilakukan Malaysia tahun ini. Selain dirinya, ada nama-nama lain seperti Imanol Machuca, Joao Figueiredo, Rodrigo Holgado, Gabriel Palmero, dan Jon Irazabal. Program naturalisasi ini disebut dilakukan sebagai upaya Malaysia memperkuat skuad untuk menembus Piala Asia 2027. Garces, pemain kelahiran Santa Fe, Argentina, pada 5 September 1999 itu lantas meluruskan ucapannya. Lewat unggahan Instagram Story pada 20 Agustus 2025 lalu, bek Deportivo Alaves itu menegaskan ada kesalahan penulisan dalam artikel El Correo. Baca juga:Skandal Naturalisasi Timnas Malaysia, Pernah Menimpa Timor Leste &quot;Itu hanya kesalahan transkrip,&quot; katanya. Dalam klarifikasinya, ia menegaskan bahwa darah Malaysia berasal dari kakek-neneknya, bukan buyut, sehingga dirinya tetap sesuai dengan aturan naturalisasi. &quot;Saya memiliki darah Malaysia dari akar kakek-nenek dan saya bangga bermain untuk negara saya, sampai bertemu lagi,&quot; tambah Garces. Pada Jumat (26/9/2025), FIFA menjatuhkan sanksi kepada Federasi Sepak Bola Malaysia, FAM.
+
+Hasil preprocessing (hasil_preprocessing):
+[&#39;kompascom&#39;, &#39;bek&#39;, &#39;deportivo&#39;, &#39;alaves&#39;, &#39;facundo&#39;, &#39;garces&#39;, &#39;sorot&#39;, &#39;aku&#39;, &#39;asalusul&#39;, &#39;darah&#39;, &#39;malaysia&#39;, &#39;picu&#39;, &#39;kontroversi&#39;, &#39;facundo&#39;, &#39;garces&#39;, &#39;salah&#39;, &#39;rekrut&#39;, &#39;naturalisasi&#39;, &#39;timnas&#39;, &#39;malaysia&#39;, &#39;resmi&#39;, &#39;juni&#39;, &#39;wawancara&#39;, &#39;media&#39;, &#39;spanyol&#39;, &#39;el&#39;, &#39;correo&#39;, &#39;agustus&#39;, &#39;facundo&#39;, &#39;garces&#39;, &#39;sengaja&#39;, &#39;sebut&#39;, &#39;darah&#39;, &#39;malaysianya&#39;, &#39;asal&#39;, &#39;buyut&#39;, &#39;kakek&#39;, &#39;buyut&#39;, &#39;turun&#39;, &#39;malaysia&#39;, &#39;asalusulnya&#39;, &#39;bayang&#39;, &#39;facundo&#39;, &#39;garces&#39;, &#39;kutip&#39;, &#39;darinst&#39;, &#39;malaysia&#39;, &#39;bangun&#39;, &#39;proyek&#39;, &#39;tarik&#39;, &#39;semangat&#39;, &#39;baca&#39;, &#39;jugareaksi&#39;, &#39;netizen&#39;, &#39;main&#39;, &#39;timnas&#39;, &#39;malaysia&#39;, &#39;skors&#39;, &#39;fifa&#39;, &#39;garces&#39;, &#39;tampil&#39;, &#39;timnas&#39;, &#39;malaysia&#39;, &#39;main&#39;, &#39;penuh&#39;, &#39;menit&#39;, &#39;harimau&#39;, &#39;malaya&#39;, &#39;menang&#39;, &#39;telak&#39;, &#39;vietnam&#39;, &#39;laga&#39;, &#39;kualifikasi&#39;, &#39;piala&#39;, &#39;asia&#39;, &#39;juni&#39;, &#39;facundo&#39;, &#39;garces&#39;, &#39;gelombang&#39;, &#39;naturalisasi&#39;, &#39;main&#39;, &#39;malaysia&#39;, &#39;namanama&#39;, &#39;imanol&#39;, &#39;machuca&#39;, &#39;joao&#39;, &#39;figueiredo&#39;, &#39;rodrigo&#39;, &#39;holgado&#39;, &#39;gabriel&#39;, &#39;palmero&#39;, &#39;jon&#39;, &#39;irazabal&#39;, &#39;program&#39;, &#39;naturalisasi&#39;, &#39;upaya&#39;, &#39;malaysia&#39;, &#39;kuat&#39;, &#39;skuad&#39;, &#39;tembus&#39;, &#39;piala&#39;, &#39;asia&#39;, &#39;garces&#39;, &#39;main&#39;, &#39;lahir&#39;, &#39;santa&#39;, &#39;fe&#39;, &#39;argentina&#39;, &#39;september&#39;, &#39;lantas&#39;, &#39;lurus&#39;, &#39;ucap&#39;, &#39;unggah&#39;, &#39;instagram&#39;, &#39;story&#39;, &#39;agustus&#39;, &#39;bek&#39;, &#39;deportivo&#39;, &#39;alaves&#39;, &#39;salah&#39;, &#39;tulis&#39;, &#39;artikel&#39;, &#39;el&#39;, &#39;correo&#39;, &#39;baca&#39;, &#39;jugaskandal&#39;, &#39;naturalisasi&#39;, &#39;timnas&#39;, &#39;malaysia&#39;, &#39;timpa&#39;, &#39;timor&#39;, &#39;leste&#39;, &#39;salah&#39;, &#39;transkrip&#39;, &#39;klarifikasi&#39;, &#39;darah&#39;, &#39;malaysia&#39;, &#39;asal&#39;, &#39;kakekneneknya&#39;, &#39;buyut&#39;, &#39;sesuai&#39;, &#39;atur&#39;, &#39;naturalisasi&#39;, &#39;milik&#39;, &#39;darah&#39;, &#39;malaysia&#39;, &#39;akar&#39;, &#39;kakeknenek&#39;, &#39;bangga&#39;, &#39;main&#39;, &#39;negara&#39;, &#39;temu&#39;, &#39;garces&#39;, &#39;jumat&#39;, &#39;fifa&#39;, &#39;jatuh&#39;, &#39;sanksi&#39;, &#39;federasi&#39;, &#39;sepak&#39;, &#39;bola&#39;, &#39;malaysia&#39;, &#39;fam&#39;]
+
+Tokenized words:
+[&#39;kompascom&#39;, &#39;bek&#39;, &#39;deportivo&#39;, &#39;alaves&#39;, &#39;facundo&#39;, &#39;garces&#39;, &#39;sorot&#39;, &#39;aku&#39;, &#39;asalusul&#39;, &#39;darah&#39;, &#39;malaysia&#39;, &#39;picu&#39;, &#39;kontroversi&#39;, &#39;facundo&#39;, &#39;garces&#39;, &#39;salah&#39;, &#39;rekrut&#39;, &#39;naturalisasi&#39;, &#39;timnas&#39;, &#39;malaysia&#39;, &#39;resmi&#39;, &#39;juni&#39;, &#39;wawancara&#39;, &#39;media&#39;, &#39;spanyol&#39;, &#39;el&#39;, &#39;correo&#39;, &#39;agustus&#39;, &#39;facundo&#39;, &#39;garces&#39;, &#39;sengaja&#39;, &#39;sebut&#39;, &#39;darah&#39;, &#39;malaysianya&#39;, &#39;asal&#39;, &#39;buyut&#39;, &#39;kakek&#39;, &#39;buyut&#39;, &#39;turun&#39;, &#39;malaysia&#39;, &#39;asalusulnya&#39;, &#39;bayang&#39;, &#39;facundo&#39;, &#39;garces&#39;, &#39;kutip&#39;, &#39;darinst&#39;, &#39;malaysia&#39;, &#39;bangun&#39;, &#39;proyek&#39;, &#39;tarik&#39;, &#39;semangat&#39;, &#39;baca&#39;, &#39;jugareaksi&#39;, &#39;netizen&#39;, &#39;main&#39;, &#39;timnas&#39;, &#39;malaysia&#39;, &#39;skors&#39;, &#39;fifa&#39;, &#39;garces&#39;, &#39;tampil&#39;, &#39;timnas&#39;, &#39;malaysia&#39;, &#39;main&#39;, &#39;penuh&#39;, &#39;menit&#39;, &#39;harimau&#39;, &#39;malaya&#39;, &#39;menang&#39;, &#39;telak&#39;, &#39;vietnam&#39;, &#39;laga&#39;, &#39;kualifikasi&#39;, &#39;piala&#39;, &#39;asia&#39;, &#39;juni&#39;, &#39;facundo&#39;, &#39;garces&#39;, &#39;gelombang&#39;, &#39;naturalisasi&#39;, &#39;main&#39;, &#39;malaysia&#39;, &#39;namanama&#39;, &#39;imanol&#39;, &#39;machuca&#39;, &#39;joao&#39;, &#39;figueiredo&#39;, &#39;rodrigo&#39;, &#39;holgado&#39;, &#39;gabriel&#39;, &#39;palmero&#39;, &#39;jon&#39;, &#39;irazabal&#39;, &#39;program&#39;, &#39;naturalisasi&#39;, &#39;upaya&#39;, &#39;malaysia&#39;, &#39;kuat&#39;, &#39;skuad&#39;, &#39;tembus&#39;, &#39;piala&#39;, &#39;asia&#39;, &#39;garces&#39;, &#39;main&#39;, &#39;lahir&#39;, &#39;santa&#39;, &#39;fe&#39;, &#39;argentina&#39;, &#39;september&#39;, &#39;lantas&#39;, &#39;lurus&#39;, &#39;ucap&#39;, &#39;unggah&#39;, &#39;instagram&#39;, &#39;story&#39;, &#39;agustus&#39;, &#39;bek&#39;, &#39;deportivo&#39;, &#39;alaves&#39;, &#39;salah&#39;, &#39;tulis&#39;, &#39;artikel&#39;, &#39;el&#39;, &#39;correo&#39;, &#39;baca&#39;, &#39;jugaskandal&#39;, &#39;naturalisasi&#39;, &#39;timnas&#39;, &#39;malaysia&#39;, &#39;timpa&#39;, &#39;timor&#39;, &#39;leste&#39;, &#39;salah&#39;, &#39;transkrip&#39;, &#39;klarifikasi&#39;, &#39;darah&#39;, &#39;malaysia&#39;, &#39;asal&#39;, &#39;kakekneneknya&#39;, &#39;buyut&#39;, &#39;sesuai&#39;, &#39;atur&#39;, &#39;naturalisasi&#39;, &#39;milik&#39;, &#39;darah&#39;, &#39;malaysia&#39;, &#39;akar&#39;, &#39;kakeknenek&#39;, &#39;bangga&#39;, &#39;main&#39;, &#39;negara&#39;, &#39;temu&#39;, &#39;garces&#39;, &#39;jumat&#39;, &#39;fifa&#39;, &#39;jatuh&#39;, &#39;sanksi&#39;, &#39;federasi&#39;, &#39;sepak&#39;, &#39;bola&#39;, &#39;malaysia&#39;, &#39;fam&#39;]
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">document</span><span class="o">.</span><span class="n">columns</span><span class="o">.</span><span class="n">tolist</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;isi&#39;, &#39;hasil_preprocessing&#39;, &#39;kategori&#39;]
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Helper untuk mengubah kolom &#39;hasil_preprocessing&#39; menjadi list token</span>
+<span class="c1"># Menangani format list-string seperti &quot;[&#39;kata1&#39;, &#39;kata2&#39;, ...]&quot; atau string biasa terpisah spasi</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">ast</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">to_tokens</span><span class="p">(</span><span class="n">text</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
+    <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">text</span><span class="p">,</span> <span class="nb">list</span><span class="p">):</span>
+        <span class="k">return</span> <span class="p">[</span><span class="n">t</span> <span class="k">for</span> <span class="n">t</span> <span class="ow">in</span> <span class="n">text</span> <span class="k">if</span> <span class="n">t</span><span class="p">]</span>
+    <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">text</span><span class="p">,</span> <span class="nb">str</span><span class="p">):</span>
+        <span class="n">s</span> <span class="o">=</span> <span class="n">text</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
+        <span class="c1"># Coba parse sebagai list literal</span>
+        <span class="k">if</span> <span class="n">s</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s1">&#39;[&#39;</span><span class="p">)</span> <span class="ow">and</span> <span class="n">s</span><span class="o">.</span><span class="n">endswith</span><span class="p">(</span><span class="s1">&#39;]&#39;</span><span class="p">):</span>
+            <span class="k">try</span><span class="p">:</span>
+                <span class="n">parsed</span> <span class="o">=</span> <span class="n">ast</span><span class="o">.</span><span class="n">literal_eval</span><span class="p">(</span><span class="n">s</span><span class="p">)</span>
+                <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">parsed</span><span class="p">,</span> <span class="nb">list</span><span class="p">):</span>
+                    <span class="k">return</span> <span class="p">[</span><span class="nb">str</span><span class="p">(</span><span class="n">t</span><span class="p">)</span><span class="o">.</span><span class="n">strip</span><span class="p">(</span><span class="s2">&quot;&#39;</span><span class="se">\&quot;</span><span class="s2">&quot;</span><span class="p">)</span> <span class="k">for</span> <span class="n">t</span> <span class="ow">in</span> <span class="n">parsed</span> <span class="k">if</span> <span class="nb">str</span><span class="p">(</span><span class="n">t</span><span class="p">)</span><span class="o">.</span><span class="n">strip</span><span class="p">(</span><span class="s2">&quot;&#39;</span><span class="se">\&quot;</span><span class="s2">&quot;</span><span class="p">)]</span>
+            <span class="k">except</span> <span class="ne">Exception</span><span class="p">:</span>
+                <span class="k">pass</span>
+        <span class="c1"># Fallback: split spasi</span>
+        <span class="k">return</span> <span class="p">[</span><span class="n">t</span> <span class="k">for</span> <span class="n">t</span> <span class="ow">in</span> <span class="n">s</span><span class="o">.</span><span class="n">split</span><span class="p">()</span> <span class="k">if</span> <span class="n">t</span><span class="p">]</span>
+    <span class="k">return</span> <span class="p">[]</span>
+
+<span class="c1"># Tampilkan contoh token hasil konversi</span>
+<span class="n">sample_idx</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">to_tokens</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">data</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="n">sample_idx</span><span class="p">][</span><span class="s1">&#39;hasil_preprocessing&#39;</span><span class="p">]))[:</span><span class="mi">20</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;kompascom&#39;, &#39;alam&#39;, &#39;senang&#39;, &#39;kabar&#39;, &#39;alami&#39;, &#39;keluarga&#39;, &#39;timnas&#39;, &#39;indonesia&#39;, &#39;hadir&#39;, &#39;langsung&#39;, &#39;king&#39;, &#39;abdullah&#39;, &#39;sports&#39;, &#39;city&#39;, &#39;jeddah&#39;, &#39;saksi&#39;, &#39;juang&#39;, &#39;skuad&#39;, &#39;garuda&#39;, &#39;lawan&#39;]
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">process_docs</span> <span class="o">=</span> <span class="n">document</span><span class="p">[</span><span class="s1">&#39;isi&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="n">preprocess</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">process_docs</span><span class="p">[:</span><span class="mi">10</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0    [kompas, alam, senang, kabar, alami, keluarga,...
+1    [jakarta, kompas, tiktokers, figha, lesmana, m...
+2    [kompas, wakil, presiden, direktur, toyota, mo...
+3    [jakarta, kompas, menteri, koordinator, bidang...
+4    [jakarta, kompas, menteri, tani, tan, andi, am...
+5    [kompas, harap, timnas, indonesia, lang, ajang...
+6    [timnasindonesia, kalah, arab, saudi, mimpi, l...
+7    [jakarta, kompas, sepatu, bata, bata, resmi, h...
+8    [semarang, kompas, masalah, akses, jalan, jala...
+9    [ringkas, berita, jakarta, kompas, huawei, res...
+Name: isi, dtype: object
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>Get a BOW Dict from data</strong></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dic</span> <span class="o">=</span> <span class="n">gensim</span><span class="o">.</span><span class="n">corpora</span><span class="o">.</span><span class="n">Dictionary</span><span class="p">(</span><span class="n">process_docs</span><span class="p">)</span>
+<span class="n">count</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">dic</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">k</span><span class="p">,</span> <span class="n">v</span><span class="p">)</span>
+    <span class="n">count</span> <span class="o">+=</span> <span class="mi">1</span>
+    <span class="k">if</span> <span class="n">count</span> <span class="o">&gt;</span> <span class="mi">10</span><span class="p">:</span>
+        <span class="k">break</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0 abdullah
+1 akibat
+2 akses
+3 aktif
+4 aku
+5 alam
+6 alami
+7 aman
+8 arab
+9 arah
+10 asia
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>filter the dict</strong></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dic</span><span class="o">.</span><span class="n">filter_extremes</span><span class="p">(</span><span class="n">no_below</span><span class="o">=</span><span class="mi">15</span><span class="p">,</span> <span class="n">no_above</span><span class="o">=</span><span class="mf">0.1</span><span class="p">,</span> <span class="n">keep_n</span><span class="o">=</span><span class="mi">100000</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>Convert document into BOW format by doc2bow</strong></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">bow_corpus</span> <span class="o">=</span> <span class="p">[</span><span class="n">dic</span><span class="o">.</span><span class="n">doc2bow</span><span class="p">(</span><span class="n">doc</span><span class="p">)</span> <span class="k">for</span> <span class="n">doc</span> <span class="ow">in</span> <span class="n">process_docs</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dictionary</span> <span class="o">=</span> <span class="n">dic</span> 
+
+<span class="n">document_num</span> <span class="o">=</span> <span class="mi">34</span>
+
+<span class="n">bow_doc</span> <span class="o">=</span> <span class="n">bow_corpus</span><span class="p">[</span><span class="n">document_num</span><span class="p">]</span>
+
+<span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">bow_doc</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Dokumen ke-</span><span class="si">{</span><span class="n">document_num</span><span class="si">}</span><span class="s2"> kosong.&quot;</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;=== Isi dokumen ke-</span><span class="si">{</span><span class="n">document_num</span><span class="si">}</span><span class="s2"> ===</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">word_id</span><span class="p">,</span> <span class="n">freq</span> <span class="ow">in</span> <span class="n">bow_doc</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Word ID </span><span class="si">{</span><span class="n">word_id</span><span class="si">}</span><span class="s2"> (</span><span class="se">\&quot;</span><span class="si">{</span><span class="n">dictionary</span><span class="p">[</span><span class="n">word_id</span><span class="p">]</span><span class="si">}</span><span class="se">\&quot;</span><span class="s2">) appears </span><span class="si">{</span><span class="n">freq</span><span class="si">}</span><span class="s2"> time(s).&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>=== Isi dokumen ke-34 ===
+
+Word ID 11 (&quot;duel&quot;) appears 2 time(s).
+Word ID 17 (&quot;fisik&quot;) appears 1 time(s).
+Word ID 23 (&quot;haye&quot;) appears 5 time(s).
+Word ID 40 (&quot;kontra&quot;) appears 1 time(s).
+Word ID 50 (&quot;patrick&quot;) appears 1 time(s).
+Word ID 62 (&quot;skor&quot;) appears 2 time(s).
+Word ID 67 (&quot;thom&quot;) appears 5 time(s).
+Word ID 73 (&quot;unggul&quot;) appears 1 time(s).
+Word ID 146 (&quot;iring&quot;) appears 1 time(s).
+Word ID 172 (&quot;adil&quot;) appears 6 time(s).
+Word ID 236 (&quot;kalah&quot;) appears 2 time(s).
+Word ID 238 (&quot;klasemen&quot;) appears 1 time(s).
+Word ID 255 (&quot;tentu&quot;) appears 1 time(s).
+Word ID 262 (&quot;coba&quot;) appears 1 time(s).
+Word ID 279 (&quot;menit&quot;) appears 3 time(s).
+Word ID 383 (&quot;khas&quot;) appears 1 time(s).
+Word ID 499 (&quot;gelora&quot;) appears 7 time(s).
+Word ID 507 (&quot;performa&quot;) appears 1 time(s).
+Word ID 540 (&quot;aksi&quot;) appears 1 time(s).
+Word ID 606 (&quot;percaya&quot;) appears 1 time(s).
+Word ID 696 (&quot;kesan&quot;) appears 1 time(s).
+Word ID 801 (&quot;sang&quot;) appears 1 time(s).
+Word ID 820 (&quot;buah&quot;) appears 1 time(s).
+Word ID 845 (&quot;super&quot;) appears 5 time(s).
+Word ID 945 (&quot;bagus&quot;) appears 2 time(s).
+Word ID 947 (&quot;bandung&quot;) appears 20 time(s).
+Word ID 955 (&quot;laut&quot;) appears 7 time(s).
+Word ID 956 (&quot;league&quot;) appears 5 time(s).
+Word ID 960 (&quot;persib&quot;) appears 16 time(s).
+Word ID 963 (&quot;bintang&quot;) appears 2 time(s).
+Word ID 964 (&quot;debut&quot;) appears 6 time(s).
+Word ID 965 (&quot;disiplin&quot;) appears 1 time(s).
+Word ID 966 (&quot;eliano&quot;) appears 4 time(s).
+Word ID 967 (&quot;italia&quot;) appears 2 time(s).
+Word ID 968 (&quot;ragu&quot;) appears 1 time(s).
+Word ID 969 (&quot;ratus&quot;) appears 1 time(s).
+Word ID 970 (&quot;reijnders&quot;) appears 4 time(s).
+Word ID 971 (&quot;starter&quot;) appears 2 time(s).
+Word ID 972 (&quot;surabaya&quot;) appears 6 time(s).
+Word ID 973 (&quot;toreh&quot;) appears 1 time(s).
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>TF-IDF on our document set</strong></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">tfidf</span> <span class="o">=</span> <span class="n">gensim</span><span class="o">.</span><span class="n">models</span><span class="o">.</span><span class="n">TfidfModel</span><span class="p">(</span><span class="n">bow_corpus</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">corpus_tfidf</span> <span class="o">=</span> <span class="n">tfidf</span><span class="p">[</span><span class="n">bow_corpus</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">docu</span> <span class="ow">in</span> <span class="n">corpus_tfidf</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">docu</span><span class="p">)</span>
+    <span class="k">break</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[(0, 0.12366905134426494), (1, 0.12038705724869228), (2, 0.06734218215630335), (3, 0.05033074409123361), (4, 0.3039630929564891), (5, 0.049686501396689196), (6, 0.0677165195286065), (7, 0.050827385161633584), (8, 0.08249797088169694), (9, 0.11883841871278311), (10, 0.09336853587779005), (11, 0.13045526036963473), (12, 0.08494493253803109), (13, 0.04860502203962517), (14, 0.04860502203962517), (15, 0.0840968489853405), (16, 0.06270633871007857), (17, 0.0677165195286065), (18, 0.05389073955064432), (19, 0.050827385161633584), (20, 0.05891857881654438), (21, 0.05795211795164751), (22, 0.09210904953336134), (23, 0.08494493253803109), (24, 0.07595211106861889), (25, 0.1019912120332652), (26, 0.07652132919827212), (27, 0.12661711897398759), (28, 0.07142887040256793), (29, 0.05748524072886358), (30, 0.08873269243156527), (31, 0.12541267742015713), (32, 0.11833477225334256), (33, 0.18299348666953855), (34, 0.06522763018481736), (35, 0.08771906886291192), (36, 0.1938200808707996), (37, 0.04875611479347407), (38, 0.12254600124479553), (39, 0.06099782888984619), (40, 0.06969660396215674), (41, 0.05795211795164751), (42, 0.05275726780978316), (43, 0.06155186604543512), (44, 0.05550515629531334), (45, 0.06099782888984619), (46, 0.066974470573271), (47, 0.07142887040256793), (48, 0.12482330123807821), (49, 0.09336853587779005), (50, 0.06019352862434614), (51, 0.052941937133119565), (52, 0.053128262705676166), (53, 0.14285774080513586), (54, 0.05702862537938414), (55, 0.06734218215630335), (56, 0.053128262705676166), (57, 0.32218488501197634), (58, 0.0677165195286065), (59, 0.18992567846098138), (60, 0.08249797088169694), (61, 0.05221290927635042), (62, 0.05702862537938414), (63, 0.11637910191955046), (64, 0.12199565777969237), (65, 0.3594274287602367), (66, 0.08675260799801504), (67, 0.0840968489853405), (68, 0.20202654646891002), (69, 0.2693687286252134), (70, 0.06330855948699379), (71, 0.11685945783792992), (72, 0.059932202385197725), (73, 0.050167800808238724), (74, 0.07331882383972815), (75, 0.05468227003143933)]
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>Running LDA using Bag of Words data</strong></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">lda_model</span> <span class="o">=</span> <span class="n">gensim</span><span class="o">.</span><span class="n">models</span><span class="o">.</span><span class="n">LdaMulticore</span><span class="p">(</span><span class="n">bow_corpus</span><span class="p">,</span> <span class="n">num_topics</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">id2word</span> <span class="o">=</span> <span class="n">dic</span><span class="p">,</span> <span class="n">passes</span> <span class="o">=</span> <span class="mi">2</span><span class="p">,</span> <span class="n">workers</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">idx</span><span class="p">,</span> <span class="n">topic</span> <span class="ow">in</span> <span class="n">lda_model</span><span class="o">.</span><span class="n">print_topics</span><span class="p">():</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Topic: </span><span class="si">{}</span><span class="s2"> </span><span class="se">\n</span><span class="s2">Words: </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">idx</span><span class="p">,</span> <span class="n">topic</span><span class="p">))</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Topic: 0 
+Words: 0.028*&quot;israel&quot; + 0.016*&quot;gaza&quot; + 0.010*&quot;perang&quot; + 0.010*&quot;hamas&quot; + 0.009*&quot;trump&quot; + 0.007*&quot;palestina&quot; + 0.006*&quot;pasar&quot; + 0.006*&quot;senjata&quot; + 0.006*&quot;tewas&quot; + 0.005*&quot;bakar&quot;
+
+
+Topic: 1 
+Words: 0.026*&quot;emas&quot; + 0.013*&quot;gram&quot; + 0.011*&quot;tiktok&quot; + 0.009*&quot;guna&quot; + 0.008*&quot;aplikasi&quot; + 0.008*&quot;antam&quot; + 0.008*&quot;jual&quot; + 0.008*&quot;prabowo&quot; + 0.007*&quot;gadai&quot; + 0.006*&quot;sppg&quot;
+
+
+Topic: 2 
+Words: 0.009*&quot;produk&quot; + 0.008*&quot;kelola&quot; + 0.008*&quot;undang&quot; + 0.007*&quot;pasal&quot; + 0.006*&quot;energi&quot; + 0.005*&quot;beli&quot; + 0.005*&quot;listrik&quot; + 0.005*&quot;ikan&quot; + 0.005*&quot;gaji&quot; + 0.004*&quot;prabowo&quot;
+
+
+Topic: 3 
+Words: 0.025*&quot;arab&quot; + 0.024*&quot;saudi&quot; + 0.012*&quot;kluivert&quot; + 0.009*&quot;irak&quot; + 0.008*&quot;persib&quot; + 0.008*&quot;patrick&quot; + 0.008*&quot;united&quot; + 0.007*&quot;menit&quot; + 0.007*&quot;ledak&quot; + 0.006*&quot;gedung&quot;
+
+
+Topic: 4 
+Words: 0.015*&quot;anggar&quot; + 0.012*&quot;siswa&quot; + 0.012*&quot;dana&quot; + 0.009*&quot;sekolah&quot; + 0.009*&quot;purbaya&quot; + 0.008*&quot;sangka&quot; + 0.008*&quot;motogp&quot; + 0.006*&quot;racun&quot; + 0.006*&quot;korupsi&quot; + 0.006*&quot;gubernur&quot;
+
+
+Topic: 5 
+Words: 0.007*&quot;film&quot; + 0.007*&quot;mobil&quot; + 0.006*&quot;mati&quot; + 0.006*&quot;pidana&quot; + 0.006*&quot;prabowo&quot; + 0.005*&quot;gibran&quot; + 0.005*&quot;adil&quot; + 0.005*&quot;kelola&quot; + 0.004*&quot;kendara&quot; + 0.004*&quot;guna&quot;
+
+
+Topic: 6 
+Words: 0.010*&quot;malaysia&quot; + 0.008*&quot;fifa&quot; + 0.006*&quot;partai&quot; + 0.006*&quot;mobil&quot; + 0.006*&quot;kendara&quot; + 0.006*&quot;terbang&quot; + 0.005*&quot;pesawat&quot; + 0.005*&quot;ammar&quot; + 0.005*&quot;emas&quot; + 0.005*&quot;tarif&quot;
+
+
+Topic: 7 
+Words: 0.015*&quot;balap&quot; + 0.010*&quot;honda&quot; + 0.010*&quot;kendara&quot; + 0.009*&quot;motogp&quot; + 0.008*&quot;produksi&quot; + 0.006*&quot;lintas&quot; + 0.006*&quot;marc&quot; + 0.005*&quot;mesin&quot; + 0.005*&quot;minyak&quot; + 0.005*&quot;pajak&quot;
+
+
+Topic: 8 
+Words: 0.021*&quot;motogp&quot; + 0.016*&quot;balap&quot; + 0.012*&quot;marquez&quot; + 0.008*&quot;bagnaia&quot; + 0.008*&quot;alex&quot; + 0.008*&quot;marc&quot; + 0.008*&quot;poin&quot; + 0.007*&quot;nikita&quot; + 0.006*&quot;ducati&quot; + 0.006*&quot;juara&quot;
+
+
+Topic: 9 
+Words: 0.016*&quot;motogp&quot; + 0.013*&quot;marquez&quot; + 0.013*&quot;balap&quot; + 0.011*&quot;emas&quot; + 0.010*&quot;pesantren&quot; + 0.009*&quot;marc&quot; + 0.008*&quot;sangka&quot; + 0.007*&quot;bezzecchi&quot; + 0.006*&quot;ponpes&quot; + 0.006*&quot;lampung&quot;
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>Topic coherence</strong></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">gensim.models</span><span class="w"> </span><span class="kn">import</span> <span class="n">CoherenceModel</span>
+
+<span class="n">coherence_model_lda</span> <span class="o">=</span> <span class="n">CoherenceModel</span><span class="p">(</span><span class="n">model</span><span class="o">=</span><span class="n">lda_model</span><span class="p">,</span> <span class="n">texts</span><span class="o">=</span><span class="n">process_docs</span><span class="p">,</span> <span class="n">dictionary</span><span class="o">=</span><span class="n">dic</span><span class="p">,</span> <span class="n">coherence</span><span class="o">=</span><span class="s1">&#39;c_v&#39;</span><span class="p">)</span>
+<span class="n">coherence_lda</span> <span class="o">=</span> <span class="n">coherence_model_lda</span><span class="o">.</span><span class="n">get_coherence</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">Coherence Score: &#39;</span><span class="p">,</span> <span class="n">coherence_lda</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Coherence Score:  0.4233124490272225
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">gensim.models</span><span class="w"> </span><span class="kn">import</span> <span class="n">CoherenceModel</span>
+
+<span class="n">coherence_model_lda</span> <span class="o">=</span> <span class="n">CoherenceModel</span><span class="p">(</span><span class="n">model</span><span class="o">=</span><span class="n">lda_model</span><span class="p">,</span> <span class="n">texts</span><span class="o">=</span><span class="n">process_docs</span><span class="p">,</span> <span class="n">dictionary</span><span class="o">=</span><span class="n">dic</span><span class="p">,</span> <span class="n">coherence</span><span class="o">=</span><span class="s2">&quot;u_mass&quot;</span><span class="p">)</span>
+<span class="n">coherence_lda</span> <span class="o">=</span> <span class="n">coherence_model_lda</span><span class="o">.</span><span class="n">get_coherence</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">Coherence Score: &#39;</span><span class="p">,</span> <span class="n">coherence_lda</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Coherence Score:  -7.164994028530875
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>find the optimal number of topics</strong></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">compute_coherence_values</span><span class="p">(</span><span class="n">dictionary</span><span class="p">,</span> <span class="n">corpus</span><span class="p">,</span> <span class="n">texts</span><span class="p">,</span> <span class="n">limit</span><span class="p">,</span> <span class="n">start</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">step</span><span class="o">=</span><span class="mi">3</span><span class="p">):</span>
+
+    <span class="n">coherence_values</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="n">model_list</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">num_topics</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">start</span><span class="p">,</span> <span class="n">limit</span><span class="p">,</span> <span class="n">step</span><span class="p">):</span>
+        <span class="n">model</span><span class="o">=</span><span class="n">gensim</span><span class="o">.</span><span class="n">models</span><span class="o">.</span><span class="n">LdaMulticore</span><span class="p">(</span><span class="n">corpus</span><span class="o">=</span><span class="n">corpus</span><span class="p">,</span> <span class="n">id2word</span><span class="o">=</span><span class="n">dic</span><span class="p">,</span> <span class="n">num_topics</span><span class="o">=</span><span class="n">num_topics</span><span class="p">)</span>
+        <span class="n">model_list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">model</span><span class="p">)</span>
+        <span class="n">coherencemodel</span> <span class="o">=</span> <span class="n">CoherenceModel</span><span class="p">(</span><span class="n">model</span><span class="o">=</span><span class="n">model</span><span class="p">,</span> <span class="n">texts</span><span class="o">=</span><span class="n">texts</span><span class="p">,</span> <span class="n">dictionary</span><span class="o">=</span><span class="n">dic</span><span class="p">,</span> <span class="n">coherence</span><span class="o">=</span><span class="s1">&#39;c_v&#39;</span><span class="p">)</span>
+        <span class="n">coherence_values</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">coherencemodel</span><span class="o">.</span><span class="n">get_coherence</span><span class="p">())</span>
+
+    <span class="k">return</span> <span class="n">model_list</span><span class="p">,</span> <span class="n">coherence_values</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">model_list</span><span class="p">,</span> <span class="n">coherence_values</span> <span class="o">=</span> <span class="n">compute_coherence_values</span><span class="p">(</span><span class="n">dictionary</span><span class="o">=</span><span class="n">dic</span><span class="p">,</span> <span class="n">corpus</span><span class="o">=</span><span class="n">bow_corpus</span><span class="p">,</span> <span class="n">texts</span><span class="o">=</span><span class="n">process_docs</span><span class="p">,</span> <span class="n">start</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">limit</span><span class="o">=</span><span class="mi">40</span><span class="p">,</span> <span class="n">step</span><span class="o">=</span><span class="mi">6</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+<span class="n">limit</span><span class="o">=</span><span class="mi">40</span><span class="p">;</span> <span class="n">start</span><span class="o">=</span><span class="mi">2</span><span class="p">;</span> <span class="n">step</span><span class="o">=</span><span class="mi">6</span><span class="p">;</span>
+<span class="n">x</span> <span class="o">=</span> <span class="nb">range</span><span class="p">(</span><span class="n">start</span><span class="p">,</span> <span class="n">limit</span><span class="p">,</span> <span class="n">step</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">coherence_values</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;Num Topics&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;Coherence score&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">((</span><span class="s2">&quot;coherence_values&quot;</span><span class="p">),</span> <span class="n">loc</span><span class="o">=</span><span class="s1">&#39;best&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/173aa9fb2243a68d5c22a1c39aa02ccd5bbdea0e57fac97a8785428b8013975f.png" src="_images/173aa9fb2243a68d5c22a1c39aa02ccd5bbdea0e57fac97a8785428b8013975f.png" />
+</div>
+</div>
+<p><strong>Running LDA using TF-IDF</strong></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">lda_model_tfidf</span> <span class="o">=</span> <span class="n">gensim</span><span class="o">.</span><span class="n">models</span><span class="o">.</span><span class="n">LdaMulticore</span><span class="p">(</span><span class="n">corpus_tfidf</span><span class="p">,</span> <span class="n">num_topics</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">id2word</span> <span class="o">=</span> <span class="n">dic</span><span class="p">,</span> <span class="n">passes</span> <span class="o">=</span> <span class="mi">2</span><span class="p">,</span> <span class="n">workers</span><span class="o">=</span><span class="mi">4</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">idx</span><span class="p">,</span> <span class="n">topic</span> <span class="ow">in</span> <span class="n">lda_model_tfidf</span><span class="o">.</span><span class="n">print_topics</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Topic: </span><span class="si">{}</span><span class="s2"> Word: </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">idx</span><span class="p">,</span> <span class="n">topic</span><span class="p">))</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Topic: 0 Word: 0.008*&quot;pesantren&quot; + 0.008*&quot;ponpes&quot; + 0.006*&quot;khoziny&quot; + 0.005*&quot;tarif&quot; + 0.004*&quot;sidoarjo&quot; + 0.004*&quot;tragedi&quot; + 0.004*&quot;pondok&quot; + 0.004*&quot;diskon&quot; + 0.003*&quot;sangka&quot; + 0.003*&quot;ambruk&quot;
+
+
+Topic: 1 Word: 0.006*&quot;lampung&quot; + 0.004*&quot;ukraina&quot; + 0.003*&quot;sekolah&quot; + 0.003*&quot;kamera&quot; + 0.003*&quot;hotel&quot; + 0.003*&quot;layar&quot; + 0.003*&quot;ponsel&quot; + 0.003*&quot;mobil&quot; + 0.003*&quot;busuk&quot; + 0.003*&quot;mayat&quot;
+
+
+Topic: 2 Word: 0.007*&quot;menit&quot; + 0.007*&quot;liga&quot; + 0.006*&quot;saudi&quot; + 0.006*&quot;arab&quot; + 0.005*&quot;barcelona&quot; + 0.005*&quot;penalti&quot; + 0.005*&quot;nikita&quot; + 0.004*&quot;babi&quot; + 0.004*&quot;klub&quot; + 0.004*&quot;kalah&quot;
+
+
+Topic: 3 Word: 0.005*&quot;sangka&quot; + 0.005*&quot;purbaya&quot; + 0.005*&quot;narkoba&quot; + 0.005*&quot;undang&quot; + 0.005*&quot;kilang&quot; + 0.005*&quot;ammar&quot; + 0.004*&quot;anggar&quot; + 0.004*&quot;pesawat&quot; + 0.004*&quot;gubernur&quot; + 0.004*&quot;zoni&quot;
+
+
+Topic: 4 Word: 0.015*&quot;emas&quot; + 0.009*&quot;gram&quot; + 0.007*&quot;gadai&quot; + 0.006*&quot;antam&quot; + 0.006*&quot;galeri&quot; + 0.005*&quot;jembatan&quot; + 0.005*&quot;nikita&quot; + 0.004*&quot;bal&quot; + 0.004*&quot;anggar&quot; + 0.004*&quot;jual&quot;
+
+
+Topic: 5 Word: 0.006*&quot;israel&quot; + 0.005*&quot;energi&quot; + 0.004*&quot;baterai&quot; + 0.004*&quot;listrik&quot; + 0.004*&quot;gaza&quot; + 0.004*&quot;dagang&quot; + 0.003*&quot;film&quot; + 0.003*&quot;dedi&quot; + 0.003*&quot;depok&quot; + 0.003*&quot;proyek&quot;
+
+
+Topic: 6 Word: 0.010*&quot;saudi&quot; + 0.009*&quot;arab&quot; + 0.007*&quot;balap&quot; + 0.007*&quot;motogp&quot; + 0.006*&quot;marquez&quot; + 0.006*&quot;kluivert&quot; + 0.006*&quot;fifa&quot; + 0.006*&quot;malaysia&quot; + 0.005*&quot;ledak&quot; + 0.005*&quot;irak&quot;
+
+
+Topic: 7 Word: 0.010*&quot;racun&quot; + 0.010*&quot;gizi&quot; + 0.010*&quot;siswa&quot; + 0.008*&quot;sppg&quot; + 0.008*&quot;dapur&quot; + 0.006*&quot;sekolah&quot; + 0.005*&quot;motogp&quot; + 0.005*&quot;menu&quot; + 0.005*&quot;balap&quot; + 0.004*&quot;pertamina&quot;
+
+
+Topic: 8 Word: 0.008*&quot;israel&quot; + 0.005*&quot;gaza&quot; + 0.005*&quot;motogp&quot; + 0.005*&quot;balap&quot; + 0.005*&quot;hamas&quot; + 0.005*&quot;emas&quot; + 0.004*&quot;tiktok&quot; + 0.004*&quot;bagnaia&quot; + 0.004*&quot;marquez&quot; + 0.003*&quot;bakar&quot;
+
+
+Topic: 9 Word: 0.006*&quot;persib&quot; + 0.005*&quot;bangkok&quot; + 0.005*&quot;united&quot; + 0.004*&quot;lagu&quot; + 0.004*&quot;prabowo&quot; + 0.004*&quot;motogp&quot; + 0.004*&quot;hibah&quot; + 0.004*&quot;purbaya&quot; + 0.003*&quot;bandung&quot; + 0.003*&quot;league&quot;
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">gensim.models</span><span class="w"> </span><span class="kn">import</span> <span class="n">CoherenceModel</span>
+
+<span class="n">coherence_model_lda_idf</span> <span class="o">=</span> <span class="n">CoherenceModel</span><span class="p">(</span><span class="n">model</span><span class="o">=</span><span class="n">lda_model_tfidf</span><span class="p">,</span> <span class="n">texts</span><span class="o">=</span><span class="n">process_docs</span><span class="p">,</span> <span class="n">dictionary</span><span class="o">=</span><span class="n">dic</span><span class="p">,</span> <span class="n">coherence</span><span class="o">=</span><span class="s1">&#39;c_v&#39;</span><span class="p">)</span>
+<span class="n">coherence_model_lda_idf</span> <span class="o">=</span> <span class="n">coherence_model_lda_idf</span><span class="o">.</span><span class="n">get_coherence</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">Coherence Score: &#39;</span><span class="p">,</span> <span class="n">coherence_model_lda_idf</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Coherence Score:  0.36423338594410903
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>classifying sample document using LDA Bag of Words model</strong></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">process_docs</span><span class="p">[</span><span class="n">document_num</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;bandung&#39;,
+ &#39;kompas&#39;,
+ &#39;persib&#39;,
+ &#39;bandung&#39;,
+ &#39;turun&#39;,
+ &#39;main&#39;,
+ &#39;debut&#39;,
+ &#39;bintang&#39;,
+ &#39;timnas&#39;,
+ &#39;indonesia&#39;,
+ &#39;thom&#39;,
+ &#39;haye&#39;,
+ &#39;eliano&#39;,
+ &#39;reijnders&#39;,
+ &#39;laga&#39;,
+ &#39;kontra&#39;,
+ &#39;baya&#39;,
+ &#39;debut&#39;,
+ &#39;main&#39;,
+ &#39;anyar&#39;,
+ &#39;hasil&#39;,
+ &#39;buah&#39;,
+ &#39;menang&#39;,
+ &#39;persib&#39;,
+ &#39;baya&#39;,
+ &#39;surabaya&#39;,
+ &#39;pekan&#39;,
+ &#39;super&#39;,
+ &#39;league&#39;,
+ &#39;hasil&#39;,
+ &#39;persib&#39;,
+ &#39;bandung&#39;,
+ &#39;baya&#39;,
+ &#39;sudah&#39;,
+ &#39;skor&#39;,
+ &#39;persib&#39;,
+ &#39;menang&#39;,
+ &#39;uilliam&#39;,
+ &#39;barros&#39;,
+ &#39;menit&#39;,
+ &#39;laga&#39;,
+ &#39;gelar&#39;,
+ &#39;jumat&#39;,
+ &#39;stadion&#39;,
+ &#39;gelora&#39;,
+ &#39;bandung&#39;,
+ &#39;laut&#39;,
+ &#39;gbla&#39;,
+ &#39;thom&#39;,
+ &#39;haye&#39;,
+ &#39;eliano&#39;,
+ &#39;reijnders&#39;,
+ &#39;jalan&#39;,
+ &#39;debut&#39;,
+ &#39;kesan&#39;,
+ &#39;persib&#39;,
+ &#39;main&#39;,
+ &#39;federico&#39;,
+ &#39;barba&#39;,
+ &#39;andrew&#39;,
+ &#39;jung&#39;,
+ &#39;baca&#39;,
+ &#39;hasil&#39;,
+ &#39;persib&#39;,
+ &#39;bandung&#39;,
+ &#39;baya&#39;,
+ &#39;uilliam&#39;,
+ &#39;tentu&#39;,
+ &#39;laga&#39;,
+ &#39;kompas&#39;,
+ &#39;adil&#39;,
+ &#39;persib&#39;,
+ &#39;bandung&#39;,
+ &#39;baya&#39;,
+ &#39;surabaya&#39;,
+ &#39;debut&#39;,
+ &#39;federico&#39;,
+ &#39;barba&#39;,
+ &#39;starter&#39;,
+ &#39;jumat&#39;,
+ &#39;gelora&#39;,
+ &#39;bandung&#39;,
+ &#39;laut&#39;,
+ &#39;gbla&#39;,
+ &#39;barba&#39;,
+ &#39;como&#39;,
+ &#39;tampil&#39;,
+ &#39;menit&#39;,
+ &#39;hodak&#39;,
+ &#39;ragu&#39;,
+ &#39;percaya&#39;,
+ &#39;tahan&#39;,
+ &#39;iring&#39;,
+ &#39;kondisi&#39;,
+ &#39;bugar&#39;,
+ &#39;sang&#39;,
+ &#39;main&#39;,
+ &#39;italia&#39;,
+ &#39;prima&#39;,
+ &#39;barba&#39;,
+ &#39;main&#39;,
+ &#39;bagus&#39;,
+ &#39;main&#39;,
+ &#39;kondisi&#39;,
+ &#39;bagus&#39;,
+ &#39;hodak&#39;,
+ &#39;barba&#39;,
+ &#39;jalan&#39;,
+ &#39;pramusim&#39;,
+ &#39;main&#39;,
+ &#39;coba&#39;,
+ &#39;baca&#39;,
+ &#39;klasemen&#39;,
+ &#39;super&#39;,
+ &#39;league&#39;,
+ &#39;persib&#39;,
+ &#39;bandung&#39;,
+ &#39;baya&#39;,
+ &#39;kompas&#39;,
+ &#39;adil&#39;,
+ &#39;nursalameks&#39;,
+ &#39;como&#39;,
+ &#39;federico&#39;,
+ &#39;barba&#39;,
+ &#39;langsung&#39;,
+ &#39;starter&#39;,
+ &#39;debut&#39;,
+ &#39;persib&#39;,
+ &#39;bandung&#39;,
+ &#39;laga&#39;,
+ &#39;pekan&#39;,
+ &#39;super&#39;,
+ &#39;league&#39;,
+ &#39;jumat&#39;,
+ &#39;stadion&#39;,
+ &#39;gelora&#39;,
+ &#39;bandung&#39;,
+ &#39;laut&#39;,
+ &#39;gbla&#39;,
+ &#39;barba&#39;,
+ &#39;tampil&#39;,
+ &#39;lugas&#39;,
+ &#39;kompromi&#39;,
+ &#39;khas&#39;,
+ &#39;italia&#39;,
+ &#39;main&#39;,
+ &#39;disiplin&#39;,
+ &#39;barba&#39;,
+ &#39;persib&#39;,
+ &#39;tutup&#39;,
+ &#39;duel&#39;,
+ &#39;toreh&#39;,
+ &#39;nirbobol&#39;,
+ &#39;kompas&#39;,
+ &#39;adil&#39;,
+ &#39;nursalamthom&#39;,
+ &#39;haye&#39;,
+ &#39;debut&#39;,
+ &#39;persib&#39;,
+ &#39;bandung&#39;,
+ &#39;kalah&#39;,
+ &#39;baya&#39;,
+ &#39;surabaya&#39;,
+ &#39;laga&#39;,
+ &#39;pekan&#39;,
+ &#39;super&#39;,
+ &#39;league&#39;,
+ &#39;jumat&#39;,
+ &#39;stadion&#39;,
+ &#39;gelora&#39;,
+ &#39;bandung&#39;,
+ &#39;laut&#39;,
+ &#39;gbla&#39;,
+ &#39;kompas&#39;,
+ &#39;adil&#39;,
+ &#39;nursalamdebut&#39;,
+ &#39;bintang&#39;,
+ &#39;timnas&#39;,
+ &#39;indonesia&#39;,
+ &#39;thom&#39;,
+ &#39;haye&#39;,
+ &#39;persib&#39;,
+ &#39;bandung&#39;,
+ &#39;menang&#39;,
+ &#39;baya&#39;,
+ &#39;surabaya&#39;,
+ &#39;jumat&#39;,
+ &#39;stadion&#39;,
+ &#39;gelora&#39;,
+ &#39;bandung&#39;,
+ &#39;laut&#39;,
+ &#39;gbla&#39;,
+ &#39;baca&#39;,
+ &#39;eduardo&#39;,
+ &#39;perez&#39;,
+ &#39;baya&#39;,
+ &#39;kalah&#39;,
+ &#39;persib&#39;,
+ &#39;kompas&#39;,
+ &#39;adil&#39;,
+ &#39;nursalampemain&#39;,
+ &#39;persib&#39;,
+ &#39;bandung&#39;,
+ &#39;eliano&#39;,
+ &#39;reijnders&#39;,
+ &#39;aksi&#39;,
+ &#39;tanding&#39;,
+ &#39;pekan&#39;,
+ &#39;super&#39;,
+ &#39;league&#39;,
+ &#39;persib&#39;,
+ &#39;bandung&#39;,
+ &#39;baya&#39;,
+ &#39;surabaya&#39;,
+ &#39;stadion&#39;,
+ &#39;gelora&#39;,
+ &#39;bandung&#39;,
+ &#39;laut&#39;,
+ &#39;gbla&#39;,
+ &#39;eliano&#39;,
+ &#39;reijnders&#39;,
+ &#39;thom&#39;,
+ &#39;haye&#39;,
+ &#39;andrew&#39;,
+ &#39;jung&#39;,
+ &#39;masuk&#39;,
+ &#39;menit&#39;,
+ &#39;nama&#39;,
+ &#39;hodak&#39;,
+ &#39;nilai&#39;,
+ &#39;butuh&#39;,
+ &#39;tingkat&#39;,
+ &#39;performa&#39;,
+ &#39;fisik&#39;,
+ &#39;thom&#39;,
+ &#39;tingkat&#39;,
+ &#39;bugar&#39;,
+ &#39;tanding&#39;,
+ &#39;ratus&#39;,
+ &#39;persen&#39;,
+ &#39;andrew&#39;,
+ &#39;dasar&#39;,
+ &#39;hodak&#39;,
+ &#39;kompas&#39;,
+ &#39;adil&#39;,
+ &#39;nursalamdebut&#39;,
+ &#39;serang&#39;,
+ &#39;persib&#39;,
+ &#39;bandung&#39;,
+ &#39;andrew&#39;,
+ &#39;patrick&#39;,
+ &#39;jung&#39;,
+ &#39;laga&#39;,
+ &#39;lawan&#39;,
+ &#39;baya&#39;,
+ &#39;surabaya&#39;,
+ &#39;duel&#39;,
+ &#39;rachmat&#39;,
+ &#39;irianto&#39;,
+ &#39;laga&#39;,
+ &#39;skor&#39;,
+ &#39;unggul&#39;,
+ &#39;maung&#39;,
+ &#39;bandung&#39;,
+ &#39;jumat&#39;,
+ &#39;stadion&#39;,
+ &#39;gelora&#39;,
+ &#39;bandung&#39;,
+ &#39;laut&#39;,
+ &#39;gbla&#39;]
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">index</span><span class="p">,</span> <span class="n">score</span> <span class="ow">in</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">lda_model</span><span class="p">[</span><span class="n">bow_corpus</span><span class="p">[</span><span class="n">document_num</span><span class="p">]],</span> <span class="n">key</span><span class="o">=</span><span class="k">lambda</span> <span class="n">tup</span><span class="p">:</span> <span class="n">tup</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">reverse</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Score: </span><span class="si">{}</span><span class="se">\t</span><span class="s2"> Topic: </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">score</span><span class="p">,</span> <span class="n">lda_model</span><span class="o">.</span><span class="n">print_topic</span><span class="p">(</span><span class="n">index</span><span class="p">,</span> <span class="mi">5</span><span class="p">)))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Score: 0.9932317137718201	 Topic: 0.025*&quot;arab&quot; + 0.024*&quot;saudi&quot; + 0.012*&quot;kluivert&quot; + 0.009*&quot;irak&quot; + 0.008*&quot;persib&quot;
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">lda_model</span><span class="p">[</span><span class="n">bow_corpus</span><span class="p">[</span><span class="n">document_num</span><span class="p">]]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[(3, 0.9932317)]
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">sorted</span><span class="p">(</span><span class="n">lda_model</span><span class="p">[</span><span class="n">bow_corpus</span><span class="p">[</span><span class="n">document_num</span><span class="p">]],</span> <span class="n">key</span><span class="o">=</span><span class="k">lambda</span> <span class="n">tup</span><span class="p">:</span> <span class="n">tup</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">reverse</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[(3, 0.9932317)]
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">lda_model</span><span class="o">.</span><span class="n">print_topic</span><span class="p">(</span><span class="n">index</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;0.025*&quot;arab&quot; + 0.024*&quot;saudi&quot; + 0.012*&quot;kluivert&quot; + 0.009*&quot;irak&quot; + 0.008*&quot;persib&quot; + 0.008*&quot;patrick&quot; + 0.008*&quot;united&quot; + 0.007*&quot;menit&quot; + 0.007*&quot;ledak&quot; + 0.006*&quot;gedung&quot;&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>classifying sample document using LDA TF-IDF model</strong></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">index</span><span class="p">,</span> <span class="n">score</span> <span class="ow">in</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">lda_model_tfidf</span><span class="p">[</span><span class="n">bow_corpus</span><span class="p">[</span><span class="n">document_num</span><span class="p">]],</span> <span class="n">key</span><span class="o">=</span><span class="k">lambda</span> <span class="n">tup</span><span class="p">:</span> <span class="n">tup</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">reverse</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Score: </span><span class="si">{}</span><span class="se">\t</span><span class="s2"> Topic: </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">score</span><span class="p">,</span> <span class="n">lda_model_tfidf</span><span class="o">.</span><span class="n">print_topic</span><span class="p">(</span><span class="n">index</span><span class="p">,</span> <span class="mi">5</span><span class="p">)))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Score: 0.6182703971862793	 Topic: 0.010*&quot;saudi&quot; + 0.009*&quot;arab&quot; + 0.007*&quot;balap&quot; + 0.007*&quot;motogp&quot; + 0.006*&quot;marquez&quot;
+
+Score: 0.3272719383239746	 Topic: 0.006*&quot;persib&quot; + 0.005*&quot;bangkok&quot; + 0.005*&quot;united&quot; + 0.004*&quot;lagu&quot; + 0.004*&quot;prabowo&quot;
+
+Score: 0.04919148609042168	 Topic: 0.007*&quot;menit&quot; + 0.007*&quot;liga&quot; + 0.006*&quot;saudi&quot; + 0.006*&quot;arab&quot; + 0.005*&quot;barcelona&quot;
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>Testing model on unseen document</strong></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Test dengan dokumen yang lebih panjang dan relevan</span>
+<span class="n">unseen_document</span> <span class="o">=</span> <span class="s2">&quot;Jakarta, Kompas.com - Presiden Indonesia mengumumkan kebijakan baru terkait ekonomi. Menteri keuangan menjelaskan bahwa inflasi akan turun dalam beberapa bulan ke depan.&quot;</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Dokumen yang akan dites:&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">unseen_document</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Hasil preprocessing:&quot;</span><span class="p">)</span>
+<span class="n">preprocessed</span> <span class="o">=</span> <span class="n">preprocess</span><span class="p">(</span><span class="n">unseen_document</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">preprocessed</span><span class="p">)</span>
+
+<span class="n">bow_vector</span> <span class="o">=</span> <span class="n">dic</span><span class="o">.</span><span class="n">doc2bow</span><span class="p">(</span><span class="n">preprocessed</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Bow vector: </span><span class="si">{</span><span class="n">bow_vector</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+<span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">bow_vector</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">⚠️ PERINGATAN: Tidak ada kata yang ditemukan dalam dictionary!&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Kemungkinan kata-kata dalam dokumen tidak ada dalam data training.&quot;</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Hasil klasifikasi LDA:&quot;</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">index</span><span class="p">,</span> <span class="n">score</span> <span class="ow">in</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">lda_model</span><span class="p">[</span><span class="n">bow_vector</span><span class="p">],</span> <span class="n">key</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">tup</span> <span class="p">:</span> <span class="n">tup</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">reverse</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Score: </span><span class="si">{:.4f}</span><span class="se">\t</span><span class="s1"> Topik </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">score</span><span class="p">,</span> <span class="n">lda_model</span><span class="o">.</span><span class="n">print_topic</span><span class="p">(</span><span class="n">index</span><span class="p">,</span> <span class="mi">5</span><span class="p">)))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Dokumen yang akan dites:
+Jakarta, Kompas.com - Presiden Indonesia mengumumkan kebijakan baru terkait ekonomi. Menteri keuangan menjelaskan bahwa inflasi akan turun dalam beberapa bulan ke depan.
+
+Hasil preprocessing:
+[&#39;jakarta&#39;, &#39;kompas&#39;, &#39;presiden&#39;, &#39;indonesia&#39;, &#39;umum&#39;, &#39;bijak&#39;, &#39;kait&#39;, &#39;ekonomi&#39;, &#39;menteri&#39;, &#39;uang&#39;, &#39;inflasi&#39;, &#39;turun&#39;]
+
+Bow vector: [(136, 1), (204, 1), (775, 1)]
+
+Hasil klasifikasi LDA:
+Score: 0.7749	 Topik 0.028*&quot;israel&quot; + 0.016*&quot;gaza&quot; + 0.010*&quot;perang&quot; + 0.010*&quot;hamas&quot; + 0.009*&quot;trump&quot;
+Score: 0.0250	 Topik 0.015*&quot;balap&quot; + 0.010*&quot;honda&quot; + 0.010*&quot;kendara&quot; + 0.009*&quot;motogp&quot; + 0.008*&quot;produksi&quot;
+Score: 0.0250	 Topik 0.009*&quot;produk&quot; + 0.008*&quot;kelola&quot; + 0.008*&quot;undang&quot; + 0.007*&quot;pasal&quot; + 0.006*&quot;energi&quot;
+Score: 0.0250	 Topik 0.015*&quot;anggar&quot; + 0.012*&quot;siswa&quot; + 0.012*&quot;dana&quot; + 0.009*&quot;sekolah&quot; + 0.009*&quot;purbaya&quot;
+Score: 0.0250	 Topik 0.026*&quot;emas&quot; + 0.013*&quot;gram&quot; + 0.011*&quot;tiktok&quot; + 0.009*&quot;guna&quot; + 0.008*&quot;aplikasi&quot;
+Score: 0.0250	 Topik 0.010*&quot;malaysia&quot; + 0.008*&quot;fifa&quot; + 0.006*&quot;partai&quot; + 0.006*&quot;mobil&quot; + 0.006*&quot;kendara&quot;
+Score: 0.0250	 Topik 0.016*&quot;motogp&quot; + 0.013*&quot;marquez&quot; + 0.013*&quot;balap&quot; + 0.011*&quot;emas&quot; + 0.010*&quot;pesantren&quot;
+Score: 0.0250	 Topik 0.007*&quot;film&quot; + 0.007*&quot;mobil&quot; + 0.006*&quot;mati&quot; + 0.006*&quot;pidana&quot; + 0.006*&quot;prabowo&quot;
+Score: 0.0250	 Topik 0.025*&quot;arab&quot; + 0.024*&quot;saudi&quot; + 0.012*&quot;kluivert&quot; + 0.009*&quot;irak&quot; + 0.008*&quot;persib&quot;
+Score: 0.0250	 Topik 0.021*&quot;motogp&quot; + 0.016*&quot;balap&quot; + 0.012*&quot;marquez&quot; + 0.008*&quot;bagnaia&quot; + 0.008*&quot;alex&quot;
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="Cbow_embeding_pta_manajemen_preprocesed.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Cbow Embeding Pta Manajemen Preprocesed</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="UTS_Klasifikasi_Berita_dan_Clustering_Spam.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Tugas UTS (Klasifikasi Berita dan Clustering Spam)</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By The Jupyter Book Community
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2022.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

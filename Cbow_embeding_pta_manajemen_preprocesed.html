@@ -1,0 +1,1500 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+    <title>Cbow Embeding Pta Manajemen Preprocesed &#8212; My sample book</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" href="_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/clipboard.min.js"></script>
+    <script src="_static/copybutton.js"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'Cbow_embeding_pta_manajemen_preprocesed';</script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Klasifikasi Berita menggunakan Fitur Latent Dirichlet Allocation" href="tugas6-rifqi.html" />
+    <link rel="prev" title="Cbow Embeding Berita Preprocesed" href="Cbow_embeding_berita_preprocesed.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="_static/logo.png" class="logo__image only-light" alt="My sample book - Home"/>
+    <script>document.write(`<img src="_static/logo.png" class="logo__image only-dark" alt="My sample book - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="intro.html">
+                    Welcome to your Jupyter Book
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="crawling_pta.html">Crawling PTA Trunojoyo</a></li>
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="crawling_berita_kompas.html">Crawling Berita Kompas</a></li>
+
+
+
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="scrapping_link_informatika.html">Link Scrapping PTA Teknik Informatika</a></li>
+<li class="toctree-l1"><a class="reference internal" href="crawling_manajemen.html">Crawling PTA Trunojoyo Fakultas Ekonomi Prodi Manajemen</a></li>
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="preprocessing_berita.html">Preprocessing Berita</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="preprocessing_pta_manajemen.html">Preprocessing PTA Manajemen</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="ekstraksi_fitur_tfidf_berita.html">Ekstraksi Fitur tf idf Berita</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ekstraksi_fitur_tfidf_pta_manajemen.html">Ekstraksi Fitur tf idf Pta Manajemen</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Cbow_embeding_berita_preprocesed.html">Cbow Embeding Berita Preprocesed</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Cbow Embeding Pta Manajemen Preprocesed</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tugas6-rifqi.html">Klasifikasi Berita menggunakan Fitur Latent Dirichlet Allocation (LDA)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="UTS_Klasifikasi_Berita_dan_Clustering_Spam.html">Tugas UTS (Klasifikasi Berita dan Clustering Spam)</a></li>
+
+
+<li class="toctree-l1"><a class="reference internal" href="page_rank.html">Analisis Graph Data dari pta_graph.xlsx</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2FCbow_embeding_pta_manajemen_preprocesed.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/Cbow_embeding_pta_manajemen_preprocesed.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Cbow Embeding Pta Manajemen Preprocesed</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ringkasan-alur">Ringkasan Alur</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tokenisasi-dan-pelatihan-word2vec-cbow">Tokenisasi dan Pelatihan Word2Vec (CBOW)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#rata-rata-embedding-per-dokumen">Rata-rata Embedding per Dokumen</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bentuk-dataframe-fitur-f1-f56-dan-tambah-label">Bentuk DataFrame Fitur f1..f56 dan Tambah Label</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#simpan-hasil-ke-csv-opsional">Simpan Hasil ke CSV (Opsional)</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="cbow-embeding-pta-manajemen-preprocesed">
+<h1>Cbow Embeding Pta Manajemen Preprocesed<a class="headerlink" href="#cbow-embeding-pta-manajemen-preprocesed" title="Permalink to this heading">#</a></h1>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>%%capture
+!pip install plotly
+!pip install --upgrade gensim
+</pre></div>
+</div>
+</div>
+</div>
+<section id="ringkasan-alur">
+<h2>Ringkasan Alur<a class="headerlink" href="#ringkasan-alur" title="Permalink to this heading">#</a></h2>
+<ul class="simple">
+<li><p>Import pustaka yang dibutuhkan</p></li>
+<li><p>Baca dataset <code class="docutils literal notranslate"><span class="pre">hasil_preprocessing_pta_manajemen.csv</span></code></p></li>
+<li><p>Pembersihan teks (lowercase, hapus tanda baca/tag/digit)</p></li>
+<li><p>Tokenisasi dan pembuatan <code class="docutils literal notranslate"><span class="pre">corpus</span></code></p></li>
+<li><p>Latih Word2Vec (CBOW) untuk embedding kata</p></li>
+<li><p>Hitung mean embedding per dokumen (rata-rata vektor kata)</p></li>
+<li><p>Bentuk DataFrame fitur <code class="docutils literal notranslate"><span class="pre">f1..f56</span></code> dan tambahkan label <code class="docutils literal notranslate"><span class="pre">spam</span></code></p></li>
+<li><p>(Opsional) Simpan hasil ke CSV</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">gensim.models</span><span class="w"> </span><span class="kn">import</span> <span class="n">Word2Vec</span><span class="p">,</span> <span class="n">FastText</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">re</span>
+
+<span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.decomposition</span><span class="w"> </span><span class="kn">import</span> <span class="n">PCA</span>
+
+<span class="kn">from</span><span class="w"> </span><span class="nn">matplotlib</span><span class="w"> </span><span class="kn">import</span> <span class="n">pyplot</span> <span class="k">as</span> <span class="n">plt</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">plotly.graph_objects</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">go</span>
+
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+
+<span class="kn">import</span><span class="w"> </span><span class="nn">warnings</span>
+<span class="n">warnings</span><span class="o">.</span><span class="n">filterwarnings</span><span class="p">(</span><span class="s1">&#39;ignore&#39;</span><span class="p">)</span>
+
+<span class="c1"># Load dataset TF-IDF berita dari file CSV</span>
+<span class="c1"># Pastikan file &#39;hasil_tfidf_berita.csv&#39; ada di direktori kerja notebook ini</span>
+
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;hasil_preprocessing_pta_manajemen.csv&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">FileNotFoundError</span><span class="g g-Whitespace">                         </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span> <span class="n">line</span> <span class="mi">18</span>
+<span class="g g-Whitespace">     </span><span class="mi">13</span> <span class="n">warnings</span><span class="o">.</span><span class="n">filterwarnings</span><span class="p">(</span><span class="s1">&#39;ignore&#39;</span><span class="p">)</span>
+<span class="g g-Whitespace">     </span><span class="mi">15</span> <span class="c1"># Load dataset TF-IDF berita dari file CSV</span>
+<span class="g g-Whitespace">     </span><span class="mi">16</span> <span class="c1"># Pastikan file &#39;hasil_tfidf_berita.csv&#39; ada di direktori kerja notebook ini</span>
+<span class="ne">---&gt; </span><span class="mi">18</span> <span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;hasil_preprocessing_pta_manajemen.csv&#39;</span><span class="p">)</span>
+
+<span class="nn">File ~/.local/lib/python3.12/site-packages/pandas/io/parsers/readers.py:1026,</span> in <span class="ni">read_csv</span><span class="nt">(filepath_or_buffer, sep, delimiter, header, names, index_col, usecols, dtype, engine, converters, true_values, false_values, skipinitialspace, skiprows, skipfooter, nrows, na_values, keep_default_na, na_filter, verbose, skip_blank_lines, parse_dates, infer_datetime_format, keep_date_col, date_parser, date_format, dayfirst, cache_dates, iterator, chunksize, compression, thousands, decimal, lineterminator, quotechar, quoting, doublequote, escapechar, comment, encoding, encoding_errors, dialect, on_bad_lines, delim_whitespace, low_memory, memory_map, float_precision, storage_options, dtype_backend)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1013</span> <span class="n">kwds_defaults</span> <span class="o">=</span> <span class="n">_refine_defaults_read</span><span class="p">(</span>
+<span class="g g-Whitespace">   </span><span class="mi">1014</span>     <span class="n">dialect</span><span class="p">,</span>
+<span class="g g-Whitespace">   </span><span class="mi">1015</span>     <span class="n">delimiter</span><span class="p">,</span>
+   <span class="p">(</span><span class="o">...</span><span class="p">)</span>   <span class="mi">1022</span>     <span class="n">dtype_backend</span><span class="o">=</span><span class="n">dtype_backend</span><span class="p">,</span>
+<span class="g g-Whitespace">   </span><span class="mi">1023</span> <span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1024</span> <span class="n">kwds</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">kwds_defaults</span><span class="p">)</span>
+<span class="ne">-&gt; </span><span class="mi">1026</span> <span class="k">return</span> <span class="n">_read</span><span class="p">(</span><span class="n">filepath_or_buffer</span><span class="p">,</span> <span class="n">kwds</span><span class="p">)</span>
+
+<span class="nn">File ~/.local/lib/python3.12/site-packages/pandas/io/parsers/readers.py:620,</span> in <span class="ni">_read</span><span class="nt">(filepath_or_buffer, kwds)</span>
+<span class="g g-Whitespace">    </span><span class="mi">617</span> <span class="n">_validate_names</span><span class="p">(</span><span class="n">kwds</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;names&quot;</span><span class="p">,</span> <span class="kc">None</span><span class="p">))</span>
+<span class="g g-Whitespace">    </span><span class="mi">619</span> <span class="c1"># Create the parser.</span>
+<span class="ne">--&gt; </span><span class="mi">620</span> <span class="n">parser</span> <span class="o">=</span> <span class="n">TextFileReader</span><span class="p">(</span><span class="n">filepath_or_buffer</span><span class="p">,</span> <span class="o">**</span><span class="n">kwds</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">622</span> <span class="k">if</span> <span class="n">chunksize</span> <span class="ow">or</span> <span class="n">iterator</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">623</span>     <span class="k">return</span> <span class="n">parser</span>
+
+<span class="nn">File ~/.local/lib/python3.12/site-packages/pandas/io/parsers/readers.py:1620,</span> in <span class="ni">TextFileReader.__init__</span><span class="nt">(self, f, engine, **kwds)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1617</span>     <span class="bp">self</span><span class="o">.</span><span class="n">options</span><span class="p">[</span><span class="s2">&quot;has_index_names&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">kwds</span><span class="p">[</span><span class="s2">&quot;has_index_names&quot;</span><span class="p">]</span>
+<span class="g g-Whitespace">   </span><span class="mi">1619</span> <span class="bp">self</span><span class="o">.</span><span class="n">handles</span><span class="p">:</span> <span class="n">IOHandles</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>
+<span class="ne">-&gt; </span><span class="mi">1620</span> <span class="bp">self</span><span class="o">.</span><span class="n">_engine</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_make_engine</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">engine</span><span class="p">)</span>
+
+<span class="nn">File ~/.local/lib/python3.12/site-packages/pandas/io/parsers/readers.py:1880,</span> in <span class="ni">TextFileReader._make_engine</span><span class="nt">(self, f, engine)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1878</span>     <span class="k">if</span> <span class="s2">&quot;b&quot;</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">mode</span><span class="p">:</span>
+<span class="g g-Whitespace">   </span><span class="mi">1879</span>         <span class="n">mode</span> <span class="o">+=</span> <span class="s2">&quot;b&quot;</span>
+<span class="ne">-&gt; </span><span class="mi">1880</span> <span class="bp">self</span><span class="o">.</span><span class="n">handles</span> <span class="o">=</span> <span class="n">get_handle</span><span class="p">(</span>
+<span class="g g-Whitespace">   </span><span class="mi">1881</span>     <span class="n">f</span><span class="p">,</span>
+<span class="g g-Whitespace">   </span><span class="mi">1882</span>     <span class="n">mode</span><span class="p">,</span>
+<span class="g g-Whitespace">   </span><span class="mi">1883</span>     <span class="n">encoding</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">options</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;encoding&quot;</span><span class="p">,</span> <span class="kc">None</span><span class="p">),</span>
+<span class="g g-Whitespace">   </span><span class="mi">1884</span>     <span class="n">compression</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">options</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;compression&quot;</span><span class="p">,</span> <span class="kc">None</span><span class="p">),</span>
+<span class="g g-Whitespace">   </span><span class="mi">1885</span>     <span class="n">memory_map</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">options</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;memory_map&quot;</span><span class="p">,</span> <span class="kc">False</span><span class="p">),</span>
+<span class="g g-Whitespace">   </span><span class="mi">1886</span>     <span class="n">is_text</span><span class="o">=</span><span class="n">is_text</span><span class="p">,</span>
+<span class="g g-Whitespace">   </span><span class="mi">1887</span>     <span class="n">errors</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">options</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;encoding_errors&quot;</span><span class="p">,</span> <span class="s2">&quot;strict&quot;</span><span class="p">),</span>
+<span class="g g-Whitespace">   </span><span class="mi">1888</span>     <span class="n">storage_options</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">options</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;storage_options&quot;</span><span class="p">,</span> <span class="kc">None</span><span class="p">),</span>
+<span class="g g-Whitespace">   </span><span class="mi">1889</span> <span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1890</span> <span class="k">assert</span> <span class="bp">self</span><span class="o">.</span><span class="n">handles</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span>
+<span class="g g-Whitespace">   </span><span class="mi">1891</span> <span class="n">f</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">handles</span><span class="o">.</span><span class="n">handle</span>
+
+<span class="nn">File ~/.local/lib/python3.12/site-packages/pandas/io/common.py:873,</span> in <span class="ni">get_handle</span><span class="nt">(path_or_buf, mode, encoding, compression, memory_map, is_text, errors, storage_options)</span>
+<span class="g g-Whitespace">    </span><span class="mi">868</span> <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">handle</span><span class="p">,</span> <span class="nb">str</span><span class="p">):</span>
+<span class="g g-Whitespace">    </span><span class="mi">869</span>     <span class="c1"># Check whether the filename is to be opened in binary mode.</span>
+<span class="g g-Whitespace">    </span><span class="mi">870</span>     <span class="c1"># Binary mode does not support &#39;encoding&#39; and &#39;newline&#39;.</span>
+<span class="g g-Whitespace">    </span><span class="mi">871</span>     <span class="k">if</span> <span class="n">ioargs</span><span class="o">.</span><span class="n">encoding</span> <span class="ow">and</span> <span class="s2">&quot;b&quot;</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">ioargs</span><span class="o">.</span><span class="n">mode</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">872</span>         <span class="c1"># Encoding</span>
+<span class="ne">--&gt; </span><span class="mi">873</span>         <span class="n">handle</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span>
+<span class="g g-Whitespace">    </span><span class="mi">874</span>             <span class="n">handle</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">875</span>             <span class="n">ioargs</span><span class="o">.</span><span class="n">mode</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">876</span>             <span class="n">encoding</span><span class="o">=</span><span class="n">ioargs</span><span class="o">.</span><span class="n">encoding</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">877</span>             <span class="n">errors</span><span class="o">=</span><span class="n">errors</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">878</span>             <span class="n">newline</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">879</span>         <span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">880</span>     <span class="k">else</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">881</span>         <span class="c1"># Binary mode</span>
+<span class="g g-Whitespace">    </span><span class="mi">882</span>         <span class="n">handle</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="n">handle</span><span class="p">,</span> <span class="n">ioargs</span><span class="o">.</span><span class="n">mode</span><span class="p">)</span>
+
+<span class="ne">FileNotFoundError</span>: [Errno 2] No such file or directory: &#39;hasil_preprocessing_pta_manajemen.csv&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">gensim.models</span><span class="w"> </span><span class="kn">import</span> <span class="n">Word2Vec</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+
+<span class="k">class</span><span class="w"> </span><span class="nc">MyTokenizer</span><span class="p">:</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">fit_transform</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">texts</span><span class="p">):</span>
+        <span class="c1"># Tokenisasi sederhana: lowercase + split</span>
+        <span class="k">return</span> <span class="p">[</span><span class="nb">str</span><span class="p">(</span><span class="n">text</span><span class="p">)</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span><span class="o">.</span><span class="n">split</span><span class="p">()</span> <span class="k">for</span> <span class="n">text</span> <span class="ow">in</span> <span class="n">texts</span><span class="p">]</span>
+
+<span class="k">class</span><span class="w"> </span><span class="nc">MeanEmbeddingVectorizer</span><span class="p">:</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">word2vec_model</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">word2vec</span> <span class="o">=</span> <span class="n">word2vec_model</span>
+        <span class="c1"># Perbaikan: gunakan vector_size (Gensim ≥ 4.0)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">dim</span> <span class="o">=</span> <span class="n">word2vec_model</span><span class="o">.</span><span class="n">wv</span><span class="o">.</span><span class="n">vector_size</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">fit</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">transform</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">X</span><span class="p">):</span>
+        <span class="n">X_tokenized</span> <span class="o">=</span> <span class="n">MyTokenizer</span><span class="p">()</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
+        <span class="n">embeddings</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="k">for</span> <span class="n">words</span> <span class="ow">in</span> <span class="n">X_tokenized</span><span class="p">:</span>
+            <span class="c1"># Ambil vektor hanya untuk kata yang ada di vocab</span>
+            <span class="n">valid_vectors</span> <span class="o">=</span> <span class="p">[</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">word2vec</span><span class="o">.</span><span class="n">wv</span><span class="p">[</span><span class="n">word</span><span class="p">]</span> <span class="k">for</span> <span class="n">word</span> <span class="ow">in</span> <span class="n">words</span>
+                <span class="k">if</span> <span class="n">word</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">word2vec</span><span class="o">.</span><span class="n">wv</span>
+            <span class="p">]</span>
+            <span class="k">if</span> <span class="n">valid_vectors</span><span class="p">:</span>
+                <span class="n">embeddings</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">valid_vectors</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">))</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">embeddings</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">dim</span><span class="p">))</span>
+        <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">embeddings</span><span class="p">)</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">fit_transform</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Bangun korpus token dari teks hasil preprocessing: setiap baris -&gt; list kata</span>
+<span class="c1"># Gunakan kolom &#39;hasil_preprocessing&#39; jika ada, jika tidak cari alternatif umum</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">ast</span>
+
+<span class="n">text_col</span> <span class="o">=</span> <span class="s1">&#39;hasil_preprocessing&#39;</span> <span class="k">if</span> <span class="s1">&#39;hasil_preprocessing&#39;</span> <span class="ow">in</span> <span class="n">df</span><span class="o">.</span><span class="n">columns</span> <span class="k">else</span> <span class="kc">None</span>
+<span class="k">if</span> <span class="n">text_col</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+    <span class="n">possible_text_cols</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;clean&#39;</span><span class="p">,</span> <span class="s1">&#39;text&#39;</span><span class="p">,</span> <span class="s1">&#39;preprocessed&#39;</span><span class="p">,</span> <span class="s1">&#39;kalimat&#39;</span><span class="p">,</span> <span class="s1">&#39;sentence&#39;</span><span class="p">]</span>
+    <span class="n">text_col</span> <span class="o">=</span> <span class="nb">next</span><span class="p">((</span><span class="n">c</span> <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">possible_text_cols</span> <span class="k">if</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">df</span><span class="o">.</span><span class="n">columns</span><span class="p">),</span> <span class="kc">None</span><span class="p">)</span>
+<span class="k">if</span> <span class="n">text_col</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+    <span class="k">raise</span> <span class="ne">RuntimeError</span><span class="p">(</span><span class="s2">&quot;Kolom teks tidak ditemukan. Pastikan &#39;hasil_preprocessing&#39; atau kolom teks lain tersedia di CSV.&quot;</span><span class="p">)</span>
+
+<span class="c1"># Parser aman: dukung format list-string seperti &quot;[&#39;kata&#39;, &#39;kata2&#39;]&quot; atau string biasa</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">to_tokens</span><span class="p">(</span><span class="n">value</span><span class="p">):</span>
+    <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">value</span><span class="p">,</span> <span class="nb">list</span><span class="p">):</span>
+        <span class="k">return</span> <span class="p">[</span><span class="nb">str</span><span class="p">(</span><span class="n">tok</span><span class="p">)</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span> <span class="k">for</span> <span class="n">tok</span> <span class="ow">in</span> <span class="n">value</span> <span class="k">if</span> <span class="nb">str</span><span class="p">(</span><span class="n">tok</span><span class="p">)</span><span class="o">.</span><span class="n">strip</span><span class="p">()]</span>
+    <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">value</span><span class="p">,</span> <span class="nb">str</span><span class="p">):</span>
+        <span class="n">s</span> <span class="o">=</span> <span class="n">value</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
+        <span class="k">if</span> <span class="n">s</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s1">&#39;[&#39;</span><span class="p">)</span> <span class="ow">and</span> <span class="n">s</span><span class="o">.</span><span class="n">endswith</span><span class="p">(</span><span class="s1">&#39;]&#39;</span><span class="p">):</span>
+            <span class="k">try</span><span class="p">:</span>
+                <span class="n">parsed</span> <span class="o">=</span> <span class="n">ast</span><span class="o">.</span><span class="n">literal_eval</span><span class="p">(</span><span class="n">s</span><span class="p">)</span>
+                <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">parsed</span><span class="p">,</span> <span class="nb">list</span><span class="p">):</span>
+                    <span class="k">return</span> <span class="p">[</span><span class="nb">str</span><span class="p">(</span><span class="n">tok</span><span class="p">)</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span> <span class="k">for</span> <span class="n">tok</span> <span class="ow">in</span> <span class="n">parsed</span> <span class="k">if</span> <span class="nb">str</span><span class="p">(</span><span class="n">tok</span><span class="p">)</span><span class="o">.</span><span class="n">strip</span><span class="p">()]</span>
+            <span class="k">except</span> <span class="ne">Exception</span><span class="p">:</span>
+                <span class="k">pass</span>
+        <span class="k">return</span> <span class="p">[</span><span class="n">tok</span> <span class="k">for</span> <span class="n">tok</span> <span class="ow">in</span> <span class="n">s</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span><span class="o">.</span><span class="n">split</span><span class="p">()</span> <span class="k">if</span> <span class="n">tok</span><span class="p">]</span>
+    <span class="k">return</span> <span class="p">[]</span>
+
+<span class="n">texts</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="n">text_col</span><span class="p">]</span><span class="o">.</span><span class="n">fillna</span><span class="p">(</span><span class="s2">&quot;&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span>
+<span class="n">corpus</span> <span class="o">=</span> <span class="p">[</span><span class="n">tokens</span> <span class="k">for</span> <span class="n">tokens</span> <span class="ow">in</span> <span class="p">(</span><span class="n">to_tokens</span><span class="p">(</span><span class="n">v</span><span class="p">)</span> <span class="k">for</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">texts</span><span class="p">)</span> <span class="k">if</span> <span class="n">tokens</span><span class="p">]</span>
+
+<span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">corpus</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+    <span class="k">raise</span> <span class="ne">RuntimeError</span><span class="p">(</span><span class="s2">&quot;Corpus kosong: kolom teks ada tetapi tidak berisi token valid.&quot;</span><span class="p">)</span>
+
+<span class="c1"># Contoh token dokumen pertama</span>
+<span class="n">corpus</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">1</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[&#39;aplikasi&#39;,
+  &#39;nyata&#39;,
+  &#39;manfaat&#39;,
+  &#39;teknologi&#39;,
+  &#39;informasi&#39;,
+  &#39;komunikasi&#39;,
+  &#39;bidang&#39;,
+  &#39;layan&#39;,
+  &#39;administrasi&#39;,
+  &#39;akademik&#39;,
+  &#39;guru&#39;,
+  &#39;salah&#39;,
+  &#39;satu&#39;,
+  &#39;sistem&#39;,
+  &#39;portal&#39;,
+  &#39;akademik&#39;,
+  &#39;universitas&#39;,
+  &#39;trunojoyo&#39;,
+  &#39;madura&#39;,
+  &#39;implementasi&#39;,
+  &#39;proses&#39;,
+  &#39;selenggara&#39;,
+  &#39;temu&#39;,
+  &#39;kendala&#39;,
+  &#39;teknis&#39;,
+  &#39;non&#39;,
+  &#39;teknis&#39;,
+  &#39;teliti&#39;,
+  &#39;tuju&#39;,
+  &#39;puas&#39;,
+  &#39;langgan&#39;,
+  &#39;dasar&#39;,
+  &#39;analisis&#39;,
+  &#39;indeks&#39;,
+  &#39;puas&#39;,
+  &#39;langgan&#39;,
+  &#39;tinjau&#39;,
+  &#39;webqual&#39;,
+  &#39;fokus&#39;,
+  &#39;baik&#39;,
+  &#39;mutu&#39;,
+  &#39;layan&#39;,
+  &#39;website&#39;,
+  &#39;portal&#39;,
+  &#39;akademik&#39;,
+  &#39;universitas&#39;,
+  &#39;trunjoyo&#39;,
+  &#39;madura&#39;,
+  &#39;dasar&#39;,
+  &#39;importance&#39;,
+  &#39;performance&#39;,
+  &#39;analysis&#39;,
+  &#39;tinjau&#39;,
+  &#39;webqual&#39;,
+  &#39;teliti&#39;,
+  &#39;teliti&#39;,
+  &#39;kuantitaif&#39;,
+  &#39;deskriptif&#39;,
+  &#39;gambar&#39;,
+  &#39;deskripsi&#39;,
+  &#39;lukis&#39;,
+  &#39;sistematis&#39;,
+  &#39;faktual&#39;,
+  &#39;akurat&#39;,
+  &#39;kualitas&#39;,
+  &#39;layan&#39;,
+  &#39;jasa&#39;,
+  &#39;online&#39;,
+  &#39;mahasiswasampelpenelitianiniadalahmahasiswaangkatan&#39;,
+  &#39;teknik&#39;,
+  &#39;sampel&#39;,
+  &#39;teknik&#39;,
+  &#39;stratified&#39;,
+  &#39;random&#39;,
+  &#39;sampling&#39;,
+  &#39;alat&#39;,
+  &#39;analisis&#39;,
+  &#39;indeks&#39;,
+  &#39;puas&#39;,
+  &#39;langgan&#39;,
+  &#39;analisis&#39;,
+  &#39;tingkat&#39;,
+  &#39;penting&#39;,
+  &#39;kerja&#39;,
+  &#39;hasil&#39;,
+  &#39;teliti&#39;,
+  &#39;skor&#39;,
+  &#39;indeks&#39;,
+  &#39;puas&#39;,
+  &#39;langgan&#39;,
+  &#39;ikp&#39;,
+  &#39;masuk&#39;,
+  &#39;kategori&#39;,
+  &#39;puas&#39;,
+  &#39;diagram&#39;,
+  &#39;kartesius&#39;,
+  &#39;importance&#39;,
+  &#39;performance&#39;,
+  &#39;atribut&#39;,
+  &#39;prioritas&#39;,
+  &#39;utama&#39;,
+  &#39;baik&#39;,
+  &#39;mutu&#39;,
+  &#39;situs&#39;,
+  &#39;portal&#39;,
+  &#39;akademik&#39;,
+  &#39;universitas&#39;,
+  &#39;trunojoyo&#39;,
+  &#39;madura&#39;,
+  &#39;informasi&#39;,
+  &#39;administrasi&#39;,
+  &#39;akademik&#39;,
+  &#39;mahasiswa&#39;,
+  &#39;jelasdetail&#39;,
+  &#39;ter&#39;,
+  &#39;update&#39;,
+  &#39;ki&#39;,
+  &#39;informasi&#39;,
+  &#39;administrasi&#39;,
+  &#39;akademik&#39;,
+  &#39;situs&#39;,
+  &#39;portal&#39;,
+  &#39;akademik&#39;,
+  &#39;utm&#39;,
+  &#39;percaya&#39;,
+  &#39;ki&#39;,
+  &#39;portal&#39;,
+  &#39;utm&#39;,
+  &#39;guna&#39;,
+  &#39;aman&#39;,
+  &#39;data&#39;,
+  &#39;akademik&#39;,
+  &#39;mahasiswa&#39;,
+  &#39;krs&#39;,
+  &#39;khs&#39;,
+  &#39;transkrip&#39;,
+  &#39;data&#39;,
+  &#39;personal&#39;,
+  &#39;sesuai&#39;,
+  &#39;kip&#39;,
+  &#39;kunci&#39;,
+  &#39;website&#39;,
+  &#39;importance&#39;,
+  &#39;performance&#39;,
+  &#39;webqual&#39;,
+  &#39;indeks&#39;,
+  &#39;puas&#39;,
+  &#39;langgan&#39;]]
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="tokenisasi-dan-pelatihan-word2vec-cbow">
+<h2>Tokenisasi dan Pelatihan Word2Vec (CBOW)<a class="headerlink" href="#tokenisasi-dan-pelatihan-word2vec-cbow" title="Permalink to this heading">#</a></h2>
+<ul class="simple">
+<li><p>Tokenisasi setiap baris <code class="docutils literal notranslate"><span class="pre">clean</span></code> menjadi list kata → <code class="docutils literal notranslate"><span class="pre">corpus</span></code></p></li>
+<li><p>Latih model Word2Vec dengan default CBOW (<code class="docutils literal notranslate"><span class="pre">sg=0</span></code>) dan <code class="docutils literal notranslate"><span class="pre">vector_size=56</span></code></p></li>
+<li><p>Hasil: embedding vektor untuk setiap kata di vocabulary</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">shape</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(1026, 2)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Latih model Word2Vec (CBOW by default: sg=0) dengan ukuran vektor 56</span>
+<span class="c1"># Menggunakan korpus token yang dibangun dari fitur TF-IDF (nilai &gt; 0)</span>
+<span class="n">model</span> <span class="o">=</span> <span class="n">Word2Vec</span><span class="p">(</span><span class="n">corpus</span><span class="p">,</span> <span class="n">min_count</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">vector_size</span><span class="o">=</span><span class="mi">56</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># (Opsional) contoh eksplorasi embeddings kata jika diperlukan</span>
+<span class="c1"># model.wv.most_similar(&#39;eric&#39;)</span>
+<span class="c1"># model.wv.most_similar_cosmul(positive=[&#39;phone&#39;, &#39;number&#39;], negative=[&#39;call&#39;])</span>
+<span class="c1"># model.wv.doesnt_match(&quot;phone number prison cell&quot;.split())</span>
+
+<span class="c1"># Simpan embeddings kata yang dilatih</span>
+<span class="n">filename</span> <span class="o">=</span> <span class="s1">&#39;pta_embd.txt&#39;</span>
+<span class="n">model</span><span class="o">.</span><span class="n">wv</span><span class="o">.</span><span class="n">save_word2vec_format</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span> <span class="n">binary</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Mean embedding per dokumen: rata-rata vektor kata dari token TF-IDF</span>
+<span class="n">mean_embedding_vectorizer</span> <span class="o">=</span> <span class="n">MeanEmbeddingVectorizer</span><span class="p">(</span><span class="n">model</span><span class="p">)</span>
+<span class="c1"># Gabungkan token menjadi string kalimat agar tokenizer bekerja sama seperti sebelumnya</span>
+<span class="n">joined_docs</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot; &quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">tokens</span><span class="p">)</span> <span class="k">for</span> <span class="n">tokens</span> <span class="ow">in</span> <span class="n">corpus</span><span class="p">]</span>
+<span class="n">mean_embedded</span> <span class="o">=</span> <span class="n">mean_embedding_vectorizer</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">joined_docs</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Simpan vektor dokumen ke kolom &#39;array&#39;</span>
+<span class="n">df</span><span class="p">[</span><span class="s1">&#39;array&#39;</span><span class="p">]</span><span class="o">=</span><span class="nb">list</span><span class="p">(</span><span class="n">mean_embedded</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="rata-rata-embedding-per-dokumen">
+<h2>Rata-rata Embedding per Dokumen<a class="headerlink" href="#rata-rata-embedding-per-dokumen" title="Permalink to this heading">#</a></h2>
+<ul class="simple">
+<li><p>Gunakan <code class="docutils literal notranslate"><span class="pre">MeanEmbeddingVectorizer</span></code> untuk merata-ratakan vektor kata per dokumen</p></li>
+<li><p>Jika dokumen tidak punya kata di vocab, isi vektor nol berdimensi 56</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>abstrak_id</th>
+      <th>hasil_preprocessing</th>
+      <th>array</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>Aplikasi nyata pemanfaatan teknologi informasi...</td>
+      <td>['aplikasi', 'nyata', 'manfaat', 'teknologi', ...</td>
+      <td>[-0.14074793, -0.0517708, -0.4923049, 0.479526...</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>Tujuan penelitian ini adalah untuk mengetahui ...</td>
+      <td>['tuju', 'teliti', 'persepsi', 'brand', 'assoc...</td>
+      <td>[-0.4378809, 0.22917439, -0.6416591, 0.4573508...</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>ABSTRAK\n\nSatiyah, Pengaruh Faktor-faktor Pel...</td>
+      <td>['abstrak', 'satiyah', 'pengaruh', 'faktorfakt...</td>
+      <td>[-0.03672818, 0.1733005, -0.79017997, 0.667239...</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>Abstrak\n\nPenelitian ini menggunakan metode k...</td>
+      <td>['abstrak', 'teliti', 'metode', 'kuantitatif',...</td>
+      <td>[-0.02975462, 0.7633891, -0.8057022, 0.9496454...</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>Hasil dari penelitian ini dari perhitungan Cre...</td>
+      <td>['hasil', 'teliti', 'hitung', 'credit', 'risk'...</td>
+      <td>[-0.6008147, 0.42868954, 0.10390902, 0.4882784...</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;embedding_length&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;array&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">len</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;embedding_length&#39;</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0       56
+1       56
+2       56
+3       56
+4       56
+        ..
+1021    56
+1022    56
+1023    56
+1024    56
+1025    56
+Name: embedding_length, Length: 1026, dtype: int64
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="bentuk-dataframe-fitur-f1-f56-dan-tambah-label">
+<h2>Bentuk DataFrame Fitur f1..f56 dan Tambah Label<a class="headerlink" href="#bentuk-dataframe-fitur-f1-f56-dan-tambah-label" title="Permalink to this heading">#</a></h2>
+<ul class="simple">
+<li><p>Ekstrak setiap dimensi embedding ke kolom <code class="docutils literal notranslate"><span class="pre">f1..f56</span></code></p></li>
+<li><p>Tambahkan label <code class="docutils literal notranslate"><span class="pre">spam</span></code> dari dataset asli</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">shape</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(1026, 4)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">num_features</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;array&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>  <span class="c1"># asumsi semua list punya panjang sama</span>
+<span class="n">columns</span> <span class="o">=</span> <span class="p">[</span><span class="sa">f</span><span class="s1">&#39;f</span><span class="si">{</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="si">}</span><span class="s1">&#39;</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">num_features</span><span class="p">)]</span>
+
+<span class="c1"># Inisialisasi dictionary untuk menampung data per kolom</span>
+<span class="n">data_dict</span> <span class="o">=</span> <span class="p">{</span><span class="n">col</span><span class="p">:</span> <span class="p">[]</span> <span class="k">for</span> <span class="n">col</span> <span class="ow">in</span> <span class="n">columns</span><span class="p">}</span>
+
+<span class="c1"># Looping setiap baris di kolom &#39;embedding&#39;</span>
+<span class="k">for</span> <span class="n">embedding_list</span> <span class="ow">in</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;array&#39;</span><span class="p">]:</span>
+    <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">value</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">embedding_list</span><span class="p">):</span>
+        <span class="n">data_dict</span><span class="p">[</span><span class="sa">f</span><span class="s1">&#39;f</span><span class="si">{</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>
+
+<span class="c1"># Buat DataFrame dari dictionary</span>
+<span class="n">embedding_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">data_dict</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">embedding_df</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>            f1        f2        f3        f4        f5        f6        f7  \
+0    -0.140748 -0.051771 -0.492305  0.479526 -0.022363 -0.183089  0.041997   
+1    -0.437881  0.229174 -0.641659  0.457351 -0.159472  0.010075  0.198183   
+2    -0.036728  0.173301 -0.790180  0.667239  0.171084 -0.218474 -0.241751   
+3    -0.029755  0.763389 -0.805702  0.949645  0.183030 -0.264420 -0.026237   
+4    -0.600815  0.428690  0.103909  0.488278  0.384397 -0.502497  0.201040   
+...        ...       ...       ...       ...       ...       ...       ...   
+1021  0.006839  0.626199 -0.550933  1.095289  0.475204 -0.599695 -0.084472   
+1022 -0.858705  1.139583  0.052785  0.690584  0.220518 -0.285051  0.573112   
+1023 -0.399686  0.106118 -0.723282  0.704096 -0.076959 -0.217982  0.397502   
+1024 -0.232048  0.671447 -0.503945  0.686026  0.035947 -0.231157  0.273855   
+1025  0.076756  0.225883 -0.695328  0.897530  0.196013 -0.275766 -0.436971   
+
+            f8        f9       f10  ...       f47       f48       f49  \
+0    -0.609430 -0.481395 -0.350944  ...  0.252814  0.161481 -0.394125   
+1    -0.805354 -0.385771 -0.650644  ...  0.108388  0.164984 -0.319574   
+2    -0.599657 -0.709189 -0.298709  ...  0.551478  0.593129 -0.413709   
+3    -0.591126 -0.626737 -0.379797  ...  0.636966  0.644052 -0.755638   
+4    -0.327617 -0.314530 -0.474362  ...  0.378499  0.346818 -0.452187   
+...        ...       ...       ...  ...       ...       ...       ...   
+1021 -0.297925 -0.696287 -0.105851  ...  0.826770  0.861716 -0.928876   
+1022 -0.698916 -0.110954 -1.088116  ...  0.370319  0.335618 -0.743358   
+1023 -0.854790 -0.711533 -0.571515  ...  0.415005  0.089048 -0.707202   
+1024 -0.541193 -0.377811 -0.545189  ...  0.333053  0.395498 -0.713329   
+1025 -0.553344 -0.782746 -0.174749  ...  0.709992  0.668782 -0.455128   
+
+           f50       f51       f52       f53       f54       f55       f56  
+0     0.276370  0.196544  0.208528 -0.158757  0.138123  0.082887  0.212058  
+1     0.122323  0.607221  0.244385 -0.260579  0.291026 -0.282121  0.282154  
+2     0.366503  0.035847  0.449005 -0.331849  0.187013 -0.309448 -0.107205  
+3     0.689247  0.063602  0.538198 -0.414120  0.216164 -0.449829 -0.189202  
+4    -0.128411  0.076575  0.336062  0.271128  0.203809  0.289892 -0.006533  
+...        ...       ...       ...       ...       ...       ...       ...  
+1021  0.550203 -0.393145  0.875928 -0.219696  0.011394 -0.281891 -0.418071  
+1022  0.124659  0.500627  0.446752  0.301350  0.474500  0.009493  0.162454  
+1023  0.422979  0.377978  0.334662 -0.458197  0.171744  0.210653  0.320513  
+1024  0.382763  0.275299  0.345721 -0.116190  0.228401 -0.280924  0.009993  
+1025  0.461049 -0.029236  0.597860 -0.468380  0.001936 -0.210640 -0.199793  
+
+[1026 rows x 56 columns]
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Gunakan label abstrak_id dari dataset TF-IDF berita</span>
+<span class="n">embedding_df</span><span class="p">[</span><span class="s1">&#39;abstrak_id&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;abstrak_id&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span>  
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="simpan-hasil-ke-csv-opsional">
+<h2>Simpan Hasil ke CSV (Opsional)<a class="headerlink" href="#simpan-hasil-ke-csv-opsional" title="Permalink to this heading">#</a></h2>
+<p>Simpan <code class="docutils literal notranslate"><span class="pre">embedding_df</span></code> ke file CSV untuk digunakan di proses selanjutnya.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Simpan DataFrame fitur dokumen ke CSV (opsional)</span>
+<span class="n">embedding_df</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="s1">&#39;pta_doc_embeddings.csv&#39;</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s1">&#39;utf-8&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Disimpan ke pta_doc_embeddings.csv&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Disimpan ke pta_doc_embeddings.csv
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">embedding_df</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>f1</th>
+      <th>f2</th>
+      <th>f3</th>
+      <th>f4</th>
+      <th>f5</th>
+      <th>f6</th>
+      <th>f7</th>
+      <th>f8</th>
+      <th>f9</th>
+      <th>f10</th>
+      <th>...</th>
+      <th>f48</th>
+      <th>f49</th>
+      <th>f50</th>
+      <th>f51</th>
+      <th>f52</th>
+      <th>f53</th>
+      <th>f54</th>
+      <th>f55</th>
+      <th>f56</th>
+      <th>abstrak_id</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>-0.140748</td>
+      <td>-0.051771</td>
+      <td>-0.492305</td>
+      <td>0.479526</td>
+      <td>-0.022363</td>
+      <td>-0.183089</td>
+      <td>0.041997</td>
+      <td>-0.609430</td>
+      <td>-0.481395</td>
+      <td>-0.350944</td>
+      <td>...</td>
+      <td>0.161481</td>
+      <td>-0.394125</td>
+      <td>0.276370</td>
+      <td>0.196544</td>
+      <td>0.208528</td>
+      <td>-0.158757</td>
+      <td>0.138123</td>
+      <td>0.082887</td>
+      <td>0.212058</td>
+      <td>Aplikasi nyata pemanfaatan teknologi informasi...</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>-0.437881</td>
+      <td>0.229174</td>
+      <td>-0.641659</td>
+      <td>0.457351</td>
+      <td>-0.159472</td>
+      <td>0.010075</td>
+      <td>0.198183</td>
+      <td>-0.805354</td>
+      <td>-0.385771</td>
+      <td>-0.650644</td>
+      <td>...</td>
+      <td>0.164984</td>
+      <td>-0.319574</td>
+      <td>0.122323</td>
+      <td>0.607221</td>
+      <td>0.244385</td>
+      <td>-0.260579</td>
+      <td>0.291026</td>
+      <td>-0.282121</td>
+      <td>0.282154</td>
+      <td>Tujuan penelitian ini adalah untuk mengetahui ...</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>-0.036728</td>
+      <td>0.173301</td>
+      <td>-0.790180</td>
+      <td>0.667239</td>
+      <td>0.171084</td>
+      <td>-0.218474</td>
+      <td>-0.241751</td>
+      <td>-0.599657</td>
+      <td>-0.709189</td>
+      <td>-0.298709</td>
+      <td>...</td>
+      <td>0.593129</td>
+      <td>-0.413709</td>
+      <td>0.366503</td>
+      <td>0.035847</td>
+      <td>0.449005</td>
+      <td>-0.331849</td>
+      <td>0.187013</td>
+      <td>-0.309448</td>
+      <td>-0.107205</td>
+      <td>ABSTRAK\n\nSatiyah, Pengaruh Faktor-faktor Pel...</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>-0.029755</td>
+      <td>0.763389</td>
+      <td>-0.805702</td>
+      <td>0.949645</td>
+      <td>0.183030</td>
+      <td>-0.264420</td>
+      <td>-0.026237</td>
+      <td>-0.591126</td>
+      <td>-0.626737</td>
+      <td>-0.379797</td>
+      <td>...</td>
+      <td>0.644052</td>
+      <td>-0.755638</td>
+      <td>0.689247</td>
+      <td>0.063602</td>
+      <td>0.538198</td>
+      <td>-0.414120</td>
+      <td>0.216164</td>
+      <td>-0.449829</td>
+      <td>-0.189202</td>
+      <td>Abstrak\n\nPenelitian ini menggunakan metode k...</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>-0.600815</td>
+      <td>0.428690</td>
+      <td>0.103909</td>
+      <td>0.488278</td>
+      <td>0.384397</td>
+      <td>-0.502497</td>
+      <td>0.201040</td>
+      <td>-0.327617</td>
+      <td>-0.314530</td>
+      <td>-0.474362</td>
+      <td>...</td>
+      <td>0.346818</td>
+      <td>-0.452187</td>
+      <td>-0.128411</td>
+      <td>0.076575</td>
+      <td>0.336062</td>
+      <td>0.271128</td>
+      <td>0.203809</td>
+      <td>0.289892</td>
+      <td>-0.006533</td>
+      <td>Hasil dari penelitian ini dari perhitungan Cre...</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>1021</th>
+      <td>0.006839</td>
+      <td>0.626199</td>
+      <td>-0.550933</td>
+      <td>1.095289</td>
+      <td>0.475204</td>
+      <td>-0.599695</td>
+      <td>-0.084472</td>
+      <td>-0.297925</td>
+      <td>-0.696287</td>
+      <td>-0.105851</td>
+      <td>...</td>
+      <td>0.861716</td>
+      <td>-0.928876</td>
+      <td>0.550203</td>
+      <td>-0.393145</td>
+      <td>0.875928</td>
+      <td>-0.219696</td>
+      <td>0.011394</td>
+      <td>-0.281891</td>
+      <td>-0.418071</td>
+      <td>ABSTRAK\nUswatun Hasanah, 160211100291, Pengar...</td>
+    </tr>
+    <tr>
+      <th>1022</th>
+      <td>-0.858705</td>
+      <td>1.139583</td>
+      <td>0.052785</td>
+      <td>0.690584</td>
+      <td>0.220518</td>
+      <td>-0.285051</td>
+      <td>0.573112</td>
+      <td>-0.698916</td>
+      <td>-0.110954</td>
+      <td>-1.088116</td>
+      <td>...</td>
+      <td>0.335618</td>
+      <td>-0.743358</td>
+      <td>0.124659</td>
+      <td>0.500627</td>
+      <td>0.446752</td>
+      <td>0.301350</td>
+      <td>0.474500</td>
+      <td>0.009493</td>
+      <td>0.162454</td>
+      <td>Tujuan penelitian ini adalah untuk mengetahui ...</td>
+    </tr>
+    <tr>
+      <th>1023</th>
+      <td>-0.399686</td>
+      <td>0.106118</td>
+      <td>-0.723282</td>
+      <td>0.704096</td>
+      <td>-0.076959</td>
+      <td>-0.217982</td>
+      <td>0.397502</td>
+      <td>-0.854790</td>
+      <td>-0.711533</td>
+      <td>-0.571515</td>
+      <td>...</td>
+      <td>0.089048</td>
+      <td>-0.707202</td>
+      <td>0.422979</td>
+      <td>0.377978</td>
+      <td>0.334662</td>
+      <td>-0.458197</td>
+      <td>0.171744</td>
+      <td>0.210653</td>
+      <td>0.320513</td>
+      <td>ABSTRAK\nPenelitian ini bertujuan: (1) Untuk m...</td>
+    </tr>
+    <tr>
+      <th>1024</th>
+      <td>-0.232048</td>
+      <td>0.671447</td>
+      <td>-0.503945</td>
+      <td>0.686026</td>
+      <td>0.035947</td>
+      <td>-0.231157</td>
+      <td>0.273855</td>
+      <td>-0.541193</td>
+      <td>-0.377811</td>
+      <td>-0.545189</td>
+      <td>...</td>
+      <td>0.395498</td>
+      <td>-0.713329</td>
+      <td>0.382763</td>
+      <td>0.275299</td>
+      <td>0.345721</td>
+      <td>-0.116190</td>
+      <td>0.228401</td>
+      <td>-0.280924</td>
+      <td>0.009993</td>
+      <td>ABSTRAK\nTujuan dari penelitian ini adalah unt...</td>
+    </tr>
+    <tr>
+      <th>1025</th>
+      <td>0.076756</td>
+      <td>0.225883</td>
+      <td>-0.695328</td>
+      <td>0.897530</td>
+      <td>0.196013</td>
+      <td>-0.275766</td>
+      <td>-0.436971</td>
+      <td>-0.553344</td>
+      <td>-0.782746</td>
+      <td>-0.174749</td>
+      <td>...</td>
+      <td>0.668782</td>
+      <td>-0.455128</td>
+      <td>0.461049</td>
+      <td>-0.029236</td>
+      <td>0.597860</td>
+      <td>-0.468380</td>
+      <td>0.001936</td>
+      <td>-0.210640</td>
+      <td>-0.199793</td>
+      <td>Penelitian ini bertujuan untuk dapat mengetahu...</td>
+    </tr>
+  </tbody>
+</table>
+<p>1026 rows × 57 columns</p>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">embedding_df</span><span class="o">.</span><span class="n">shape</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(1026, 57)
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="Cbow_embeding_berita_preprocesed.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Cbow Embeding Berita Preprocesed</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="tugas6-rifqi.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Klasifikasi Berita menggunakan Fitur Latent Dirichlet Allocation</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ringkasan-alur">Ringkasan Alur</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tokenisasi-dan-pelatihan-word2vec-cbow">Tokenisasi dan Pelatihan Word2Vec (CBOW)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#rata-rata-embedding-per-dokumen">Rata-rata Embedding per Dokumen</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bentuk-dataframe-fitur-f1-f56-dan-tambah-label">Bentuk DataFrame Fitur f1..f56 dan Tambah Label</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#simpan-hasil-ke-csv-opsional">Simpan Hasil ke CSV (Opsional)</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By The Jupyter Book Community
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2022.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
