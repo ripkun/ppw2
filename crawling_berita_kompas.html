@@ -761,7 +761,7 @@ document.write(`
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>    - Fetching: https://otomotif.kompas.com/read/2025/11/20/112200215/beli-polytron-fox-350-sekarang-konsumen-terima-sebelum-tahun-baru [Otomotif]
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>    - Fetching: https://regional.kompas.com/read/2025/11/20/112053378/ribuan-pendemo-geruduk-kejati-riau-di-pekanbaru-protes-soal-penataan-batas [Regional]
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>    - Fetching: https://regional.kompas.com/read/2025/11/20/112053378/ribuan-pedemo-geruduk-kejati-riau-di-pekanbaru-protes-soal-penataan-batas [Regional]
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>    - Fetching: https://nasional.kompas.com/read/2025/11/20/11171201/anggota-dpr-minta-pemerintah-perbanyak-visa-gratis-demi-genjot-turis-asing [Nasional]
@@ -806,9 +806,6 @@ document.write(`
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>    - Fetching: https://nasional.kompas.com/read/2025/11/20/11125511/kpk-bakal-bentuk-kedeputian-intelijen [Nasional]
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>    - Fetching: https://megapolitan.kompas.com/read/2025/11/20/11065491/perayaan-hari-ibu-yang-menyentuh-hati-oma-di-wisma-mulia [Megapolitan]
-</pre></div>
-</div>
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
 <span class="ne">KeyboardInterrupt</span><span class="g g-Whitespace">                         </span>Traceback (most recent call last)
 <span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">7</span><span class="p">],</span> <span class="n">line</span> <span class="mi">13</span>
@@ -818,12 +815,106 @@ document.write(`
 <span class="g g-Whitespace">     </span><span class="mi">14</span> <span class="k">if</span> <span class="n">batch</span><span class="p">:</span>
 <span class="g g-Whitespace">     </span><span class="mi">15</span>     <span class="n">filtered</span> <span class="o">=</span> <span class="p">[</span><span class="n">x</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">batch</span> <span class="k">if</span> <span class="n">canonicalize</span><span class="p">(</span><span class="n">x</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;url&quot;</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">))</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">existing</span><span class="p">]</span>
 
-<span class="nn">Cell In[6], line 76,</span> in <span class="ni">crawl_site</span><span class="nt">(start_url, max_pages, max_articles)</span>
-<span class="g g-Whitespace">     </span><span class="mi">74</span>         <span class="n">collected</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">news</span><span class="p">)</span>
-<span class="g g-Whitespace">     </span><span class="mi">75</span>         <span class="n">per_category_counts</span><span class="p">[</span><span class="n">cat</span><span class="p">]</span> <span class="o">=</span> <span class="n">per_category_counts</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">cat</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span>
-<span class="ne">---&gt; </span><span class="mi">76</span>     <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mf">0.6</span> <span class="o">+</span> <span class="n">random</span><span class="o">.</span><span class="n">random</span><span class="p">()</span><span class="o">*</span><span class="mf">0.7</span><span class="p">)</span>
-<span class="g g-Whitespace">     </span><span class="mi">78</span> <span class="c1"># Tambahkan link navigasi untuk BFS (dibatasi untuk menghindari ledakan)</span>
-<span class="g g-Whitespace">     </span><span class="mi">79</span> <span class="n">random</span><span class="o">.</span><span class="n">shuffle</span><span class="p">(</span><span class="n">page_links</span><span class="p">)</span>
+<span class="nn">Cell In[6], line 72,</span> in <span class="ni">crawl_site</span><span class="nt">(start_url, max_pages, max_articles)</span>
+<span class="g g-Whitespace">     </span><span class="mi">70</span>     <span class="k">continue</span>
+<span class="g g-Whitespace">     </span><span class="mi">71</span> <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;    - Fetching: </span><span class="si">{</span><span class="n">link</span><span class="si">}</span><span class="s2"> [</span><span class="si">{</span><span class="n">cat</span><span class="si">}</span><span class="s2">]&quot;</span><span class="p">)</span>
+<span class="ne">---&gt; </span><span class="mi">72</span> <span class="n">news</span> <span class="o">=</span> <span class="n">parse_news_detail</span><span class="p">(</span><span class="n">link</span><span class="p">,</span> <span class="n">default_category</span><span class="o">=</span><span class="n">cat</span><span class="p">)</span>
+<span class="g g-Whitespace">     </span><span class="mi">73</span> <span class="k">if</span> <span class="n">news</span> <span class="ow">and</span> <span class="n">news</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;kategori&quot;</span><span class="p">):</span>
+<span class="g g-Whitespace">     </span><span class="mi">74</span>     <span class="n">collected</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">news</span><span class="p">)</span>
+
+<span class="nn">Cell In[5], line 8,</span> in <span class="ni">parse_news_detail</span><span class="nt">(url, default_category)</span>
+<span class="g g-Whitespace">      </span><span class="mi">6</span>     <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;[ERROR] status </span><span class="si">{</span><span class="n">res</span><span class="o">.</span><span class="n">status_code</span><span class="si">}</span><span class="s2"> for </span><span class="si">{</span><span class="n">url</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="g g-Whitespace">      </span><span class="mi">7</span>     <span class="k">return</span> <span class="kc">None</span>
+<span class="ne">----&gt; </span><span class="mi">8</span> <span class="n">soup</span> <span class="o">=</span> <span class="n">BeautifulSoup</span><span class="p">(</span><span class="n">res</span><span class="o">.</span><span class="n">text</span><span class="p">,</span> <span class="s2">&quot;html.parser&quot;</span><span class="p">)</span>
+<span class="g g-Whitespace">     </span><span class="mi">10</span> <span class="c1"># Ambil canonical URL</span>
+<span class="g g-Whitespace">     </span><span class="mi">11</span> <span class="n">canon_tag</span> <span class="o">=</span> <span class="n">soup</span><span class="o">.</span><span class="n">select_one</span><span class="p">(</span><span class="s1">&#39;link[rel=&quot;canonical&quot;]&#39;</span><span class="p">)</span>
+
+<span class="nn">File ~/.local/lib/python3.12/site-packages/bs4/__init__.py:476,</span> in <span class="ni">BeautifulSoup.__init__</span><span class="nt">(self, markup, features, builder, parse_only, from_encoding, exclude_encodings, element_classes, **kwargs)</span>
+<span class="g g-Whitespace">    </span><span class="mi">474</span> <span class="bp">self</span><span class="o">.</span><span class="n">builder</span><span class="o">.</span><span class="n">initialize_soup</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">475</span> <span class="k">try</span><span class="p">:</span>
+<span class="ne">--&gt; </span><span class="mi">476</span>     <span class="bp">self</span><span class="o">.</span><span class="n">_feed</span><span class="p">()</span>
+<span class="g g-Whitespace">    </span><span class="mi">477</span>     <span class="n">success</span> <span class="o">=</span> <span class="kc">True</span>
+<span class="g g-Whitespace">    </span><span class="mi">478</span>     <span class="k">break</span>
+
+<span class="nn">File ~/.local/lib/python3.12/site-packages/bs4/__init__.py:661,</span> in <span class="ni">BeautifulSoup._feed</span><span class="nt">(self)</span>
+<span class="g g-Whitespace">    </span><span class="mi">658</span> <span class="bp">self</span><span class="o">.</span><span class="n">builder</span><span class="o">.</span><span class="n">reset</span><span class="p">()</span>
+<span class="g g-Whitespace">    </span><span class="mi">660</span> <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">markup</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+<span class="ne">--&gt; </span><span class="mi">661</span>     <span class="bp">self</span><span class="o">.</span><span class="n">builder</span><span class="o">.</span><span class="n">feed</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">markup</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">662</span> <span class="c1"># Close out any unfinished strings and close all the open tags.</span>
+<span class="g g-Whitespace">    </span><span class="mi">663</span> <span class="bp">self</span><span class="o">.</span><span class="n">endData</span><span class="p">()</span>
+
+<span class="nn">File ~/.local/lib/python3.12/site-packages/bs4/builder/_htmlparser.py:467,</span> in <span class="ni">HTMLParserTreeBuilder.feed</span><span class="nt">(self, markup)</span>
+<span class="g g-Whitespace">    </span><span class="mi">464</span> <span class="n">parser</span> <span class="o">=</span> <span class="n">BeautifulSoupHTMLParser</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">soup</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">466</span> <span class="k">try</span><span class="p">:</span>
+<span class="ne">--&gt; </span><span class="mi">467</span>     <span class="n">parser</span><span class="o">.</span><span class="n">feed</span><span class="p">(</span><span class="n">markup</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">468</span>     <span class="n">parser</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+<span class="g g-Whitespace">    </span><span class="mi">469</span> <span class="k">except</span> <span class="ne">AssertionError</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">470</span>     <span class="c1"># html.parser raises AssertionError in rare cases to</span>
+<span class="g g-Whitespace">    </span><span class="mi">471</span>     <span class="c1"># indicate a fatal problem with the markup, especially</span>
+<span class="g g-Whitespace">    </span><span class="mi">472</span>     <span class="c1"># when there&#39;s an error in the doctype declaration.</span>
+
+<span class="nn">File /usr/local/python/3.12.1/lib/python3.12/html/parser.py:111,</span> in <span class="ni">HTMLParser.feed</span><span class="nt">(self, data)</span>
+<span class="g g-Whitespace">    </span><span class="mi">105</span><span class="w"> </span><span class="sa">r</span><span class="sd">&quot;&quot;&quot;Feed data to the parser.</span>
+<span class="g g-Whitespace">    </span><span class="mi">106</span><span class="sd"> </span>
+<span class="g g-Whitespace">    </span><span class="mi">107</span><span class="sd"> Call this as often as you want, with as little or as much text</span>
+<span class="g g-Whitespace">    </span><span class="mi">108</span><span class="sd"> as you want (may include &#39;\n&#39;).</span>
+<span class="g g-Whitespace">    </span><span class="mi">109</span><span class="sd"> &quot;&quot;&quot;</span>
+<span class="g g-Whitespace">    </span><span class="mi">110</span> <span class="bp">self</span><span class="o">.</span><span class="n">rawdata</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">rawdata</span> <span class="o">+</span> <span class="n">data</span>
+<span class="ne">--&gt; </span><span class="mi">111</span> <span class="bp">self</span><span class="o">.</span><span class="n">goahead</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+
+<span class="nn">File /usr/local/python/3.12.1/lib/python3.12/html/parser.py:173,</span> in <span class="ni">HTMLParser.goahead</span><span class="nt">(self, end)</span>
+<span class="g g-Whitespace">    </span><span class="mi">171</span>     <span class="n">k</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">parse_starttag</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">172</span> <span class="k">elif</span> <span class="n">startswith</span><span class="p">(</span><span class="s2">&quot;&lt;/&quot;</span><span class="p">,</span> <span class="n">i</span><span class="p">):</span>
+<span class="ne">--&gt; </span><span class="mi">173</span>     <span class="n">k</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">parse_endtag</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">174</span> <span class="k">elif</span> <span class="n">startswith</span><span class="p">(</span><span class="s2">&quot;&lt;!--&quot;</span><span class="p">,</span> <span class="n">i</span><span class="p">):</span>
+<span class="g g-Whitespace">    </span><span class="mi">175</span>     <span class="n">k</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">parse_comment</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+
+<span class="nn">File /usr/local/python/3.12.1/lib/python3.12/html/parser.py:414,</span> in <span class="ni">HTMLParser.parse_endtag</span><span class="nt">(self, i)</span>
+<span class="g g-Whitespace">    </span><span class="mi">411</span>         <span class="bp">self</span><span class="o">.</span><span class="n">handle_data</span><span class="p">(</span><span class="n">rawdata</span><span class="p">[</span><span class="n">i</span><span class="p">:</span><span class="n">gtpos</span><span class="p">])</span>
+<span class="g g-Whitespace">    </span><span class="mi">412</span>         <span class="k">return</span> <span class="n">gtpos</span>
+<span class="ne">--&gt; </span><span class="mi">414</span> <span class="bp">self</span><span class="o">.</span><span class="n">handle_endtag</span><span class="p">(</span><span class="n">elem</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">415</span> <span class="bp">self</span><span class="o">.</span><span class="n">clear_cdata_mode</span><span class="p">()</span>
+<span class="g g-Whitespace">    </span><span class="mi">416</span> <span class="k">return</span> <span class="n">gtpos</span>
+
+<span class="nn">File ~/.local/lib/python3.12/site-packages/bs4/builder/_htmlparser.py:220,</span> in <span class="ni">BeautifulSoupHTMLParser.handle_endtag</span><span class="nt">(self, tag, check_already_closed)</span>
+<span class="g g-Whitespace">    </span><span class="mi">218</span>     <span class="bp">self</span><span class="o">.</span><span class="n">already_closed_empty_element</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="n">tag</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">219</span> <span class="k">else</span><span class="p">:</span>
+<span class="ne">--&gt; </span><span class="mi">220</span>     <span class="bp">self</span><span class="o">.</span><span class="n">soup</span><span class="o">.</span><span class="n">handle_endtag</span><span class="p">(</span><span class="n">tag</span><span class="p">)</span>
+
+<span class="nn">File ~/.local/lib/python3.12/site-packages/bs4/__init__.py:1065,</span> in <span class="ni">BeautifulSoup.handle_endtag</span><span class="nt">(self, name, nsprefix)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1057</span><span class="w"> </span><span class="sd">&quot;&quot;&quot;Called by the tree builder when an ending tag is encountered.</span>
+<span class="g g-Whitespace">   </span><span class="mi">1058</span><span class="sd"> </span>
+<span class="g g-Whitespace">   </span><span class="mi">1059</span><span class="sd"> :param name: Name of the tag.</span>
+<span class="sd">   (...)   1062 :meta private:</span>
+<span class="g g-Whitespace">   </span><span class="mi">1063</span><span class="sd"> &quot;&quot;&quot;</span>
+<span class="g g-Whitespace">   </span><span class="mi">1064</span> <span class="c1"># print(&quot;End tag: &quot; + name)</span>
+<span class="ne">-&gt; </span><span class="mi">1065</span> <span class="bp">self</span><span class="o">.</span><span class="n">endData</span><span class="p">()</span>
+<span class="g g-Whitespace">   </span><span class="mi">1066</span> <span class="bp">self</span><span class="o">.</span><span class="n">_popToTag</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">nsprefix</span><span class="p">)</span>
+
+<span class="nn">File ~/.local/lib/python3.12/site-packages/bs4/__init__.py:866,</span> in <span class="ni">BeautifulSoup.endData</span><span class="nt">(self, containerClass)</span>
+<span class="g g-Whitespace">    </span><span class="mi">859</span> <span class="k">if</span> <span class="p">(</span>
+<span class="g g-Whitespace">    </span><span class="mi">860</span>     <span class="bp">self</span><span class="o">.</span><span class="n">parse_only</span>
+<span class="g g-Whitespace">    </span><span class="mi">861</span>     <span class="ow">and</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">tagStack</span><span class="p">)</span> <span class="o">&lt;=</span> <span class="mi">1</span>
+<span class="g g-Whitespace">    </span><span class="mi">862</span>     <span class="ow">and</span> <span class="p">(</span><span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">parse_only</span><span class="o">.</span><span class="n">allow_string_creation</span><span class="p">(</span><span class="n">current_data</span><span class="p">))</span>
+<span class="g g-Whitespace">    </span><span class="mi">863</span> <span class="p">):</span>
+<span class="g g-Whitespace">    </span><span class="mi">864</span>     <span class="k">return</span>
+<span class="ne">--&gt; </span><span class="mi">866</span> <span class="n">containerClass</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">string_container</span><span class="p">(</span><span class="n">containerClass</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">867</span> <span class="n">o</span> <span class="o">=</span> <span class="n">containerClass</span><span class="p">(</span><span class="n">current_data</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">868</span> <span class="bp">self</span><span class="o">.</span><span class="n">object_was_parsed</span><span class="p">(</span><span class="n">o</span><span class="p">)</span>
+
+<span class="nn">File ~/.local/lib/python3.12/site-packages/bs4/__init__.py:735,</span> in <span class="ni">BeautifulSoup.string_container</span><span class="nt">(self, base_class)</span>
+<span class="g g-Whitespace">    </span><span class="mi">732</span>         <span class="n">tag</span><span class="o">.</span><span class="n">string</span> <span class="o">=</span> <span class="n">string</span>
+<span class="g g-Whitespace">    </span><span class="mi">733</span>     <span class="k">return</span> <span class="n">tag</span>
+<span class="ne">--&gt; </span><span class="mi">735</span> <span class="k">def</span><span class="w"> </span><span class="nf">string_container</span><span class="p">(</span>
+<span class="g g-Whitespace">    </span><span class="mi">736</span>     <span class="bp">self</span><span class="p">,</span> <span class="n">base_class</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">Type</span><span class="p">[</span><span class="n">NavigableString</span><span class="p">]]</span> <span class="o">=</span> <span class="kc">None</span>
+<span class="g g-Whitespace">    </span><span class="mi">737</span> <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Type</span><span class="p">[</span><span class="n">NavigableString</span><span class="p">]:</span>
+<span class="g g-Whitespace">    </span><span class="mi">738</span><span class="w">     </span><span class="sd">&quot;&quot;&quot;Find the class that should be instantiated to hold a given kind of</span>
+<span class="g g-Whitespace">    </span><span class="mi">739</span><span class="sd">     string.</span>
+<span class="g g-Whitespace">    </span><span class="mi">740</span><span class="sd"> </span>
+<span class="g g-Whitespace">    </span><span class="mi">741</span><span class="sd">     This may be a built-in Beautiful Soup class or a custom class passed</span>
+<span class="g g-Whitespace">    </span><span class="mi">742</span><span class="sd">     in to the BeautifulSoup constructor.</span>
+<span class="g g-Whitespace">    </span><span class="mi">743</span><span class="sd">     &quot;&quot;&quot;</span>
+<span class="g g-Whitespace">    </span><span class="mi">744</span>     <span class="n">container</span> <span class="o">=</span> <span class="n">base_class</span> <span class="ow">or</span> <span class="n">NavigableString</span>
 
 <span class="ne">KeyboardInterrupt</span>: 
 </pre></div>
