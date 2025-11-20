@@ -1,0 +1,38 @@
+# Table of contents
+# Learn more at https://jupyterbook.org/customize/toc.html
+
+format: jb-book
+root: intro
+chapters:
+- file: pengantar
+  title: Pengantar Pencarian dan Penambangan Web
+- file: crawling
+  title: Crawling
+- file: crawling_pta
+  title: Crawling PTA Trunojoyo
+- file: crawling_berita_kompas
+  title: Crawling Berita Kompas
+- file: scrapping_link_informatika
+  title: Link Scrapping PTA Teknik Informatika
+- file: crawling_manajemen
+  title: Crawling PTA Trunojoyo Fakultas Ekonomi Prodi Manajemen
+- file: preprocessing_berita
+  title: Preprocessing Berita
+- file: preprocessing_pta_manajemen
+  title: Preprocessing PTA Manajemen
+- file: ekstraksi_fitur_tfidf_berita
+  title: Ekstraksi Fitur tf idf Berita
+- file: ekstraksi_fitur_tfidf_pta_manajemen
+  title: Ekstraksi Fitur tf idf Pta Manajemen
+- file: Cbow_embeding_berita_preprocesed
+  title: Cbow Embeding Berita Preprocesed
+- file: Cbow_embeding_pta_manajemen_preprocesed
+  title: Cbow Embeding Pta Manajemen Preprocesed
+- file: tugas6-rifqi
+  title: Klasifikasi Berita menggunakan Fitur Latent Dirichlet Allocation (LDA)
+- file: UTS_Klasifikasi_Berita_dan_Clustering_Spam
+  title: Tugas UTS (Klasifikasi Berita dan Clustering Spam)
+- file: page_rank
+  title: Analisis Graph Data dari pta_graph.xlsx
+- file: Nasa_Fiks_PPW
+  title: NASA
