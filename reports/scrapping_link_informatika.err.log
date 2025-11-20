@@ -67,7 +67,7 @@ df.to_excel("pta_informatika.xlsx", index=False)
 
 ----- stdout -----
 Crawling: https://pta.trunojoyo.ac.id/c_search/byprod/10
-Error akses https://pta.trunojoyo.ac.id/c_search/byprod/10: HTTPSConnectionPool(host='pta.trunojoyo.ac.id', port=443): Max retries exceeded with url: /c_search/byprod/10 (Caused by NameResolutionError("<urllib3.connection.HTTPSConnection object at 0x7538d744deb0>: Failed to resolve 'pta.trunojoyo.ac.id' ([Errno -2] Name or service not known)"))
+Error akses https://pta.trunojoyo.ac.id/c_search/byprod/10: HTTPSConnectionPool(host='pta.trunojoyo.ac.id', port=443): Max retries exceeded with url: /c_search/byprod/10 (Caused by NameResolutionError("<urllib3.connection.HTTPSConnection object at 0x7479bd152d80>: Failed to resolve 'pta.trunojoyo.ac.id' ([Errno -2] Name or service not known)"))
 ------------------
 
 [31m---------------------------------------------------------------------------[39m
