@@ -158,8 +158,8 @@ const thebe_selector_output = ".output, .cell_output"
       
     
     
-    <img src="_static/logo.png" class="logo__image only-light" alt="My sample book - Home"/>
-    <script>document.write(`<img src="_static/logo.png" class="logo__image only-dark" alt="My sample book - Home"/>`);</script>
+    <img src="_static/profile.png" class="logo__image only-light" alt="My sample book - Home"/>
+    <script>document.write(`<img src="_static/profile.png" class="logo__image only-dark" alt="My sample book - Home"/>`);</script>
   
   
 </a></div>
@@ -472,70 +472,15 @@ document.write(`
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Crawling: https://pta.trunojoyo.ac.id/c_search/byprod/10
-Error akses https://pta.trunojoyo.ac.id/c_search/byprod/10: HTTPSConnectionPool(host=&#39;pta.trunojoyo.ac.id&#39;, port=443): Max retries exceeded with url: /c_search/byprod/10 (Caused by NameResolutionError(&quot;&lt;urllib3.connection.HTTPSConnection object at 0x7363159f92b0&gt;: Failed to resolve &#39;pta.trunojoyo.ac.id&#39; ([Errno -2] Name or service not known)&quot;))
-</pre></div>
-</div>
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">ModuleNotFoundError</span><span class="g g-Whitespace">                       </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">3</span><span class="p">],</span> <span class="n">line</span> <span class="mi">45</span>
-<span class="g g-Whitespace">     </span><span class="mi">43</span> <span class="c1"># Simpan ke DataFrame</span>
-<span class="g g-Whitespace">     </span><span class="mi">44</span> <span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">edges</span><span class="p">)</span>
-<span class="ne">---&gt; </span><span class="mi">45</span> <span class="n">df</span><span class="o">.</span><span class="n">to_excel</span><span class="p">(</span><span class="s2">&quot;pta_informatika.xlsx&quot;</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
-
-<span class="nn">File ~/.local/lib/python3.12/site-packages/pandas/util/_decorators.py:333,</span> in <span class="ni">deprecate_nonkeyword_arguments.&lt;locals&gt;.decorate.&lt;locals&gt;.wrapper</span><span class="nt">(*args, **kwargs)</span>
-<span class="g g-Whitespace">    </span><span class="mi">327</span> <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">args</span><span class="p">)</span> <span class="o">&gt;</span> <span class="n">num_allow_args</span><span class="p">:</span>
-<span class="g g-Whitespace">    </span><span class="mi">328</span>     <span class="n">warnings</span><span class="o">.</span><span class="n">warn</span><span class="p">(</span>
-<span class="g g-Whitespace">    </span><span class="mi">329</span>         <span class="n">msg</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">arguments</span><span class="o">=</span><span class="n">_format_argument_list</span><span class="p">(</span><span class="n">allow_args</span><span class="p">)),</span>
-<span class="g g-Whitespace">    </span><span class="mi">330</span>         <span class="ne">FutureWarning</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">331</span>         <span class="n">stacklevel</span><span class="o">=</span><span class="n">find_stack_level</span><span class="p">(),</span>
-<span class="g g-Whitespace">    </span><span class="mi">332</span>     <span class="p">)</span>
-<span class="ne">--&gt; </span><span class="mi">333</span> <span class="k">return</span> <span class="n">func</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
-
-<span class="nn">File ~/.local/lib/python3.12/site-packages/pandas/core/generic.py:2439,</span> in <span class="ni">NDFrame.to_excel</span><span class="nt">(self, excel_writer, sheet_name, na_rep, float_format, columns, header, index, index_label, startrow, startcol, engine, merge_cells, inf_rep, freeze_panes, storage_options, engine_kwargs)</span>
-<span class="g g-Whitespace">   </span><span class="mi">2426</span> <span class="kn">from</span><span class="w"> </span><span class="nn">pandas.io.formats.excel</span><span class="w"> </span><span class="kn">import</span> <span class="n">ExcelFormatter</span>
-<span class="g g-Whitespace">   </span><span class="mi">2428</span> <span class="n">formatter</span> <span class="o">=</span> <span class="n">ExcelFormatter</span><span class="p">(</span>
-<span class="g g-Whitespace">   </span><span class="mi">2429</span>     <span class="n">df</span><span class="p">,</span>
-<span class="g g-Whitespace">   </span><span class="mi">2430</span>     <span class="n">na_rep</span><span class="o">=</span><span class="n">na_rep</span><span class="p">,</span>
-   <span class="p">(</span><span class="o">...</span><span class="p">)</span>   <span class="mi">2437</span>     <span class="n">inf_rep</span><span class="o">=</span><span class="n">inf_rep</span><span class="p">,</span>
-<span class="g g-Whitespace">   </span><span class="mi">2438</span> <span class="p">)</span>
-<span class="ne">-&gt; </span><span class="mi">2439</span> <span class="n">formatter</span><span class="o">.</span><span class="n">write</span><span class="p">(</span>
-<span class="g g-Whitespace">   </span><span class="mi">2440</span>     <span class="n">excel_writer</span><span class="p">,</span>
-<span class="g g-Whitespace">   </span><span class="mi">2441</span>     <span class="n">sheet_name</span><span class="o">=</span><span class="n">sheet_name</span><span class="p">,</span>
-<span class="g g-Whitespace">   </span><span class="mi">2442</span>     <span class="n">startrow</span><span class="o">=</span><span class="n">startrow</span><span class="p">,</span>
-<span class="g g-Whitespace">   </span><span class="mi">2443</span>     <span class="n">startcol</span><span class="o">=</span><span class="n">startcol</span><span class="p">,</span>
-<span class="g g-Whitespace">   </span><span class="mi">2444</span>     <span class="n">freeze_panes</span><span class="o">=</span><span class="n">freeze_panes</span><span class="p">,</span>
-<span class="g g-Whitespace">   </span><span class="mi">2445</span>     <span class="n">engine</span><span class="o">=</span><span class="n">engine</span><span class="p">,</span>
-<span class="g g-Whitespace">   </span><span class="mi">2446</span>     <span class="n">storage_options</span><span class="o">=</span><span class="n">storage_options</span><span class="p">,</span>
-<span class="g g-Whitespace">   </span><span class="mi">2447</span>     <span class="n">engine_kwargs</span><span class="o">=</span><span class="n">engine_kwargs</span><span class="p">,</span>
-<span class="g g-Whitespace">   </span><span class="mi">2448</span> <span class="p">)</span>
-
-<span class="nn">File ~/.local/lib/python3.12/site-packages/pandas/io/formats/excel.py:943,</span> in <span class="ni">ExcelFormatter.write</span><span class="nt">(self, writer, sheet_name, startrow, startcol, freeze_panes, engine, storage_options, engine_kwargs)</span>
-<span class="g g-Whitespace">    </span><span class="mi">941</span>     <span class="n">need_save</span> <span class="o">=</span> <span class="kc">False</span>
-<span class="g g-Whitespace">    </span><span class="mi">942</span> <span class="k">else</span><span class="p">:</span>
-<span class="ne">--&gt; </span><span class="mi">943</span>     <span class="n">writer</span> <span class="o">=</span> <span class="n">ExcelWriter</span><span class="p">(</span>
-<span class="g g-Whitespace">    </span><span class="mi">944</span>         <span class="n">writer</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">945</span>         <span class="n">engine</span><span class="o">=</span><span class="n">engine</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">946</span>         <span class="n">storage_options</span><span class="o">=</span><span class="n">storage_options</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">947</span>         <span class="n">engine_kwargs</span><span class="o">=</span><span class="n">engine_kwargs</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">948</span>     <span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">949</span>     <span class="n">need_save</span> <span class="o">=</span> <span class="kc">True</span>
-<span class="g g-Whitespace">    </span><span class="mi">951</span> <span class="k">try</span><span class="p">:</span>
-
-<span class="nn">File ~/.local/lib/python3.12/site-packages/pandas/io/excel/_openpyxl.py:57,</span> in <span class="ni">OpenpyxlWriter.__init__</span><span class="nt">(self, path, engine, date_format, datetime_format, mode, storage_options, if_sheet_exists, engine_kwargs, **kwargs)</span>
-<span class="g g-Whitespace">     </span><span class="mi">44</span> <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span>
-<span class="g g-Whitespace">     </span><span class="mi">45</span>     <span class="bp">self</span><span class="p">,</span>
-<span class="g g-Whitespace">     </span><span class="mi">46</span>     <span class="n">path</span><span class="p">:</span> <span class="n">FilePath</span> <span class="o">|</span> <span class="n">WriteExcelBuffer</span> <span class="o">|</span> <span class="n">ExcelWriter</span><span class="p">,</span>
-   <span class="p">(</span><span class="o">...</span><span class="p">)</span>     <span class="mi">55</span> <span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-<span class="g g-Whitespace">     </span><span class="mi">56</span>     <span class="c1"># Use the openpyxl module as the Excel writer.</span>
-<span class="ne">---&gt; </span><span class="mi">57</span>     <span class="kn">from</span><span class="w"> </span><span class="nn">openpyxl.workbook</span><span class="w"> </span><span class="kn">import</span> <span class="n">Workbook</span>
-<span class="g g-Whitespace">     </span><span class="mi">59</span>     <span class="n">engine_kwargs</span> <span class="o">=</span> <span class="n">combine_kwargs</span><span class="p">(</span><span class="n">engine_kwargs</span><span class="p">,</span> <span class="n">kwargs</span><span class="p">)</span>
-<span class="g g-Whitespace">     </span><span class="mi">61</span>     <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span>
-<span class="g g-Whitespace">     </span><span class="mi">62</span>         <span class="n">path</span><span class="p">,</span>
-<span class="g g-Whitespace">     </span><span class="mi">63</span>         <span class="n">mode</span><span class="o">=</span><span class="n">mode</span><span class="p">,</span>
-   <span class="p">(</span><span class="o">...</span><span class="p">)</span>     <span class="mi">66</span>         <span class="n">engine_kwargs</span><span class="o">=</span><span class="n">engine_kwargs</span><span class="p">,</span>
-<span class="g g-Whitespace">     </span><span class="mi">67</span>     <span class="p">)</span>
-
-<span class="ne">ModuleNotFoundError</span>: No module named &#39;openpyxl&#39;
+Crawling: https://pta.trunojoyo.ac.id/c_search/byprod/41
+Crawling: https://pta.trunojoyo.ac.id/c_search/
+Crawling: https://pta.trunojoyo.ac.id/c_contact/
+Crawling: https://pta.trunojoyo.ac.id/c_search/byprod/11
+Crawling: https://pta.trunojoyo.ac.id/welcome/detail/070411100070
+Crawling: https://pta.trunojoyo.ac.id/c_search/byfac/99
+Crawling: https://pta.trunojoyo.ac.id/c_search/byfac/100
+Crawling: https://pta.trunojoyo.ac.id/c_search/byprod/35
+Crawling: https://pta.trunojoyo.ac.id/c_search/byfac/6
 </pre></div>
 </div>
 </div>
