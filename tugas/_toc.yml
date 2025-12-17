@@ -38,3 +38,5 @@ chapters:
   title: NASA
 - file: Nasa_fiks2
   title: NASA
+- file: word_graph_UAS_clean
+  title: Ekstraksi Kata Kunci dengan Word Graph dan Analisis Sentralitas
