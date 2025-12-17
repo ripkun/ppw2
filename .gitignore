@@ -1,0 +1,10 @@
+# Jupyter Book / Sphinx build
+tugas/_build/
+*.doctree
+
+# Jupyter
+.ipynb_checkpoints/
+
+# Python
+__pycache__/
+*.pyc
