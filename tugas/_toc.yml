@@ -37,6 +37,14 @@ chapters:
 - file: Nasa_Fiks_PPW
   title: NASA
 - file: Nasa_fiks2
-  title: NASA
+  title: NASA 2
+- file: Usage_Data_Nasa
+  title: Usage Data Nasa
+- file: Crawling_Data_Twitter
+  title: Crawling Twiter
+- file: fb_combined
+  title: FB Combined
+- file: contoh_bapak_word_graph
+  title: Word Graph
 - file: word_graph_UAS_clean
-  title: Ekstraksi Kata Kunci dengan Word Graph dan Analisis Sentralitas
+  title: UAS Ekstraksi Kata Kunci dengan Word Graph dan Analisis Sentralitas
