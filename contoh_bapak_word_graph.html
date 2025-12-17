@@ -1,0 +1,1339 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+    <title>Word Graph &#8212; My sample book</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" href="_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/clipboard.min.js"></script>
+    <script src="_static/copybutton.js"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'contoh_bapak_word_graph';</script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="(UAS) Ekstraksi Kata Kunci dengan Word Graph dan Analisis Sentralitas" href="word_graph_UAS_clean.html" />
+    <link rel="prev" title="FB Combined" href="fb_combined.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="_static/profile.png" class="logo__image only-light" alt="My sample book - Home"/>
+    <script>document.write(`<img src="_static/profile.png" class="logo__image only-dark" alt="My sample book - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="intro.html">
+                    Profile
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="pengantar.html">Pengantar Pencarian dan Penambangan Web</a></li>
+
+
+
+
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="crawling.html">Crawling</a></li>
+
+
+<li class="toctree-l1"><a class="reference internal" href="crawling_pta.html">Crawling PTA Trunojoyo</a></li>
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="crawling_berita_kompas.html">Crawling Berita Kompas</a></li>
+
+
+
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="scrapping_link_informatika.html">Link Scrapping PTA Teknik Informatika</a></li>
+<li class="toctree-l1"><a class="reference internal" href="crawling_manajemen.html">Crawling PTA Trunojoyo Fakultas Ekonomi Prodi Manajemen</a></li>
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="preprocessing_berita.html">Preprocessing Berita</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="preprocessing_pta_manajemen.html">Preprocessing PTA Manajemen</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="ekstraksi_fitur_tfidf_berita.html">Ekstraksi Fitur tf idf Berita</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ekstraksi_fitur_tfidf_pta_manajemen.html">Ekstraksi Fitur tf idf Pta Manajemen</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Cbow_embeding_berita_preprocesed.html">Cbow Embeding Berita Preprocesed</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Cbow_embeding_pta_manajemen_preprocesed.html">Cbow Embeding Pta Manajemen Preprocesed</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tugas6-rifqi.html">Klasifikasi Berita menggunakan Fitur Latent Dirichlet Allocation (LDA)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="UTS_Klasifikasi_Berita_dan_Clustering_Spam.html">Tugas UTS (Klasifikasi Berita dan Clustering Spam)</a></li>
+
+
+<li class="toctree-l1"><a class="reference internal" href="page_rank.html">Analisis Graph Data dari pta_graph.xlsx</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Nasa_Fiks_PPW.html">NASA</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Nasa_fiks2.html">NASA 2</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Usage_Data_Nasa.html">Usage Data Nasa</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Crawling_Data_Twitter.html">Crawling Twiter</a></li>
+<li class="toctree-l1"><a class="reference internal" href="fb_combined.html">FB Combined</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Word Graph</a></li>
+<li class="toctree-l1"><a class="reference internal" href="word_graph_UAS_clean.html">(UAS) Ekstraksi Kata Kunci dengan Word Graph dan Analisis Sentralitas</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2Fcontoh_bapak_word_graph.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/contoh_bapak_word_graph.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Word Graph</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="word-graph">
+<h1>Word Graph<a class="headerlink" href="#word-graph" title="Permalink to this heading">#</a></h1>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">pip</span> <span class="n">install</span> <span class="o">--</span><span class="n">upgrade</span> <span class="n">pymupdf</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: pymupdf in /usr/local/lib/python3.12/dist-packages (1.26.6)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="n">cd</span> <span class="o">/</span><span class="n">content</span><span class="o">/</span><span class="n">drive</span><span class="o">/</span><span class="n">MyDrive</span><span class="o">/</span><span class="n">PPW</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[Errno 2] No such file or directory: &#39;/content/drive/MyDrive/PPW&#39;
+/content
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">pymupdf</span>
+
+<span class="n">doc</span> <span class="o">=</span> <span class="n">pymupdf</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="s2">&quot;main.pdf&quot;</span><span class="p">)</span> <span class="c1"># open a document</span>
+<span class="n">out</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;output.txt&quot;</span><span class="p">,</span> <span class="s2">&quot;wb&quot;</span><span class="p">)</span> <span class="c1"># create a text output</span>
+<span class="k">for</span> <span class="n">page</span> <span class="ow">in</span> <span class="n">doc</span><span class="p">:</span> <span class="c1"># iterate the document pages</span>
+    <span class="n">text</span> <span class="o">=</span> <span class="n">page</span><span class="o">.</span><span class="n">get_text</span><span class="p">()</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span><span class="s2">&quot;utf8&quot;</span><span class="p">)</span> <span class="c1"># get plain text (is in UTF-8)</span>
+    <span class="n">out</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">text</span><span class="p">)</span> <span class="c1"># write text of page</span>
+    <span class="n">out</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="nb">bytes</span><span class="p">((</span><span class="mi">12</span><span class="p">,)))</span> <span class="c1"># write page delimiter (form feed 0x0C)</span>
+<span class="n">out</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>%%capture
+!pip install nltk
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">nltk</span>
+<span class="n">nltk</span><span class="o">.</span><span class="n">download</span><span class="p">(</span><span class="s1">&#39;punkt&#39;</span><span class="p">)</span>  <span class="c1"># hanya perlu sekali</span>
+<span class="n">nltk</span><span class="o">.</span><span class="n">download</span><span class="p">(</span><span class="s1">&#39;punkt_tab&#39;</span><span class="p">)</span>  <span class="c1"># opsional, untuk versi terbaru NLTK (≥3.8.2)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[nltk_data] Downloading package punkt to /root/nltk_data...
+[nltk_data]   Package punkt is already up-to-date!
+[nltk_data] Downloading package punkt_tab to /root/nltk_data...
+[nltk_data]   Package punkt_tab is already up-to-date!
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>True
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;output.txt&#39;</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s1">&#39;utf-8&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">file</span><span class="p">:</span>
+    <span class="n">teks</span> <span class="o">=</span> <span class="n">file</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">teks</span><span class="p">[:</span><span class="mi">200</span><span class="p">])</span>  <span class="c1"># tampilkan 200 karakter pertama</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Pembuatan Booklet Mitigasi Bencana Gempa Bumi dan Tsunami Sebagai Media Informasi bagi Masyarakat Kota
+Padang - Diana Agusti, Elva Rahmah
+113
+PEMBUATAN BOOKLET MITIGASI BENCANA GEMPA BUMI DAN
+TSUNAMI 
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Install: pip install nltk</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">nltk</span>
+
+
+<span class="c1">#text = &quot;Ini adalah kalimat pertama. Ini kalimat kedua? Ya!&quot;</span>
+<span class="n">sentences</span> <span class="o">=</span> <span class="n">nltk</span><span class="o">.</span><span class="n">sent_tokenize</span><span class="p">(</span><span class="n">teks</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">sentences</span><span class="p">)</span>
+<span class="c1"># Output: [&#39;Ini adalah kalimat pertama.&#39;, &#39;Ini kalimat kedua?&#39;, &#39;Ya!&#39;]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;Pembuatan Booklet Mitigasi Bencana Gempa Bumi dan Tsunami Sebagai Media Informasi bagi Masyarakat Kota\nPadang - Diana Agusti, Elva Rahmah\n113\nPEMBUATAN BOOKLET MITIGASI BENCANA GEMPA BUMI DAN\nTSUNAMI SEBAGAI MEDIA INFORMASI BAGI MASYARAKAT\nKOTA PADANG\nDiana Agusti1, Elva Rahmah2\nProgram Studi Informasi Perpustakaan dan Kearsipan\nFBS Universitas Negeri Padang\nemail: dianaagusti17@gmail.com\nAbstract\nThis research was aimed to make booklet mitigation for an earthquake\nand tsunami disaster as information media of Padang Society.&#39;, &#39;This\npaper pupose to description creation phase booklet mitigation for an\nearthquake and tsunami disaster.&#39;, &#39;The research method used in this\npaper is a descriptive method.&#39;, &#39;Data resources was obtained from\ninterview, electronic media, and non electronic media.&#39;, &#39;For creating\nprocess booklet mitigation for an earthquake and tsunami disaster as\ninformation media, first step prepare tools and materials, tools and\nmaterials used in this making phase is computer or laptop connected\nto the internet network, printer and Canva software.&#39;, &#39;The other\nmaterials that also we need is booklet art paper.&#39;, &#39;Second, follow the\nsteps according to the booklet making methodology: a) Determine the\ntitle an sub title booklet; b) Format making or booklet structure,; c)\nSearching for information that need as booklet content; d) Processing\ninformation; e) Arrenge and place information according to the\nbooklet format; f) Creating booklet design and editing using Canva\napplication; g) Printing booklet.&#39;, &#39;Third, constraints and efforts in the\nprocess of making booklets.&#39;, &#39;Constraints faced are an unstable internet\nconnection that causes the editing process using the canva application\ncannot be run.&#39;, &#39;The effort is to find a place with a stable internet\nconnection.&#39;, &#39;Keywords: booklet, mitigation disaster, earthquake, tsunami\nA. Pendahuluan\nSebagian besar wilayah Indonesia rawan terhadap bencana gempa bumi.&#39;, &#39;Hal ini\ndikarenakan Indonesia terletak pada pertemuan tiga lempeng yaitu lempeng Indo-\nAustralia, lempeng Eurasia dan lempeng Pasifik.&#39;, &#39;Pergerakan antar lempeng bumi akan\nmenyebabkan terjadinya tumbukan antara satu lempeng dengan lempeng lainnya\nsehingga mengakibatkan terjadinya gempa bumi.&#39;, &#39;Gempa bumi bisa terjadi pada dua lokasi\nyaitu di bawah permukaan laut dan di daratan.&#39;, &#39;Pulau Sumatera merupakan salah satu\npulau yang dilalui oleh lempeng Indo-Australia dan Eurasia, lempeng tersebut akan\nbertumbukan pada lepas pantai barat Pulau Sumatera.&#39;, &#39;Itulah sebabnya mengapa di daerah\nsekitar pertemuan lempeng itu sering terjadi gempa bumi.&#39;, &#39;Daerah yang rawan gempa juga merupakan daerah rawan tsunami.&#39;, &#39;Gempa bumi\ndengan kekuatan besar yang terjadi di bawah permukaan laut dapat memicu terjadinya\n1 Mahasiswa penulis makalah Prodi Informasi Perpustakaan dan Kearsipan, wisuda September 2019.&#39;, &#39;2 Pembimbing, Dosen FBS Universitas Negeri Padang\n\x0cJurnal Ilmu Informasi Perpustakaan dan Kearsipan\nVol.&#39;, &#39;8, No.&#39;, &#39;1, September 2019, Seri B\n114\ntsunami.&#39;, &#39;Tsunami merupakan gelombang laut raksasa atau serangkaian gelombang yang\ndapat bergerak dengan sangat cepat dalam jarak jauh menuju ke daratan.&#39;, &#39;Kecepatan\ngelombang tsunami bergantung pada kedalaman laut.&#39;, &#39;Tsunami dapat mencapai daratan\ndalam waktu beberapa menit setelah terjadinya gempa di bawah permukaan laut.&#39;, &#39;Hal ini\nmenjadi suatu kekhawatiran bagi masyarakat yang tinggal di daerah rawan gempa bumi.&#39;, &#39;Sumatera Barat merupakan salah satu wilayah rawan gempa bumi yang berada di\nPulau Sumatera.&#39;, &#39;Beberapa peristiwa gempa bumi dengan kekuatan cukup besar yang\nterjadi di Sumatera Barat yaitu gempa bumi pada tahun 1797 berkekuatan 8,4 Skala\nRichter terjadi di lepas pantai Padang yang mengakibatkan tsunami, gempa bumi pada 30\nSeptember 2009 berkekuatan 7,6 Skala Richter terjadi di lepas pantai Sumatera Barat, dan\ngempa bumi di Mentawai pada 25 Oktober 2010 berkekuatan 7,5 Skala Richter terjadi di\nlepas pantai Sumatera juga mengakibatkan tsunami di Mentawai (Supriyono, 2014:54-55).&#39;, &#39;Peristiwa gempa bumi yang masih membekas diingatan masyarakat Kota Padang\nsampai saat ini adalah gempa bumi pada 30 September 2009 yang menyebabkan\nkerusakan parah di beberapa wilayah Sumatera Barat serta menyebabkan korban\nmeninggal dunia sebanyak 6.234 orang, luka-luka 1.688 orang, hilang 1 orang, rumah\nrusak berat 135.448 unit, rumah rusak sedang 65.380 unit, dan rumah rusak ringan\n78.604 unit (Supriyono, 2014:66).&#39;, &#39;Kerugian dan jumlah korban yang cukup besar\ndikarenakan masih banyak masyarakat Kota Padang tidak mengetahui tindakan apa yang\nharus dilakukan sebelum terjadinya bencana, saat terjadinya bencana dan setelah\nterjadinya bencana tersebut.&#39;, &#39;Meski pemerintah telah menyediakan berbagai fasilitas dan\nupaya penanggulangan bencana, rasa takut dan kekhawatiran dalam diri masyarakat tentu\nmasih ada.&#39;, &#39;Salah satu cara untuk mengatasi rasa takut dan kekhawatiran pada masyarakat\nyaitu membekali diri dengan berbagai pengetahuan mengenai gempa bumi dan tsunami.&#39;, &#39;Masyarakat harus mengetahui apa itu gempa bumi dan tsunami, tindakan apa yang\ndilakukan sebelum, sesaat dan setelah terjadinya peristiwa tersebut.&#39;, &#39;Dengan demikian\nmasyarakat dapat mempersiapkan diri sejak dini untuk menghadapi gempa bumi dan\ntsunami yang dapat terjadi sewaktu-waktu tanpa diketahui.&#39;, &#39;Booklet mitigasi bencana\ngempa bumi dan tsunami merupakan salah satu media informasi bagi masyarakat Kota\nPadang dalam menambah dan meningkatkan pengetahuan masyarakat mengenai gempa\nbumi dan tsunami serta tindakan yang dilakukan sebelum, sesaat dan sesudah peristiwa\ntersebut terjadi.&#39;, &#39;Sehingga dapat menjadikan masyarakat Kota Padang yang siap, sigap dan\ntanggap dalam menghadapi bencana gempa bumi dan tsunami.&#39;, &#39;Menurut Irwansyah (2013:50) gempa bumi adalah berguncangnya bumi yang\ndisebabkan oleh tumbukan antar lempeng bumi, patahan aktif aktivitas gunung api atau\nruntuhan\nbatuan.&#39;, &#39;Lempeng\nsamudera\nyang\nrapat\nmassanya\nlebih\nbesar\nketika\nbertumbukkan dengan lempeng benua sehingga akan mengalami perlambatan gerak yang\nmenyebabkan penumpukkan energi di zona penunjangan.&#39;, &#39;Pada kondisi batas elastisitas\nlempeng terlampaui, maka terjadilah patahan batuan yang diikuti oleh lepasnya energi\nsecara tiba-tiba yang menimbulkan getaran partikel ke segala arah yang disebut gempa\nbumi.&#39;, &#39;Berdasarkan\nfaktor\npenyebab\nterjadinya\ngempa,\nSupriyono\n(2014:34-42)\nmenyebutkan beberapa jenis gempa bumi antara lain gempa bumi tektonik, gempa bumi\nvulkanik, gempa bumi runtuhan atau longsoran, gempa bumi tumbukan atau jatuhan, dan\ngempa bumi buatan.&#39;, &#39;Gempa bumi tektonik terjadi akibat pelepasan energi dari pergerakan\nlempeng-lempeng tektonik bumi yang terjadi secara tiba-tiba.&#39;, &#39;Gempa bumi vulkanik\nterjadi akibat aktivitas gunung berapi serta pergerakan magma di dalam perut bumi.&#39;, &#39;Gempa bumi runtuhan atau longsoran terjadi karena adanya runtuhan atau longsoran\ntanah atau batuan.&#39;, &#39;Gempa bumi tumbukan diakibatkan oleh tumbukan meteor atau\nasteroid yang jatuh ke bumi.&#39;, &#39;Gempa bumi buatan yang disebabkan oleh aktivitas manusia\nsendiri.&#39;, &#39;Pembuatan Booklet Mitigasi Bencana Gempa Bumi dan Tsunami Sebagai Media Informasi bagi Masyarakat Kota\nPadang - Diana Agusti, Elva Rahmah\n115\nTika (2012:3) mengatakan apabila terjadi gempa tanda-tanda adanya tsunami\nadalah surutnya secara tajam permukaan laut diwilayah pantai dan akan kelihatan\nterdapat ikan yang bergelimpangan pada wilayah surutnya air laut tersebut.&#39;, &#39;Pada saat\nyang tidak terlalu lama 10 – 15 menit, air laut yang telah surut akan kembali menghantam\npantai yang mengalami kekeringan dan kemungkinan air laut sampai kedaratan pada\nketinggian 5 – 10 meter diatas permukaan laut.&#39;, &#39;Terjadinya tsunami karena pada saat\ngempa terjadi rekahan kulit bumi yang berakibat air laut mengisi rekahan tersebut,\nkemudian bersamaan atau setelah terisi air laut, rekahan tadi mengalami longsoran yang\nberakibat air laut tadi meluap dan menimbulkan gelombang besar yang akan menghantam\npantai.&#39;, &#39;Yuldi (2008:31-33) menyatakan dampak terjadinya tsunami di atas permukaan\nbumi yaitu menyapu dan menghancurkan bangunan-bangunan, tumbuhan, binatang,\nfasilitas-fasilitas publik serta menimbulkan korban jiwa.&#39;, &#39;Tsunami juga menimbulkan\nkerusakan di dasar laut.&#39;, &#39;Pergerakan gempa dan gesekan massa air laut yang sangat besar\nmenggerus dasar laut sampai ke pantai, membunuh dan memusnahkan ekosistem di dasar\nlaut.&#39;, &#39;Material bangunan yang hanyut ke dasar laut juga membuat perubahan bentuk dasar\nlaut, sehingga mempengaruhi aktivitas pelayaran di sekitar bibir pantai.&#39;, &#39;Defenisi booklet Menurut Sari (2013:6) adalah sebuah media publikasi yang terdiri\ndari beberapa lembar dan halaman, tetapi tidak setebal buku.&#39;, &#39;Istilah booklet juga disebut\nsebagai perpaduan antara leaflet dan buku atau sebuah buku dengan format kecil\nlayaknya leaflet, hanya saja cara penyajian isinya jauh lebih singkat dari pada sebuah buku.&#39;, &#39;Satmoko (dalam Septiwiharti, 2015:30-31) menyatakan awal penulisan booklet bermula\ndari\npenentuan\ntopiknya.&#39;, &#39;Topiknya\ntersebut\ndiperjelas,\nsubyek\nyang\nhendak\ndikembangkan dan kepada siapa artikel tersebut ditujukan.&#39;, &#39;Pada bagian awal, latar\nbelakang dan informasi umum tentang topik tersebut perlu diungkapkan.&#39;, &#39;Struktur atau isi\ndari booklet sama seperti buku biasa, struktur booklet pada umumnya terdiri dari\npendahuluan, isi dan penutup, hanya saja cara penyajian isinya lebih singkat dari sebuah\nbuku.&#39;, &#39;Bentuk booklet yang praktis dan menarik akan mempermudah pengguna.&#39;, &#39;Selain itu,\ndiharapkan ilustrasi dalam booklet akan menambah motivasi dan minat pengguna\nmenggunakan booklet.&#39;, &#39;Menurut Nirmalawati (2012:62) mitigasi adalah suatu tahapan yang bertujuan\nuntuk mengurangi kemungkinan dampak negatif kejadian bencana terhadap kehidupan\natau dapat diartikan bahwa mitigasi sebagai\nmengambil tindakan-tindakan untuk\nmengurangi pengaruh-pengaruh dari suatu bahaya sebelum bahaya terjadi.&#39;, &#39;Sedangkan\nbencana sendiri adalah keadaan yang mengganggu kehidupan sosial ekonomi masyarakat\nyang disebabkan oleh gejala alam atau perbuatan manusia.&#39;, &#39;Bencana dapat terjadi melalui\nsuatu proses yang panjang atau situasi tertentu dalam waktu yang sangat cepat tanpa\nadanya tanda-tanda.&#39;, &#39;Supriyono (2014: 103-106) menyebutkan beberapa langkah awal\nyang dapat dilakukan dalam mitigasi bencana gempa bumi antara lain: 1) Pemetaan\nwilayah rawan gempa bumi; 2) Relokasi pemukiman penduduk; 3) Pembuatan prediksi\ngempa bumi; 4) Peraturan konstruksi tahan gempa; 5) Pembuatan jalur dan rambu\nevakuasi; 6) Penyiapan alat mitigasi; 7) Pembentukan satuan tugas; 8) Pendidikan dan\nlatihan mitigasi bencana gempa bumi.&#39;, &#39;Dalam Undang-Undang Nomor 14 mengenai keterbukaan informasi publik\n(2008:2) informasi adalah keterangan, pernyataan, gagasan, dan tanda-tanda yang\nmnegandung nilai, makna, pesan, baik data, faka maupun penjelasannya yang dapat dilihat,\ndidengar, dan dibaca yang disajikan dalam berbagai kemasan dan format sesuai dengan\nperkembangan teknologi informasi dan komunikasi secara elektronik ataupun non-\nelektronik.&#39;, &#39;Sedangkan menurut Wicaksono (2016:12) informasi adalah sesuatu yang kita\nbagi melalui beragam media komunikasi (Information is something that we share).&#39;, &#39;Informasi sama dengan pengetahuan yang dibagi atau telah dikomunikasikan melalui\nberbagai media (Information is where knowledge).&#39;, &#39;Jurnal Ilmu Informasi Perpustakaan dan Kearsipan\nVol.&#39;, &#39;8, No.&#39;, &#39;1, September 2019, Seri B\n116\nDengan demikian pembuatan booklet mitigasi bencana gempa bumi dan tsunami\nsebagai media informasi bagi masyarakat Kota Padang diharapkan dapat memberikan\nserta membantu masyarakat Kota Padang khususnya dalam mencari dan menambah\npengetahuan informasi mengenai mitigasi bencana gempa bumi dan tsunami, sehingga\nmasyarakat dapat meminimalisirkan rasa cemas dan khawatir yang berlebihan serta\ndapat menanamkan pendidikan dini bencana kepada anak.&#39;, &#39;B. Metode Penelitian\nMetode penelitian yang digunakan dalam pembuatan makalah ini adalah metode\ndeskriptif.&#39;, &#39;Pada makalah ini data yang diperoleh merupakan hasil dari wawancara dan\nkumpulan data-data dari berbagai sumber informasi cetak maupun non cetak.&#39;, &#39;Dalam\ntahapan pembuatan booklet tersebut hal yang dilakukan yaitu mempersiapkan alat dan\nbahan serta melakukan tahapan pembuatan booklet seperti: 1) Menentukan judul dan sub\njudul booklet; 2) Membuat format atau struktur booklet; 3) Mencari serta mengumpulkan\ninformasi yang dibutuhkan sebagai isi booklet; 4) Pengolahan informasi; 5)\nMenyusun\ninformasi sesuai dengan format booklet; 6) Melakukan editing; dan 7) Mencetak booklet.&#39;, &#39;C.\nPembahasan\nPada pembuatan booklet terdapat berbagai hal yang harus diperhatikan sehingga\ndapat mewujudkan bentuk booklet yang baik serta dapat mencapai tujuan dari pembuatan\nbooklet tersebut.&#39;, &#39;Hal yang harus diperhatikan dalam pembuatan booklet yaitu judul dan\nsubjudul, struktur dan fromat yang konkret, metode penulisan, serta penggunaan sampul.&#39;, &#39;Dalam\ntahapan\npembuatan\nbooklet\ntersebut\nhal\nyang\ndilakukan\nyaitu\nmempersiapkan alat dan bahan serta melakukan tahapan pembuatan booklet seperti: 1)\nmenentukan judul dan subjudul booklet; 2) membuat format atau struktur booklet; 3)\nmencari serta mengumpulkan informasi yang dibutuhkan sebagai isi booklet; 4)\npengolahan informasi; 5) menyusun informasi sesuai dengan format booklet; 6)\nmelakukan editing; dan 7) mencetak booklet.&#39;, &#39;1.&#39;, &#39;Alat dan Bahan yang Digunakan Dalam Pembuatan Booklet\nAlat dan bahan yang digunakan dalam pembuatan booklet ini yaitu komputer atau\nlaptop yang terhubung dengan jaringan internet, printer, serta software Canva.&#39;, &#39;Selain itu\nbahan yang dibutuhkan berupa kertas khusus booklet art paper.&#39;, &#39;Beberapa alat dan bahan\nyang penulis gunakan sebagai berikut.&#39;, &#39;a.\nKomputer atau Laptop\nKomputer atau laptop dalam berbagai jenis dan tipe dapat\ndigunakan dalam\npembuatan booklet ini, hanya saja perangkat yang digunakan harus terhubung dengan\njaringan internet.&#39;, &#39;Hal ini dikarenakan applikasi atau software yang digunakan bersifat\nonline.&#39;, &#39;b.&#39;, &#39;Software atau Aplikasi canva\nMerupakan salah satu aplikasi yang dapat digunakan dalam mendesain berbagai\nbentuk media cetak.&#39;, &#39;Aplikasi ini menyediakan banyak desain dan aksesoris yang dapat\ndigunakan untuk membuat atau mendesain berbagai media cetak.&#39;, &#39;Penggunaan aplikasi ini\ncukup mudah dimengerti dan menyediakan berbagai jenis desain yang menarik.&#39;, &#39;Aplikasi\ncanva dapat ditemukan melalui browser internet dangan memasukan kata kunci canva\npada search engine.&#39;, &#39;Pembuatan Booklet Mitigasi Bencana Gempa Bumi dan Tsunami Sebagai Media Informasi bagi Masyarakat Kota\nPadang - Diana Agusti, Elva Rahmah\n117\nGambar 1.&#39;, &#39;Aplikasi Canva pada Browser Internet\nGambar di atas merupakan tampilan pada browser ketika memasukan kata kunci\ncanva pada search engine.&#39;, &#39;Setelah itu klik link canva yang muncul pada baris pertama\nyang muncul setelah melakukan pencarian.&#39;, &#39;Gambar 2.&#39;, &#39;Tampilan untuk Pembuatan Akun Canva\nGambar 2 merupakan tampilan untuk pembuatan akun canva, sebelum aplikasi\ncanva dapat digunakan, pengguna diharuskan untuk membuat akun terlebih dulu.&#39;, &#39;Pendaftaran akun dapat melalui facebook, akun google dan e-mail.&#39;, &#39;Setelah melakukan\npendaftaran atau pembuatan akun maka aplikasi canva dapat digunakan.&#39;, &#39;c.\nPrinter\nAlat yang digunakan untuk pembuatan booklet selanjutnya yaitu printer, printer\nyang digunakan untuk mencetak booklet tersebut dapat berbagai jenis dan tipe, hanya saja\nsewaktu melakukan pencetakan booklet, pastikan pengaturan printer sesuai dengan\nukuran kertas, tinta, dan posisi susunan halaman booklet yang akan dicetak.&#39;, &#39;d.\nArt Paper Kertas Khusus Booklet\nBahan yang digunakan untuk membuat booklet yaitu art paper yang merupakan\nkertas khusus untuk booklet, art paper yang digunakan berukuran A5 dengan gramasi\nkertas 150 gr.&#39;, &#39;2.&#39;, &#39;Langkah-langkah Pembuatan Booklet\nBerdasarkan metodologi pembuatan booklet yang telah dijelaskan, adapun\nlangkah-langkah pembuatan booklet mitigasi bencana gempa bumi dan tsunami sebagai\nberikut:\n\x0cJurnal Ilmu Informasi Perpustakaan dan Kearsipan\nVol.&#39;, &#39;8, No.&#39;, &#39;1, September 2019, Seri B\n118\na.\nMenentukan Judul dan Sub Judul Booklet\nTahap awal dalam sebelum pembuatan booklet adalah menentukan judul dan sub\njudul yang akan digunakan sebagai perwakilan sekaligus gambaran awal dari booklet\ntersebut.&#39;, &#39;Judul pada booklet ini yaitu “Padang Siap, Sigap dan Tanggap Menghadapi\nBencana Gempa Bumi dan Tsunami”.&#39;, &#39;Judul tersebut disesuaikan dengan pembahasan yang\nakan dipaparkan pada pembahasan atau isi booklet.&#39;, &#39;Selain itu booklet ini ditujukan khusus\nuntuk masyarakat Kota Padang.&#39;, &#39;Sub judul pada booklet ini yaitu “Booklet Mitigasi\nBencana” hal ini dikarenakan booklet tersebut memaparkan informasi mengenai mitigasi\nbencana baik sebelum, sesaat dan sesudah terjadinya bencana gempa bumi dan tsunami.&#39;, &#39;Dengan adanya judul dan sub judul, maka pengguna atau masyarakat dapat mengetahui\ntujuan serta bentuk dari booklet tersebut.&#39;, &#39;b.\nMembuat Format atau Struktur Booklet\nBooklet merupakan media cetak berupa buku kecil yang jumlah halamanya sedikit.&#39;, &#39;Bentuk format atau struktur pada booklet hampir mirip dengan format pembuatan buku\npada umumnya, hanya saja pada booklet tidak terlalu mengikat dan dapat disesuaikan\ndengan bentuk booklet yang akan dibuat.&#39;, &#39;Adapun struktur pada booklet mitigasi bencana\nini yaitu cover, pendahuluan, pembahasan pertama mengenai gempa bumi, pembahasn\nkedua mengengai tsunami, pembahasan ketiga mengenai peta evakuasi, pembahasan\nkeempat mengenai tas siaga bencana dan pembahasan kelima mengenai nomor-nomor\npenting.&#39;, &#39;Pada pembahasan pertama menjelaskan apa itu gempa bumi, jenis gempa bumi,\ndan upaya yang dilakukan prabencana, saat bencana, dan pasca bencana gempa bumi.&#39;, &#39;Pada pembahasan kedua menjelaskan apa itu tsunami, tanda-tanda terjadinya tsunami,\ndan upaya yang dilakukan prabencana, saat bencana, dan pasca bencana tsunami.&#39;, &#39;Pada\npembahasan ketiga berisikan peta jalur evakuasi serta daerah yang aman dari tsunami,\nselain itu pada pembahasan ketiga ini juga terdapat daftar shelter atau bangunan yang\nbisa dijadikan tempat evakuasi sementara ketika terjadi bencana tsunami.&#39;, &#39;Pada\npembahasan keempat berisikan infromasi mengenai tas siaga bencana darurat yang harus\ndisiapkan sebelum terjadinya bencana.&#39;, &#39;Pada pembahasan kelima yaitu berisikan informasi\nmengenai nomor telepon badan atau lembaga, dan rumah sakit baik milik pemerintah\nmaupun swasta yang dapat digunakan dalam keadaan darurat.&#39;, &#39;c.\nMencari Serta Mengumpulkan Informasi yang Dibutuhkan Sebagai Isi Booklet\nPembahasan pada booklet mitigasi bencana merupakan kumpulan informasi yang\nberasal dari berbagai sumber.&#39;, &#39;Penulis mengumpulkan informasi-informasi mengenai\nmitigai bencana, gempa bumi, dan tsunami dari berbagai sumber berupa buku, jurnal,\nserta data dari Badan Penanggulangan Bencana Daerah (BPBD) Kota Padang dan hasil\nwawancara dengan Suryaningsih, SE, M.Si selaku PH.&#39;, &#39;Kasi Kesiapsiagaan Bidang\nPencegahan dan Kesiapsiagaan, Bapak Nasrul Sugana selaku Kepala Bidang Kedaruratan\ndan Logistik, serta Bapak Ir.&#39;, &#39;Syaiful Bahri selaku Kepala Bidang Rehabilitasi dan\nRekonstruksi BPBD Kota Padang.&#39;, &#39;Adapun informasi dan data yang diperoleh yaitu\nmengenai defenisi gempa bumi dan tsunami, jenis gempa bumi, tanda-tanda terjadinya\ntsunami, bentuk upaya yang dilakukan prabencana, saat bencana, pasca bencana gempa\nbumi dan tsunami.&#39;, &#39;d.\nPengolahan Informasi\nSetelah mendapatkan berbagai informasi dan data, tahap selanjutnya penulis\nmelakukan pengolahan atau penyaringan informasi yang telah dikumpulkan.&#39;, &#39;Data dan\ninformasi dari berbagai sumber tersebut kemudian penulis susun dan rangkai menjadi\nsebuah point untuk pembahasan pada booklet.&#39;, &#39;Pembuatan Booklet Mitigasi Bencana Gempa Bumi dan Tsunami Sebagai Media Informasi bagi Masyarakat Kota\nPadang - Diana Agusti, Elva Rahmah\n119\ne.\nMenyusun Informasi Sesuai Format Booklet\nData dan informasi yang telah diolah, kemudian penulis susun dan sesuaikan\ndengan bentuk format halaman dan pembahasan booklet, dimana informasi dan data\npembahasan pertama mengenai gempa bumi, pembahasan kedua mengenai tsunami,\npembahasan ketiga mengenai peta evakuasi, pembahasan keempat mengenai tas siaga\nbencana dan pembahasan kelima mengenai nomor-nomor penting.&#39;, &#39;f.\nMelakukan Editing\nTahap selanjutnya setelah mendapatkan berbagai informasi dan data yaitu\nmembuat desain booklet dan editing.&#39;, &#39;Tahap pembuatn desain dan editing penulis\nmenggunakan software atau aplikasi canva.&#39;, &#39;Seperti yang telah dijelaskan sebelumnya\npada alat dan bahan apa itu aplikasi canva, cara menemukan aplikasi canva dan mendaftar\natau pembuatan akun canva, selanjutnya pada tahap ini yaitu melakukan editing\nmenggunakan aplikasi canva.&#39;, &#39;Gambar 3.&#39;, &#39;Tampilan Awal Canva\nPada gambar di atas merupakan tampilan awal pada aplikasi canva, dalam\nmenggunakan canva ada beberapa atribut yang diharus diperhatikaan.&#39;, &#39;Pada gambar di\natas ditunjukan oleh panah yang memiliki nomor.&#39;, &#39;1) Templates, berisikan desain-desain\nlatar yang unik dan berbagai model yang dapat digunakan; 2) Photos, berisikan foto-foto\natau gambar yang telah disediakan aplikasi canva yang dapat digunakan atau ditambahkan\ndalam pembuatan desain; 3) Elements, berisikan berbagai macam bentuk icon, line, shape,\nillustration; 4) Text, berisikan berbagai macam jenis dan tipe tulisan yang dapat digunakan\nuntuk memperindah tulisan; 5) Background, berisikan berbagai bentuk latar belakang\nkertas, atau dasar halaman sebelum ditambahkan berbagai komponen lainnya; 6) Uploads,\ndigunakan untuk menambahkan foto dari laptop ke dalam aplikasi canva; 7) Tools warna\ndigunakan untuk mengataur atau mengganti warna-warna komponen yang terdapst\ndalam desain.&#39;, &#39;8) Halaman kerja, seperti kanvas atau kertas yang akan menampilkan\nbentuk desain yang kita buat.&#39;, &#39;9) Tools untuk menambahkan halam kerja baru.&#39;, &#39;1\n2\n3\n4\n5\n6\n7\n8\n9\n\x0cJurnal Ilmu Informasi Perpustakaan dan Kearsipan\nVol.&#39;, &#39;8, No.&#39;, &#39;1, September 2019, Seri B\n120\nGambar 4.&#39;, &#39;Tampilan Canva Saat Menambahkan Tamplates\nPada gambar 4 merupakan tampilan canva saat menambahkan tamplates, tahap\nawal dalam melakukan editing yaitu membuat dasar kertas dengan menambahkan\ntemplates sesuai dengan desain yang diinginkan.&#39;, &#39;Untuk melihat berbagai model templates\nyang tersedia, klik tools templates yang ditunjukan oleh panah nomor 1 maka akan muncul\nberbagai model dan bentuk templates yang disediakan oleh aplikasi canva.&#39;, &#39;Untuk\nmemudahkan mencari templates yang sesuai, ketikan keyword pada kolom pencarian yang\nditunjukan oleh panah nomor 2, maka berbagai templates sesuai dengan keyword akan\nditampilkan.&#39;, &#39;Selanjutnya untuk mengatur warna, dan posisi templates dapat diubah pada\nkolom yang ditunjukkan oleh nomor 3.&#39;, &#39;Pada booklet mitigasi bencana ini mengambil tema\nkota dengan perpaduan warna biru dan oren.&#39;, &#39;Gambar 5.&#39;, &#39;Tampilan Canva Saat Menambahkan Elements\nGambar 5 merupakan tampilan canva saat menambahkan elements.&#39;, &#39;Tools elements\ndigunakan untuk menambahkan line atau shape pada desain untuk memilih dan mencari\nelements yang sesuai, menentukan warna dan posisi elements dapat diatur sama seperti\nmenambahkan\ntemplates\nsebelumnya.&#39;, &#39;Pada\nbooklet\nmitigasi\nini\nelements\nyang\nditambahkan berupa lingkaran dan garis kotak dengan warna yang disesuaikan dengan\ntema.&#39;, &#39;Selain itu pada elements juga dapat menambahkan berbagai gambar ilustrasi yang\ndiinginkan.&#39;, &#39;2\n3\n1\n\x0cPembuatan Booklet Mitigasi Bencana Gempa Bumi dan Tsunami Sebagai Media Informasi bagi Masyarakat Kota\nPadang - Diana Agusti, Elva Rahmah\n121\nGambar 6.&#39;, &#39;Tampilan Canva Saat Menambahkan Text\nGambar di atas merupakan tampilan canva saat menambahkan text atau tulisan.&#39;, &#39;Berbagai jenis dan bentuk text dapat digunakan, pada booklet mitigasi bencana ini penulis\nmenggunakan kombinasi jenis, bentuk ukuran dan warna text sesuai dengan tema, judul\ndan sub judul pada booklet ini.&#39;, &#39;Untuk memilih dan mengatur ukuran, jenis, serta warna\ntulisan dapat diatur pada kolom yang terdapat di atas halaman kerja.&#39;, &#39;Setelah membuat desain, menambahkan berbagai atribut, menyesuaikan warna\ndan ukuran serta, menyusun pembahasan sesuai dengan format yang telah dirancang\nsebelumnya maka, langkah selanjutnya yaitu memastikan atau melihat kembali hasil\ndesain\nyang\ntelah\ndibuat\nsebelum\ndownload.&#39;, &#39;Apabila\nterdapat\nkesalahan\natau\nketidaksesuaian pada atribut dengan desain booklet, maka sebelum desain tersebut di\ndownload masih dapat diperbaiki dan disesuaikan dengan apa yang diharapkan.&#39;, &#39;Gambar 7.&#39;, &#39;Tampilan Seluruh Desain Booklet pada Canva\nPada gambar 7 merupakan tampilan seluruh desain booklet yang telah dibuat pada\naplikasi canva, sebelum download booklet tersebut pastikan seluruh komponen dan\natribut tidak terdapat kesalahan, apabila masih terdapat kesalahan dapat diperbaiki.&#39;, &#39;Jurnal Ilmu Informasi Perpustakaan dan Kearsipan\nVol.&#39;, &#39;8, No.&#39;, &#39;1, September 2019, Seri B\n122\nGambar 8.&#39;, &#39;Tampilan Canva pada Saat Download\nPada gambar di atas merupakan tampilan pada canva saat melakukan download,\nsetelah memastikan desain booklet tidak terdapat bagian yang salah, hal selanjutnya yang\ndilakukan yaitu download desain booklet yang telah dibuat sebelumnya.&#39;, &#39;Untuk download\nklik pada kolom download yang terdapat di bagian atas sebelah kanan tampilan canva.&#39;, &#39;Setelah desain booklet tersebut di download maka desain tersebut akan tersimpan pada\nperangkat komputer atau laptop dengan format png.&#39;, &#39;g.\nMencetak Booklet\nTahap selanjutnya merupakan tahap akhir dalam pembuatan booklet yaitu proses\npencetakan atau printout.&#39;, &#39;Pencetakan booklet menggunakan kertas art paper khusus\nuntuk booklet.&#39;, &#39;Booklet di cetak timbal balik seperti buku pada umumnya hanya saja pada\nbooklet ukurannya lebih kecil dari pada buku lainnya.&#39;, &#39;Pada booklet mitigasi bencana ini\npencetakannya menggunakan kertas art paper dengan ukuran A5 dan gramasi kertas 150\ngr.&#39;, &#39;Setelah proses pencetakan selesai, booklet mitigasi bencana gempa bumi dan tsunami\ntersebut dapat digunakan dan di publikasikan kepada masyarakat sebagai penyebarluasan\ninformasi mengenai gempa bumi dan tsunami, dengan tujuan akhir dapat menambah\nwawasan dan pengetahuan mengenai berbagai hal tentang bencana gempa bumi dan\ntsunami.&#39;, &#39;3.&#39;, &#39;Kendala dan Upaya dalam Proses Pembuatan Booklet\nPada proses pembuatan booklet terdapat kendala saat melakukan editing hal ini\ndikarenakan jaringan atau koneksi internet yang tidak stabil sehingga menyulitkan dalam\nmelakukan pengeditan booklet dengan menggunakan aplikasi canva dimana aplikasi\ntersebut harus terhubung dengan internet.&#39;, &#39;Sehingga apabila jaringan internet terganggu\nmaka aplikasi canva yang juga tidak dapat digunakan untuk melakukan proses editing.&#39;, &#39;Adapun upaya untuk mengatasi hal tersebut yaitu, memastikan jaringan atau\nkoneksi internet terhubung dengan baik saat melakukan editing menggunakan aplikasi\ncanva.&#39;, &#39;Apabila jaringan atau koneksi internet tidak memungkinkan untuk menjalankan\naplikasi canva tersebut, maka sebaiknya carilah tempat yang menyediakan koneksi\ninternet yang baik.&#39;, &#39;D. Simpulan dan Saran\n1.&#39;, &#39;Simpulan\nBerdasarkan pembahasan pada bab sebelumnya dapat disimpulkan bahwa proses\npembuatan booklet mitigasi bencana gempa bumi dan tsunami sebagai media informasi\nbagi masyarakat Kota Padang adalah sebagai berikut.&#39;, &#39;1) Alat dan bahan yang digunakan\ndalam pembuatan booklet ini yaitu komputer atau laptop yang terhubung dengan jaringan\ninternet, printer, software canva dan kertas khusus booklet art paper.&#39;, &#39;2) Langkah-langkah\n\x0cPembuatan Booklet Mitigasi Bencana Gempa Bumi dan Tsunami Sebagai Media Informasi bagi Masyarakat Kota\nPadang - Diana Agusti, Elva Rahmah\n123\nyang dilakukan dalam pembuatan booklet yaitu pemilihan dan penggunaan judul, pada\nbooklet ini judul yang digunakan mengenai “Padang Siap, Sigap, Tanggap Menghadapi\nBencana Gempa Bumi dan Tsunami”.&#39;, &#39;Selanjutnya format yang digunakan pada booklet\nberupa cover, pendahuluan dan pembahasan.&#39;, &#39;Untuk informasi pada isi booklet diperoleh\ndari media cetak maupun non cetak.&#39;, &#39;Setelah memperoleh berbagai informasi yang\ndibutuhkan, kemudian informasi tersebut diolah sehingga menjadi point-point penting.&#39;, &#39;Apabila informasi telah diolah kemudian disusun dan diletakkan sesuai dengan format\nbooklet.&#39;, &#39;Selanjutnya membuat desain tampilan booklet dan editing menggunakan aplikasi\ncanva.&#39;, &#39;Booklet yang telah selesai didesain kemudian dicetak mengunakan kertas art\npapper dengan ukuran kertas A5.&#39;, &#39;3) Kendala dalam proses pembuatan booklet mitigasi\nbencana yaitu jaringan atau koneksi internet yang tidak stabil mengakibatkan aplikasi\nediting canva tidak bisa dijalankan, upayanya yaitu mencari tempat yang menyediakan\njaringan atau koneksi internet yang stabil.&#39;, &#39;2.&#39;, &#39;Saran\nBerdasarkan pembahasan dan kesimpulan sebelumnya maka penulis memberikan\nsaran kepada: 1) masyarakat sebaiknya dapat memanfaatkan booklet mitigasi bencana\ngempa bumi dan tsunami dalam menambah pengetahuan dan wawasan mengenai\nbencana gempa bumi dan tsunami, serta menjadikannya sebagai pendidikan dini bencana\ngempa bumi dan tsunami yang dapat ditanamkan pada diri sendiri, anak dan keluarga.&#39;, &#39;2)\nBadan Penanggulangan Bencana Daerah Kota Padang, sebaiknya lebih meningkatkan\nkegiatan sosialisasi dengan masyarakat mengenai bencana gempa bumi dan tsunami,\nmemberikan informasi-informasi penting yang berkaitan dengan gempa bumi dan\ntsunami serta dapat menambah penggunaan berbagai media publikasi dalam melancarkan\nkegiatan tersebut.&#39;, &#39;Catatan: artikel ini disusun berdasarkan malakah tugas akhir penulis dengan pembimbing\nElva Rahmah, S.Sos., M.I.Kom\nDaftar Rujukan\nIrwansyah, E., Saputra, T. B., Piu, L., &amp; Wirangga, K. (2013, Maret 03).&#39;, &#39;Pengembangan\nAplikasi Sistem Informasi Geografis Untuk Monitoring Gempa Bumi.&#39;, &#39;Dipetik April 17,\n2019, dari http://garuda.ristekdikti.go.id/journal/article/3576\nNazir, M. (2011).&#39;, &#39;Metode Penelitian.&#39;, &#39;Bogor: Ghalia Indonesia.&#39;, &#39;Nirmalawati.&#39;, &#39;(2012, April 30).&#39;, &#39;Pembentukan Konsep Diri Pada Siswa Pendidikan Dasar\nDalam\nMemahami\nMitigasi\nBencana.&#39;, &#39;Dipetik\nApril\n17,\n2019,\ndari\nhttp://garuda.ristekdikti.go.id/journal/article/10749\nSupriyono, P. (2014).&#39;, &#39;Bencana Gempa Bumi.&#39;, &#39;Yogyakarta: Andi.&#39;, &#39;Sari, E. T., Ariusmedi, &amp; Zubaidah.&#39;, &#39;(2013, November 28).&#39;, &#39;Perancangan Booklet Bangunan\nBersejarah\nDi\nKota\nPadang.&#39;, &#39;Dipetik\nApril\n17,\n2019,\ndari\nhttp://garuda.ristekdikti.go.id/journal/article/129199\nSeptiwiharti, L. (2015).&#39;, &#39;Pengembangan Bahan Ajar Berbentuk Booklet Sejarah Indonesia\nPada Materi Pertempuran Lima Hari Di Semarang Terhadap Minat Belajar Siswa\nKelas Xi Ips Sma Negeri 1 Semarang Tahun Ajaran 2014/2015.&#39;, &#39;Dipetik April 17,\n2019, dari https://lib.unnes.ac.id/20773/\nTika, P. (2012, Juni 06).&#39;, &#39;Pendidikan Tsunami Di Wilayah Gempa Dan Bendungan Di\nIndonesia.&#39;, &#39;Dipetik\nApril\n17,\n2019,\ndari\nhttp://garuda.ristekdikti.go.id/journal/article/19350\nUndang-undang No.14 (2008).&#39;, &#39;Pusat Informasi.&#39;, &#39;Jakarta.&#39;, &#39;Wicaksono, H. (2016, Februari 2).&#39;, &#39;Kompetensi Perpustakaan dan Pustakawan Dalam\nImplementasi Teknologi Informasi di Perpustakaan.&#39;, &#39;Dipetik April 16, 2019, dari\n\x0cJurnal Ilmu Informasi Perpustakaan dan Kearsipan\nVol.&#39;, &#39;8, No.&#39;, &#39;1, September 2019, Seri B\n124\nhttp://dev.perpusnas.go.id/assets/uploads/2016/02/2_artikel_hendrowicaksono.&#39;, &#39;pdf\nYuldi.&#39;, &#39;(2008).&#39;, &#39;Mengenal Tsunami.&#39;, &#39;Jakarta Timur: CV.&#39;, &#39;Risky Aditya.&#39;]
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">sentences</span><span class="p">,</span> <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;kalimat&#39;</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>                                               kalimat
+0    Pembuatan Booklet Mitigasi Bencana Gempa Bumi ...
+1    This\npaper pupose to description creation pha...
+2    The research method used in this\npaper is a d...
+3    Data resources was obtained from\ninterview, e...
+4    For creating\nprocess booklet mitigation for a...
+..                                                 ...
+206                                        pdf\nYuldi.
+207                                            (2008).
+208                                  Mengenal Tsunami.
+209                                 Jakarta Timur: CV.
+210                                      Risky Aditya.
+
+[211 rows x 1 columns]
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="s1">&#39;kalimat.csv&#39;</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s1">&#39;utf-8&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Untuk membuat word graph</p>
+<p>Lanjutkan dengan menggunakan <a class="reference external" href="https://www.geeksforgeeks.org/nlp/co-occurence-matrix-in-nlp/">https://www.geeksforgeeks.org/nlp/co-occurence-matrix-in-nlp/</a></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">nltk</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">nltk.corpus</span><span class="w"> </span><span class="kn">import</span> <span class="n">stopwords</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">nltk.tokenize</span><span class="w"> </span><span class="kn">import</span> <span class="n">word_tokenize</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">collections</span><span class="w"> </span><span class="kn">import</span> <span class="n">defaultdict</span><span class="p">,</span> <span class="n">Counter</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+
+<span class="c1"># Download NLTK resources</span>
+<span class="n">nltk</span><span class="o">.</span><span class="n">download</span><span class="p">(</span><span class="s1">&#39;punkt&#39;</span><span class="p">)</span>
+<span class="n">nltk</span><span class="o">.</span><span class="n">download</span><span class="p">(</span><span class="s1">&#39;stopwords&#39;</span><span class="p">)</span>
+
+<span class="c1"># ==== BACA FILE CSV ====</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;kalimat.csv&quot;</span><span class="p">)</span>
+
+<span class="c1"># Ambil semua teks dalam satu string</span>
+<span class="n">text</span> <span class="o">=</span> <span class="s2">&quot; &quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">iloc</span><span class="p">[:,</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">str</span><span class="p">))</span>
+
+<span class="c1"># Preprocess the text</span>
+<span class="n">stop_words</span> <span class="o">=</span> <span class="nb">set</span><span class="p">(</span><span class="n">stopwords</span><span class="o">.</span><span class="n">words</span><span class="p">(</span><span class="s1">&#39;english&#39;</span><span class="p">))</span>
+<span class="n">words</span> <span class="o">=</span> <span class="n">word_tokenize</span><span class="p">(</span><span class="n">text</span><span class="o">.</span><span class="n">lower</span><span class="p">())</span>
+<span class="n">words</span> <span class="o">=</span> <span class="p">[</span><span class="n">word</span> <span class="k">for</span> <span class="n">word</span> <span class="ow">in</span> <span class="n">words</span> <span class="k">if</span> <span class="n">word</span><span class="o">.</span><span class="n">isalnum</span><span class="p">()</span> <span class="ow">and</span> <span class="n">word</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">stop_words</span><span class="p">]</span>
+
+<span class="c1"># Define the window size for co-occurrence</span>
+<span class="n">window_size</span> <span class="o">=</span> <span class="mi">2</span>
+
+<span class="c1"># Create a list of co-occurring word pairs</span>
+<span class="n">co_occurrences</span> <span class="o">=</span> <span class="n">defaultdict</span><span class="p">(</span><span class="n">Counter</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">word</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">words</span><span class="p">):</span>
+    <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">max</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">i</span> <span class="o">-</span> <span class="n">window_size</span><span class="p">),</span> <span class="nb">min</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">words</span><span class="p">),</span> <span class="n">i</span> <span class="o">+</span> <span class="n">window_size</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)):</span>
+        <span class="k">if</span> <span class="n">i</span> <span class="o">!=</span> <span class="n">j</span><span class="p">:</span>
+            <span class="n">co_occurrences</span><span class="p">[</span><span class="n">word</span><span class="p">][</span><span class="n">words</span><span class="p">[</span><span class="n">j</span><span class="p">]]</span> <span class="o">+=</span> <span class="mi">1</span>
+
+<span class="c1"># Create a list of unique words</span>
+<span class="n">unique_words</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">set</span><span class="p">(</span><span class="n">words</span><span class="p">))</span>
+
+<span class="c1"># Initialize the co-occurrence matrix</span>
+<span class="n">co_matrix</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="nb">len</span><span class="p">(</span><span class="n">unique_words</span><span class="p">),</span> <span class="nb">len</span><span class="p">(</span><span class="n">unique_words</span><span class="p">)),</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">int</span><span class="p">)</span>
+
+<span class="c1"># Populate the matrix</span>
+<span class="n">word_index</span> <span class="o">=</span> <span class="p">{</span><span class="n">word</span><span class="p">:</span> <span class="n">idx</span> <span class="k">for</span> <span class="n">idx</span><span class="p">,</span> <span class="n">word</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">unique_words</span><span class="p">)}</span>
+<span class="k">for</span> <span class="n">word</span><span class="p">,</span> <span class="n">neighbors</span> <span class="ow">in</span> <span class="n">co_occurrences</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+    <span class="k">for</span> <span class="n">neighbor</span><span class="p">,</span> <span class="n">count</span> <span class="ow">in</span> <span class="n">neighbors</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+        <span class="n">co_matrix</span><span class="p">[</span><span class="n">word_index</span><span class="p">[</span><span class="n">word</span><span class="p">]][</span><span class="n">word_index</span><span class="p">[</span><span class="n">neighbor</span><span class="p">]]</span> <span class="o">=</span> <span class="n">count</span>
+
+<span class="c1"># DataFrame output</span>
+<span class="n">co_matrix_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">co_matrix</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="n">unique_words</span><span class="p">,</span> <span class="n">columns</span><span class="o">=</span><span class="n">unique_words</span><span class="p">)</span>
+<span class="n">co_matrix_df</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[nltk_data] Downloading package punkt to /root/nltk_data...
+[nltk_data]   Package punkt is already up-to-date!
+[nltk_data] Downloading package stopwords to /root/nltk_data...
+[nltk_data]   Package stopwords is already up-to-date!
+</pre></div>
+</div>
+<div class="output text_html">
+  <div id="df-8b4409ae-714e-4ade-9073-49fea699b2d0" class="colab-df-container">
+    <div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>cv</th>
+      <th>kesiapsiagaan</th>
+      <th>pernyataan</th>
+      <th>waktu</th>
+      <th>pertemuan</th>
+      <th>dipetik</th>
+      <th>penting</th>
+      <th>mengapa</th>
+      <th>title</th>
+      <th>lembaga</th>
+      <th>...</th>
+      <th>mahasiswa</th>
+      <th>diikuti</th>
+      <th>adapun</th>
+      <th>sebagian</th>
+      <th>electronic</th>
+      <th>meteor</th>
+      <th>meminimalisirkan</th>
+      <th>10</th>
+      <th>tinta</th>
+      <th>melalui</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>cv</th>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>...</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>kesiapsiagaan</th>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>...</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>pernyataan</th>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>...</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>waktu</th>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>...</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>pertemuan</th>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>...</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>meteor</th>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>...</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>meminimalisirkan</th>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>...</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>10</th>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>...</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>tinta</th>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>...</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>melalui</th>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>...</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+  </tbody>
+</table>
+<p>928 rows × 928 columns</p>
+</div>
+    <div class="colab-df-buttons">
+
+  <div class="colab-df-container">
+    <button class="colab-df-convert" onclick="convertToInteractive('df-8b4409ae-714e-4ade-9073-49fea699b2d0')"
+            title="Convert this dataframe to an interactive table."
+            style="display:none;">
+
+  <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960">
+    <path d="M120-120v-720h720v720H120Zm60-500h600v-160H180v160Zm220 220h160v-160H400v160Zm0 220h160v-160H400v160ZM180-400h160v-160H180v160Zm440 0h160v-160H620v160ZM180-180h160v-160H180v160Zm440 0h160v-160H620v160Z"/>
+  </svg>
+    </button>
+
+  <style>
+    .colab-df-container {
+      display:flex;
+      gap: 12px;
+    }
+
+    .colab-df-convert {
+      background-color: #E8F0FE;
+      border: none;
+      border-radius: 50%;
+      cursor: pointer;
+      display: none;
+      fill: #1967D2;
+      height: 32px;
+      padding: 0 0 0 0;
+      width: 32px;
+    }
+
+    .colab-df-convert:hover {
+      background-color: #E2EBFA;
+      box-shadow: 0px 1px 2px rgba(60, 64, 67, 0.3), 0px 1px 3px 1px rgba(60, 64, 67, 0.15);
+      fill: #174EA6;
+    }
+
+    .colab-df-buttons div {
+      margin-bottom: 4px;
+    }
+
+    [theme=dark] .colab-df-convert {
+      background-color: #3B4455;
+      fill: #D2E3FC;
+    }
+
+    [theme=dark] .colab-df-convert:hover {
+      background-color: #434B5C;
+      box-shadow: 0px 1px 3px 1px rgba(0, 0, 0, 0.15);
+      filter: drop-shadow(0px 1px 2px rgba(0, 0, 0, 0.3));
+      fill: #FFFFFF;
+    }
+  </style>
+
+    <script>
+      const buttonEl =
+        document.querySelector('#df-8b4409ae-714e-4ade-9073-49fea699b2d0 button.colab-df-convert');
+      buttonEl.style.display =
+        google.colab.kernel.accessAllowed ? 'block' : 'none';
+
+      async function convertToInteractive(key) {
+        const element = document.querySelector('#df-8b4409ae-714e-4ade-9073-49fea699b2d0');
+        const dataTable =
+          await google.colab.kernel.invokeFunction('convertToInteractive',
+                                                    [key], {});
+        if (!dataTable) return;
+
+        const docLinkHtml = 'Like what you see? Visit the ' +
+          '<a target="_blank" href=https://colab.research.google.com/notebooks/data_table.ipynb>data table notebook</a>'
+          + ' to learn more about interactive tables.';
+        element.innerHTML = '';
+        dataTable['output_type'] = 'display_data';
+        await google.colab.output.renderOutput(dataTable, element);
+        const docLink = document.createElement('div');
+        docLink.innerHTML = docLinkHtml;
+        element.appendChild(docLink);
+      }
+    </script>
+  </div>
+
+
+    <div id="df-da4e6a77-9e8f-4401-8561-8a6a0f713ba6">
+      <button class="colab-df-quickchart" onclick="quickchart('df-da4e6a77-9e8f-4401-8561-8a6a0f713ba6')"
+                title="Suggest charts"
+                style="display:none;">
+
+<svg xmlns="http://www.w3.org/2000/svg" height="24px"viewBox="0 0 24 24"
+     width="24px">
+    <g>
+        <path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zM9 17H7v-7h2v7zm4 0h-2V7h2v10zm4 0h-2v-4h2v4z"/>
+    </g>
+</svg>
+      </button>
+
+<style>
+  .colab-df-quickchart {
+      --bg-color: #E8F0FE;
+      --fill-color: #1967D2;
+      --hover-bg-color: #E2EBFA;
+      --hover-fill-color: #174EA6;
+      --disabled-fill-color: #AAA;
+      --disabled-bg-color: #DDD;
+  }
+
+  [theme=dark] .colab-df-quickchart {
+      --bg-color: #3B4455;
+      --fill-color: #D2E3FC;
+      --hover-bg-color: #434B5C;
+      --hover-fill-color: #FFFFFF;
+      --disabled-bg-color: #3B4455;
+      --disabled-fill-color: #666;
+  }
+
+  .colab-df-quickchart {
+    background-color: var(--bg-color);
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    display: none;
+    fill: var(--fill-color);
+    height: 32px;
+    padding: 0;
+    width: 32px;
+  }
+
+  .colab-df-quickchart:hover {
+    background-color: var(--hover-bg-color);
+    box-shadow: 0 1px 2px rgba(60, 64, 67, 0.3), 0 1px 3px 1px rgba(60, 64, 67, 0.15);
+    fill: var(--button-hover-fill-color);
+  }
+
+  .colab-df-quickchart-complete:disabled,
+  .colab-df-quickchart-complete:disabled:hover {
+    background-color: var(--disabled-bg-color);
+    fill: var(--disabled-fill-color);
+    box-shadow: none;
+  }
+
+  .colab-df-spinner {
+    border: 2px solid var(--fill-color);
+    border-color: transparent;
+    border-bottom-color: var(--fill-color);
+    animation:
+      spin 1s steps(1) infinite;
+  }
+
+  @keyframes spin {
+    0% {
+      border-color: transparent;
+      border-bottom-color: var(--fill-color);
+      border-left-color: var(--fill-color);
+    }
+    20% {
+      border-color: transparent;
+      border-left-color: var(--fill-color);
+      border-top-color: var(--fill-color);
+    }
+    30% {
+      border-color: transparent;
+      border-left-color: var(--fill-color);
+      border-top-color: var(--fill-color);
+      border-right-color: var(--fill-color);
+    }
+    40% {
+      border-color: transparent;
+      border-right-color: var(--fill-color);
+      border-top-color: var(--fill-color);
+    }
+    60% {
+      border-color: transparent;
+      border-right-color: var(--fill-color);
+    }
+    80% {
+      border-color: transparent;
+      border-right-color: var(--fill-color);
+      border-bottom-color: var(--fill-color);
+    }
+    90% {
+      border-color: transparent;
+      border-bottom-color: var(--fill-color);
+    }
+  }
+</style>
+
+      <script>
+        async function quickchart(key) {
+          const quickchartButtonEl =
+            document.querySelector('#' + key + ' button');
+          quickchartButtonEl.disabled = true;  // To prevent multiple clicks.
+          quickchartButtonEl.classList.add('colab-df-spinner');
+          try {
+            const charts = await google.colab.kernel.invokeFunction(
+                'suggestCharts', [key], {});
+          } catch (error) {
+            console.error('Error during call to suggestCharts:', error);
+          }
+          quickchartButtonEl.classList.remove('colab-df-spinner');
+          quickchartButtonEl.classList.add('colab-df-quickchart-complete');
+        }
+        (() => {
+          let quickchartButtonEl =
+            document.querySelector('#df-da4e6a77-9e8f-4401-8561-8a6a0f713ba6 button');
+          quickchartButtonEl.style.display =
+            google.colab.kernel.accessAllowed ? 'block' : 'none';
+        })();
+      </script>
+    </div>
+
+  <div id="id_eba3ef81-35d7-41eb-985d-a64582a39600">
+    <style>
+      .colab-df-generate {
+        background-color: #E8F0FE;
+        border: none;
+        border-radius: 50%;
+        cursor: pointer;
+        display: none;
+        fill: #1967D2;
+        height: 32px;
+        padding: 0 0 0 0;
+        width: 32px;
+      }
+
+      .colab-df-generate:hover {
+        background-color: #E2EBFA;
+        box-shadow: 0px 1px 2px rgba(60, 64, 67, 0.3), 0px 1px 3px 1px rgba(60, 64, 67, 0.15);
+        fill: #174EA6;
+      }
+
+      [theme=dark] .colab-df-generate {
+        background-color: #3B4455;
+        fill: #D2E3FC;
+      }
+
+      [theme=dark] .colab-df-generate:hover {
+        background-color: #434B5C;
+        box-shadow: 0px 1px 3px 1px rgba(0, 0, 0, 0.15);
+        filter: drop-shadow(0px 1px 2px rgba(0, 0, 0, 0.3));
+        fill: #FFFFFF;
+      }
+    </style>
+    <button class="colab-df-generate" onclick="generateWithVariable('co_matrix_df')"
+            title="Generate code using this dataframe."
+            style="display:none;">
+
+  <svg xmlns="http://www.w3.org/2000/svg" height="24px"viewBox="0 0 24 24"
+       width="24px">
+    <path d="M7,19H8.4L18.45,9,17,7.55,7,17.6ZM5,21V16.75L18.45,3.32a2,2,0,0,1,2.83,0l1.4,1.43a1.91,1.91,0,0,1,.58,1.4,1.91,1.91,0,0,1-.58,1.4L9.25,21ZM18.45,9,17,7.55Zm-12,3A5.31,5.31,0,0,0,4.9,8.1,5.31,5.31,0,0,0,1,6.5,5.31,5.31,0,0,0,4.9,4.9,5.31,5.31,0,0,0,6.5,1,5.31,5.31,0,0,0,8.1,4.9,5.31,5.31,0,0,0,12,6.5,5.46,5.46,0,0,0,6.5,12Z"/>
+  </svg>
+    </button>
+    <script>
+      (() => {
+      const buttonEl =
+        document.querySelector('#id_eba3ef81-35d7-41eb-985d-a64582a39600 button.colab-df-generate');
+      buttonEl.style.display =
+        google.colab.kernel.accessAllowed ? 'block' : 'none';
+
+      buttonEl.onclick = () => {
+        google.colab.notebook.generateWithVariable('co_matrix_df');
+      }
+      })();
+    </script>
+  </div>
+
+    </div>
+  </div>
+</div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="n">capture</span>
+<span class="n">pip</span> <span class="n">install</span> <span class="n">networkx</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">networkx</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">nx</span>
+<span class="n">arr</span> <span class="o">=</span> <span class="n">co_matrix_df</span><span class="o">.</span><span class="n">to_numpy</span><span class="p">()</span>
+<span class="n">G</span><span class="o">=</span><span class="n">nx</span><span class="o">.</span><span class="n">from_numpy_array</span><span class="p">(</span><span class="n">arr</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">25</span><span class="p">,</span> <span class="mi">20</span><span class="p">))</span>
+<span class="n">nx</span><span class="o">.</span><span class="n">draw</span><span class="p">(</span><span class="n">G</span><span class="p">,</span> <span class="n">with_labels</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">node_color</span><span class="o">=</span><span class="s1">&#39;lightblue&#39;</span><span class="p">,</span> <span class="n">node_size</span><span class="o">=</span><span class="mi">700</span><span class="p">,</span> <span class="n">font_size</span><span class="o">=</span><span class="mi">12</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Graf co-occurence (Dasar)&quot;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">14</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/935c9c20a18dcba0a8a1ec312bb25aa9aa15da3320de497d92617102017fd238.png" src="_images/935c9c20a18dcba0a8a1ec312bb25aa9aa15da3320de497d92617102017fd238.png" />
+</div>
+</div>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="fb_combined.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">FB Combined</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="word_graph_UAS_clean.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">(UAS) Ekstraksi Kata Kunci dengan Word Graph dan Analisis Sentralitas</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By The Jupyter Book Community
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2022.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

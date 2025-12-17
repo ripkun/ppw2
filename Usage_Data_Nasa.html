@@ -1,0 +1,2497 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+    <title>Usage Data Nasa &#8212; My sample book</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" href="_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/clipboard.min.js"></script>
+    <script src="_static/copybutton.js"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'Usage_Data_Nasa';</script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Crawling Twiter" href="Crawling_Data_Twitter.html" />
+    <link rel="prev" title="NASA 2" href="Nasa_fiks2.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="_static/profile.png" class="logo__image only-light" alt="My sample book - Home"/>
+    <script>document.write(`<img src="_static/profile.png" class="logo__image only-dark" alt="My sample book - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="intro.html">
+                    Profile
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="pengantar.html">Pengantar Pencarian dan Penambangan Web</a></li>
+
+
+
+
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="crawling.html">Crawling</a></li>
+
+
+<li class="toctree-l1"><a class="reference internal" href="crawling_pta.html">Crawling PTA Trunojoyo</a></li>
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="crawling_berita_kompas.html">Crawling Berita Kompas</a></li>
+
+
+
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="scrapping_link_informatika.html">Link Scrapping PTA Teknik Informatika</a></li>
+<li class="toctree-l1"><a class="reference internal" href="crawling_manajemen.html">Crawling PTA Trunojoyo Fakultas Ekonomi Prodi Manajemen</a></li>
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="preprocessing_berita.html">Preprocessing Berita</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="preprocessing_pta_manajemen.html">Preprocessing PTA Manajemen</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="ekstraksi_fitur_tfidf_berita.html">Ekstraksi Fitur tf idf Berita</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ekstraksi_fitur_tfidf_pta_manajemen.html">Ekstraksi Fitur tf idf Pta Manajemen</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Cbow_embeding_berita_preprocesed.html">Cbow Embeding Berita Preprocesed</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Cbow_embeding_pta_manajemen_preprocesed.html">Cbow Embeding Pta Manajemen Preprocesed</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tugas6-rifqi.html">Klasifikasi Berita menggunakan Fitur Latent Dirichlet Allocation (LDA)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="UTS_Klasifikasi_Berita_dan_Clustering_Spam.html">Tugas UTS (Klasifikasi Berita dan Clustering Spam)</a></li>
+
+
+<li class="toctree-l1"><a class="reference internal" href="page_rank.html">Analisis Graph Data dari pta_graph.xlsx</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Nasa_Fiks_PPW.html">NASA</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Nasa_fiks2.html">NASA 2</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Usage Data Nasa</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Crawling_Data_Twitter.html">Crawling Twiter</a></li>
+<li class="toctree-l1"><a class="reference internal" href="fb_combined.html">FB Combined</a></li>
+<li class="toctree-l1"><a class="reference internal" href="contoh_bapak_word_graph.html">Word Graph</a></li>
+<li class="toctree-l1"><a class="reference internal" href="word_graph_UAS_clean.html">(UAS) Ekstraksi Kata Kunci dengan Word Graph dan Analisis Sentralitas</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2FUsage_Data_Nasa.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/Usage_Data_Nasa.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Usage Data Nasa</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="usage-data-nasa">
+<h1>Usage Data Nasa<a class="headerlink" href="#usage-data-nasa" title="Permalink to this heading">#</a></h1>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">gzip</span>
+
+<span class="n">rows</span> <span class="o">=</span> <span class="p">[]</span>
+
+<span class="k">with</span> <span class="n">gzip</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="s2">&quot;NASA_access_log_Jul95.gz&quot;</span><span class="p">,</span> <span class="s2">&quot;rt&quot;</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s2">&quot;latin-1&quot;</span><span class="p">,</span> <span class="n">errors</span><span class="o">=</span><span class="s2">&quot;ignore&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+    <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">f</span><span class="p">:</span>
+        <span class="n">parts</span> <span class="o">=</span> <span class="n">line</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span><span class="o">.</span><span class="n">split</span><span class="p">()</span>
+        <span class="n">rows</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">parts</span><span class="p">)</span>
+
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">rows</span><span class="p">)</span>
+
+<span class="n">df</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="s2">&quot;NASA_Jul95.csv&quot;</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;File berhasil disimpan sebagai NASA_Jul95.csv&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>File berhasil disimpan sebagai NASA_Jul95.csv
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>0</th>
+      <th>1</th>
+      <th>2</th>
+      <th>3</th>
+      <th>4</th>
+      <th>5</th>
+      <th>6</th>
+      <th>7</th>
+      <th>8</th>
+      <th>9</th>
+      <th>...</th>
+      <th>46</th>
+      <th>47</th>
+      <th>48</th>
+      <th>49</th>
+      <th>50</th>
+      <th>51</th>
+      <th>52</th>
+      <th>53</th>
+      <th>54</th>
+      <th>55</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>199.72.81.55</td>
+      <td>-</td>
+      <td>-</td>
+      <td>[01/Jul/1995:00:00:01</td>
+      <td>-0400]</td>
+      <td>"GET</td>
+      <td>/history/apollo/</td>
+      <td>HTTP/1.0"</td>
+      <td>200</td>
+      <td>6245</td>
+      <td>...</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>unicomp6.unicomp.net</td>
+      <td>-</td>
+      <td>-</td>
+      <td>[01/Jul/1995:00:00:06</td>
+      <td>-0400]</td>
+      <td>"GET</td>
+      <td>/shuttle/countdown/</td>
+      <td>HTTP/1.0"</td>
+      <td>200</td>
+      <td>3985</td>
+      <td>...</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>199.120.110.21</td>
+      <td>-</td>
+      <td>-</td>
+      <td>[01/Jul/1995:00:00:09</td>
+      <td>-0400]</td>
+      <td>"GET</td>
+      <td>/shuttle/missions/sts-73/mission-sts-73.html</td>
+      <td>HTTP/1.0"</td>
+      <td>200</td>
+      <td>4085</td>
+      <td>...</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>burger.letters.com</td>
+      <td>-</td>
+      <td>-</td>
+      <td>[01/Jul/1995:00:00:11</td>
+      <td>-0400]</td>
+      <td>"GET</td>
+      <td>/shuttle/countdown/liftoff.html</td>
+      <td>HTTP/1.0"</td>
+      <td>304</td>
+      <td>0</td>
+      <td>...</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>199.120.110.21</td>
+      <td>-</td>
+      <td>-</td>
+      <td>[01/Jul/1995:00:00:11</td>
+      <td>-0400]</td>
+      <td>"GET</td>
+      <td>/shuttle/missions/sts-73/sts-73-patch-small.gif</td>
+      <td>HTTP/1.0"</td>
+      <td>200</td>
+      <td>4179</td>
+      <td>...</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+    </tr>
+  </tbody>
+</table>
+<p>5 rows × 56 columns</p>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+
+<span class="c1"># Baca CSV tanpa header</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;NASA_Jul95.csv&quot;</span><span class="p">,</span> <span class="n">header</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">str</span><span class="p">,</span> <span class="n">na_filter</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+
+<span class="c1"># Pastikan nama kolom 0..N-1</span>
+<span class="n">df</span><span class="o">.</span><span class="n">columns</span> <span class="o">=</span> <span class="nb">range</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+
+<span class="c1"># Hapus baris pertama yang hanya berisi angka 0 1 2 3 ...</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="n">index</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span><span class="o">.</span><span class="n">reset_index</span><span class="p">(</span><span class="n">drop</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+<span class="c1"># Ambil kolom 0–9</span>
+<span class="n">df_filtered</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">iloc</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">:</span><span class="mi">10</span><span class="p">]</span>
+
+<span class="c1"># Rename kolom sesuai permintaan</span>
+<span class="n">df_filtered</span> <span class="o">=</span> <span class="n">df_filtered</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">{</span>
+    <span class="mi">0</span><span class="p">:</span> <span class="s2">&quot;Remote host&quot;</span><span class="p">,</span>
+    <span class="mi">1</span><span class="p">:</span> <span class="s2">&quot;logname&quot;</span><span class="p">,</span>
+    <span class="mi">2</span><span class="p">:</span> <span class="s2">&quot;user&quot;</span><span class="p">,</span>
+    <span class="mi">3</span><span class="p">:</span> <span class="s2">&quot;Request time&quot;</span><span class="p">,</span>
+    <span class="c1"># kolom 4 tetap</span>
+    <span class="mi">5</span><span class="p">:</span> <span class="s2">&quot;Request method&quot;</span><span class="p">,</span>
+    <span class="mi">6</span><span class="p">:</span> <span class="s2">&quot;Request URI&quot;</span><span class="p">,</span>
+    <span class="mi">7</span><span class="p">:</span> <span class="s2">&quot;Request Protocol&quot;</span><span class="p">,</span>
+    <span class="mi">8</span><span class="p">:</span> <span class="s2">&quot;Status&quot;</span><span class="p">,</span>
+    <span class="mi">9</span><span class="p">:</span> <span class="s2">&quot;Size&quot;</span>
+<span class="p">})</span>
+
+<span class="c1"># Lihat hasil</span>
+<span class="n">df_filtered</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+
+<span class="c1"># Simpan ke CSV baru</span>
+<span class="n">df_filtered</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="s2">&quot;NASA_Jul95_filtered.csv&quot;</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;File berhasil dibuat: NASA_Jul95_filtered.csv&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>File berhasil dibuat: NASA_Jul95_filtered.csv
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df_filtered</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Remote host</th>
+      <th>logname</th>
+      <th>user</th>
+      <th>Request time</th>
+      <th>4</th>
+      <th>Request method</th>
+      <th>Request URI</th>
+      <th>Request Protocol</th>
+      <th>Status</th>
+      <th>Size</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>199.72.81.55</td>
+      <td>-</td>
+      <td>-</td>
+      <td>[01/Jul/1995:00:00:01</td>
+      <td>-0400]</td>
+      <td>"GET</td>
+      <td>/history/apollo/</td>
+      <td>HTTP/1.0"</td>
+      <td>200</td>
+      <td>6245</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>unicomp6.unicomp.net</td>
+      <td>-</td>
+      <td>-</td>
+      <td>[01/Jul/1995:00:00:06</td>
+      <td>-0400]</td>
+      <td>"GET</td>
+      <td>/shuttle/countdown/</td>
+      <td>HTTP/1.0"</td>
+      <td>200</td>
+      <td>3985</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>199.120.110.21</td>
+      <td>-</td>
+      <td>-</td>
+      <td>[01/Jul/1995:00:00:09</td>
+      <td>-0400]</td>
+      <td>"GET</td>
+      <td>/shuttle/missions/sts-73/mission-sts-73.html</td>
+      <td>HTTP/1.0"</td>
+      <td>200</td>
+      <td>4085</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>burger.letters.com</td>
+      <td>-</td>
+      <td>-</td>
+      <td>[01/Jul/1995:00:00:11</td>
+      <td>-0400]</td>
+      <td>"GET</td>
+      <td>/shuttle/countdown/liftoff.html</td>
+      <td>HTTP/1.0"</td>
+      <td>304</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>199.120.110.21</td>
+      <td>-</td>
+      <td>-</td>
+      <td>[01/Jul/1995:00:00:11</td>
+      <td>-0400]</td>
+      <td>"GET</td>
+      <td>/shuttle/missions/sts-73/sts-73-patch-small.gif</td>
+      <td>HTTP/1.0"</td>
+      <td>200</td>
+      <td>4179</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>burger.letters.com</td>
+      <td>-</td>
+      <td>-</td>
+      <td>[01/Jul/1995:00:00:12</td>
+      <td>-0400]</td>
+      <td>"GET</td>
+      <td>/images/NASA-logosmall.gif</td>
+      <td>HTTP/1.0"</td>
+      <td>304</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>burger.letters.com</td>
+      <td>-</td>
+      <td>-</td>
+      <td>[01/Jul/1995:00:00:12</td>
+      <td>-0400]</td>
+      <td>"GET</td>
+      <td>/shuttle/countdown/video/livevideo.gif</td>
+      <td>HTTP/1.0"</td>
+      <td>200</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>205.212.115.106</td>
+      <td>-</td>
+      <td>-</td>
+      <td>[01/Jul/1995:00:00:12</td>
+      <td>-0400]</td>
+      <td>"GET</td>
+      <td>/shuttle/countdown/countdown.html</td>
+      <td>HTTP/1.0"</td>
+      <td>200</td>
+      <td>3985</td>
+    </tr>
+    <tr>
+      <th>8</th>
+      <td>d104.aa.net</td>
+      <td>-</td>
+      <td>-</td>
+      <td>[01/Jul/1995:00:00:13</td>
+      <td>-0400]</td>
+      <td>"GET</td>
+      <td>/shuttle/countdown/</td>
+      <td>HTTP/1.0"</td>
+      <td>200</td>
+      <td>3985</td>
+    </tr>
+    <tr>
+      <th>9</th>
+      <td>129.94.144.152</td>
+      <td>-</td>
+      <td>-</td>
+      <td>[01/Jul/1995:00:00:13</td>
+      <td>-0400]</td>
+      <td>"GET</td>
+      <td>/</td>
+      <td>HTTP/1.0"</td>
+      <td>200</td>
+      <td>7074</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>HTML only</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+
+<span class="c1"># === 1️⃣ Baca file CSV ===</span>
+<span class="n">file_path</span> <span class="o">=</span> <span class="s2">&quot;NASA_Jul95_filtered.csv&quot;</span>  <span class="c1"># ubah jika file ada di lokasi lain</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">file_path</span><span class="p">)</span>
+
+<span class="c1"># === 2️⃣ Pastikan kolom &#39;Request URI&#39; ada ===</span>
+<span class="k">if</span> <span class="s1">&#39;Request URI&#39;</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">df</span><span class="o">.</span><span class="n">columns</span><span class="p">:</span>
+    <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Kolom &#39;Request URI&#39; tidak ditemukan. Kolom yang tersedia: </span><span class="si">{</span><span class="n">df</span><span class="o">.</span><span class="n">columns</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+<span class="c1"># === 3️⃣ Filter hanya baris yang memiliki .html pada kolom &#39;Request URI&#39; ===</span>
+<span class="n">filtered_df</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;Request URI&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">contains</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;\.html$&#39;</span><span class="p">,</span> <span class="n">na</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">case</span><span class="o">=</span><span class="kc">False</span><span class="p">)]</span>
+
+<span class="c1"># === 4️⃣ Simpan hasil filter ke file baru ===</span>
+<span class="n">output_path</span> <span class="o">=</span> <span class="s2">&quot;NASA_html_only.csv&quot;</span>
+<span class="n">filtered_df</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="n">output_path</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;✅ File hasil filter berhasil dibuat: </span><span class="si">{</span><span class="n">output_path</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Jumlah data asli: </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">df</span><span class="p">)</span><span class="si">}</span><span class="s2">, jumlah data .html: </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">filtered_df</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>✅ File hasil filter berhasil dibuat: NASA_html_only.csv
+Jumlah data asli: 1891715, jumlah data .html: 417952
+</pre></div>
+</div>
+</div>
+</div>
+<p>200.html only</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+
+<span class="c1"># === 1️⃣ Baca file hasil filter sebelumnya ===</span>
+<span class="n">file_path</span> <span class="o">=</span> <span class="s2">&quot;NASA_html_only.csv&quot;</span>  <span class="c1"># pastikan file ini sudah ada dari langkah sebelumnya</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">file_path</span><span class="p">)</span>
+
+<span class="c1"># === 2️⃣ Pastikan kolom &#39;Status&#39; ada ===</span>
+<span class="k">if</span> <span class="s1">&#39;Status&#39;</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">df</span><span class="o">.</span><span class="n">columns</span><span class="p">:</span>
+    <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Kolom &#39;Status&#39; tidak ditemukan. Kolom yang tersedia: </span><span class="si">{</span><span class="n">df</span><span class="o">.</span><span class="n">columns</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+<span class="c1"># === 3️⃣ Filter hanya baris dengan Status = 200 ===</span>
+<span class="n">filtered_df</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;Status&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="mi">200</span><span class="p">]</span>
+
+<span class="c1"># === 4️⃣ Simpan hasil filter ke file baru ===</span>
+<span class="n">output_path</span> <span class="o">=</span> <span class="s2">&quot;NASA_html_status200.csv&quot;</span>
+<span class="n">filtered_df</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="n">output_path</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;✅ File hasil filter status 200 berhasil dibuat: </span><span class="si">{</span><span class="n">output_path</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Jumlah data asli: </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">df</span><span class="p">)</span><span class="si">}</span><span class="s2">, jumlah data status 200: </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">filtered_df</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>C:\Users\NITRO\AppData\Local\Temp\ipykernel_31780\623428601.py:5: DtypeWarning: Columns (8) have mixed types. Specify dtype option on import or set low_memory=False.
+  df = pd.read_csv(file_path)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>✅ File hasil filter status 200 berhasil dibuat: NASA_html_status200.csv
+Jumlah data asli: 417952, jumlah data status 200: 62435
+</pre></div>
+</div>
+</div>
+</div>
+<p>Request Method</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+
+<span class="c1"># === 1️⃣ Baca file hasil sebelumnya ===</span>
+<span class="n">file_path</span> <span class="o">=</span> <span class="s2">&quot;NASA_html_status200.csv&quot;</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">file_path</span><span class="p">)</span>
+
+<span class="c1"># === 2️⃣ Pastikan kolom &#39;Request method&#39; ada ===</span>
+<span class="k">if</span> <span class="s1">&#39;Request method&#39;</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">df</span><span class="o">.</span><span class="n">columns</span><span class="p">:</span>
+    <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Kolom &#39;Request method&#39; tidak ditemukan. Kolom yang tersedia: </span><span class="si">{</span><span class="n">df</span><span class="o">.</span><span class="n">columns</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+<span class="c1"># === 3️⃣ Filter hanya baris dengan Request method = &#39;GET&#39; ===</span>
+<span class="n">filtered_df</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;Request method&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">upper</span><span class="p">()</span> <span class="o">==</span> <span class="s1">&#39;&quot;GET&#39;</span><span class="p">]</span>
+
+<span class="c1"># === 4️⃣ Simpan hasil filter ke file baru ===</span>
+<span class="n">output_path</span> <span class="o">=</span> <span class="s2">&quot;NASA_html_status200_get.csv&quot;</span>
+<span class="n">filtered_df</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="n">output_path</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;✅ File hasil filter GET berhasil dibuat: </span><span class="si">{</span><span class="n">output_path</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Jumlah data asli: </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">df</span><span class="p">)</span><span class="si">}</span><span class="s2">, jumlah data GET: </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">filtered_df</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Contoh 5 baris pertama hasil filter:&quot;</span><span class="p">)</span>
+<span class="n">filtered_df</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>✅ File hasil filter GET berhasil dibuat: NASA_html_status200_get.csv
+Jumlah data asli: 62435, jumlah data GET: 62265
+Contoh 5 baris pertama hasil filter:
+</pre></div>
+</div>
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Remote host</th>
+      <th>logname</th>
+      <th>user</th>
+      <th>Request time</th>
+      <th>4</th>
+      <th>Request method</th>
+      <th>Request URI</th>
+      <th>Request Protocol</th>
+      <th>Status</th>
+      <th>Size</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>hplb.hpl.hp.com</td>
+      <td>-</td>
+      <td>-</td>
+      <td>[05/Jul/1995:03:49:50</td>
+      <td>-0400]</td>
+      <td>"GET</td>
+      <td>/shuttle/missions/sts-71/movies/movies.html</td>
+      <td>HTTP/1.0"</td>
+      <td>200</td>
+      <td>3089</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>10forward.ppp.america.com</td>
+      <td>-</td>
+      <td>-</td>
+      <td>[05/Jul/1995:03:49:57</td>
+      <td>-0400]</td>
+      <td>"GET</td>
+      <td>/history/apollo/apollo-13/apollo-13.html</td>
+      <td>HTTP/1.0"</td>
+      <td>200</td>
+      <td>18114</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>pc111.twi.ch</td>
+      <td>-</td>
+      <td>-</td>
+      <td>[05/Jul/1995:03:50:07</td>
+      <td>-0400]</td>
+      <td>"GET</td>
+      <td>/history/history.html</td>
+      <td>HTTP/1.0"</td>
+      <td>200</td>
+      <td>1502</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>aqua1e.cfi.waseda.ac.jp</td>
+      <td>-</td>
+      <td>-</td>
+      <td>[05/Jul/1995:03:50:11</td>
+      <td>-0400]</td>
+      <td>"GET</td>
+      <td>/mdss/MDSS.html</td>
+      <td>HTTP/1.0"</td>
+      <td>200</td>
+      <td>2727</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>132.146.65.211</td>
+      <td>-</td>
+      <td>-</td>
+      <td>[05/Jul/1995:03:50:12</td>
+      <td>-0400]</td>
+      <td>"GET</td>
+      <td>/ksc.html</td>
+      <td>HTTP/1.0"</td>
+      <td>200</td>
+      <td>7074</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>Request Time</p>
+<p>Mengubah Format Request Time yang awalnya 05/Jul/1995:03:49:50 menjadi format seperti ini 2009-10-15 02:00:24</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+
+<span class="c1"># === 1. Baca file GET ===</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;NASA_html_status200_get.csv&quot;</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">str</span><span class="p">)</span>
+
+<span class="c1"># Pastikan kolom &#39;Request time&#39; ada</span>
+<span class="k">if</span> <span class="s2">&quot;Request time&quot;</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">df</span><span class="o">.</span><span class="n">columns</span><span class="p">:</span>
+    <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Kolom &#39;Request time&#39; tidak ditemukan!&quot;</span><span class="p">)</span>
+
+<span class="c1"># === 2. Bersihkan format time ===</span>
+<span class="c1"># Hilangkan karakter &#39;[&#39;, &#39;]&#39; jika masih ada</span>
+<span class="n">df</span><span class="p">[</span><span class="s2">&quot;Request time&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s2">&quot;Request time&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;[&quot;</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="n">regex</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="n">df</span><span class="p">[</span><span class="s2">&quot;Request time&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s2">&quot;Request time&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;]&quot;</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="n">regex</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+
+<span class="c1"># === 3. Convert ke datetime ===</span>
+<span class="c1"># Format asli: 05/Jul/1995:03:49:50</span>
+<span class="n">df</span><span class="p">[</span><span class="s2">&quot;Request time&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">to_datetime</span><span class="p">(</span>
+    <span class="n">df</span><span class="p">[</span><span class="s2">&quot;Request time&quot;</span><span class="p">],</span>
+    <span class="nb">format</span><span class="o">=</span><span class="s2">&quot;</span><span class="si">%d</span><span class="s2">/%b/%Y:%H:%M:%S&quot;</span><span class="p">,</span>
+    <span class="n">errors</span><span class="o">=</span><span class="s2">&quot;coerce&quot;</span>   <span class="c1"># jika gagal parse → NaT</span>
+<span class="p">)</span>
+
+<span class="c1"># === 4. Ubah format output menjadi yyyy-mm-dd HH:MM:SS ===</span>
+<span class="n">df</span><span class="p">[</span><span class="s2">&quot;Request time&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s2">&quot;Request time&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">dt</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="s2">&quot;%Y-%m-</span><span class="si">%d</span><span class="s2"> %H:%M:%S&quot;</span><span class="p">)</span>
+
+<span class="c1"># === 5. Simpan ulang ===</span>
+<span class="n">output_path</span> <span class="o">=</span> <span class="s2">&quot;NASA_html_status200_get_converted.csv&quot;</span>
+<span class="n">df</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="n">output_path</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Format Request time berhasil diubah dan disimpan sebagai: </span><span class="si">{</span><span class="n">output_path</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Format Request time berhasil diubah dan disimpan sebagai: NASA_html_status200_get_converted.csv
+                 Remote host logname user         Request time       4  \
+0            hplb.hpl.hp.com       -    -  1995-07-05 03:49:50  -0400]   
+1  10forward.ppp.america.com       -    -  1995-07-05 03:49:57  -0400]   
+2               pc111.twi.ch       -    -  1995-07-05 03:50:07  -0400]   
+3    aqua1e.cfi.waseda.ac.jp       -    -  1995-07-05 03:50:11  -0400]   
+4             132.146.65.211       -    -  1995-07-05 03:50:12  -0400]   
+
+  Request method                                  Request URI  \
+0           &quot;GET  /shuttle/missions/sts-71/movies/movies.html   
+1           &quot;GET     /history/apollo/apollo-13/apollo-13.html   
+2           &quot;GET                        /history/history.html   
+3           &quot;GET                              /mdss/MDSS.html   
+4           &quot;GET                                    /ksc.html   
+
+  Request Protocol Status   Size  
+0        HTTP/1.0&quot;    200   3089  
+1        HTTP/1.0&quot;    200  18114  
+2        HTTP/1.0&quot;    200   1502  
+3        HTTP/1.0&quot;    200   2727  
+4        HTTP/1.0&quot;    200   7074  
+</pre></div>
+</div>
+</div>
+</div>
+<p>Filter Berdasarkan IP Address(Remote host) dan User Agent(Request Protocol)</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Pastikan copy dataframe dulu (optional)</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+
+<span class="c1"># Buat kolom user_id berdasarkan kombinasi Remote host + Request Protocol</span>
+<span class="n">df</span><span class="p">[</span><span class="s1">&#39;user_id&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">groupby</span><span class="p">([</span><span class="s1">&#39;Remote host&#39;</span><span class="p">,</span> <span class="s1">&#39;Request Protocol&#39;</span><span class="p">])</span><span class="o">.</span><span class="n">ngroup</span><span class="p">()</span> <span class="o">+</span> <span class="mi">1</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Total unique user ID: </span><span class="si">{</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;user_id&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">nunique</span><span class="p">()</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Total unique user ID: 15481
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;NASA_html_status200_get_converted.csv&quot;</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">str</span><span class="p">)</span>
+
+<span class="c1"># Buat user_id berdasarkan Remote host + Request Protocol</span>
+<span class="n">df</span><span class="p">[</span><span class="s2">&quot;user_id&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">groupby</span><span class="p">([</span><span class="s2">&quot;Remote host&quot;</span><span class="p">,</span> <span class="s2">&quot;Request Protocol&quot;</span><span class="p">])</span><span class="o">.</span><span class="n">ngroup</span><span class="p">()</span> <span class="o">+</span> <span class="mi">1</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Total unique user ID: </span><span class="si">{</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;user_id&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">nunique</span><span class="p">()</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+<span class="c1"># Pilih dan urutkan kolom sesuai permintaan</span>
+<span class="n">result</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span>
+    <span class="p">[</span>
+        <span class="s2">&quot;Remote host&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;Request Protocol&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;Request time&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;user_id&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;Request URI&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;Status&quot;</span><span class="p">,</span>
+    <span class="p">]</span>
+<span class="p">]</span>
+
+<span class="n">output_path</span> <span class="o">=</span> <span class="s2">&quot;NASA_html_status200_get_final.csv&quot;</span>
+<span class="n">result</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="n">output_path</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;File CSV final berhasil dibuat: </span><span class="si">{</span><span class="n">output_path</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Total unique user ID: 15481
+File CSV final berhasil dibuat: NASA_html_status200_get_final.csv
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">result</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Remote host</th>
+      <th>Request Protocol</th>
+      <th>Request time</th>
+      <th>user_id</th>
+      <th>Request URI</th>
+      <th>Status</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>hplb.hpl.hp.com</td>
+      <td>HTTP/1.0"</td>
+      <td>1995-07-05 03:49:50</td>
+      <td>8254</td>
+      <td>/shuttle/missions/sts-71/movies/movies.html</td>
+      <td>200</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>10forward.ppp.america.com</td>
+      <td>HTTP/1.0"</td>
+      <td>1995-07-05 03:49:57</td>
+      <td>10</td>
+      <td>/history/apollo/apollo-13/apollo-13.html</td>
+      <td>200</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>pc111.twi.ch</td>
+      <td>HTTP/1.0"</td>
+      <td>1995-07-05 03:50:07</td>
+      <td>11610</td>
+      <td>/history/history.html</td>
+      <td>200</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>aqua1e.cfi.waseda.ac.jp</td>
+      <td>HTTP/1.0"</td>
+      <td>1995-07-05 03:50:11</td>
+      <td>4534</td>
+      <td>/mdss/MDSS.html</td>
+      <td>200</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>132.146.65.211</td>
+      <td>HTTP/1.0"</td>
+      <td>1995-07-05 03:50:12</td>
+      <td>823</td>
+      <td>/ksc.html</td>
+      <td>200</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>ppp-s22.pinsight.com</td>
+      <td>HTTP/1.0"</td>
+      <td>1995-07-05 03:50:20</td>
+      <td>12341</td>
+      <td>/history/apollo/apollo.html</td>
+      <td>200</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>metz.une.edu.au</td>
+      <td>HTTP/1.0"</td>
+      <td>1995-07-05 03:50:24</td>
+      <td>10378</td>
+      <td>/history/apollo/apollo-17/apollo-17-info.html</td>
+      <td>200</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>132.146.65.211</td>
+      <td>HTTP/1.0"</td>
+      <td>1995-07-05 03:50:25</td>
+      <td>823</td>
+      <td>/facts/about_ksc.html</td>
+      <td>200</td>
+    </tr>
+    <tr>
+      <th>8</th>
+      <td>ppp-s22.pinsight.com</td>
+      <td>HTTP/1.0"</td>
+      <td>1995-07-05 03:50:39</td>
+      <td>12341</td>
+      <td>/history/apollo/apollo-1/apollo-1.html</td>
+      <td>200</td>
+    </tr>
+    <tr>
+      <th>9</th>
+      <td>10forward.ppp.america.com</td>
+      <td>HTTP/1.0"</td>
+      <td>1995-07-05 03:50:52</td>
+      <td>10</td>
+      <td>/facilities/lc39a.html</td>
+      <td>200</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>Mengurutkan Remote Host</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+
+<span class="c1"># Baca file final sebelumnya</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;NASA_html_status200_get_final.csv&quot;</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">str</span><span class="p">)</span>
+
+<span class="c1"># Pastikan Request time dalam datetime agar sorting benar</span>
+<span class="n">df</span><span class="p">[</span><span class="s2">&quot;Request time&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">to_datetime</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s2">&quot;Request time&quot;</span><span class="p">],</span> <span class="n">errors</span><span class="o">=</span><span class="s2">&quot;coerce&quot;</span><span class="p">)</span>
+
+<span class="c1"># Sorting: Remote host A-Z, lalu waktu dari yang paling awal</span>
+<span class="n">df_sorted</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">by</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;Remote host&quot;</span><span class="p">,</span> <span class="s2">&quot;Request time&quot;</span><span class="p">],</span> <span class="n">ascending</span><span class="o">=</span><span class="p">[</span><span class="kc">True</span><span class="p">,</span> <span class="kc">True</span><span class="p">])</span>
+
+<span class="c1"># Simpan ke file baru</span>
+<span class="n">output_path</span> <span class="o">=</span> <span class="s2">&quot;NASA_html_status200_get_sorted.csv&quot;</span>
+<span class="n">df_sorted</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="n">output_path</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;File sorted berhasil dibuat: </span><span class="si">{</span><span class="n">output_path</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">df_sorted</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">20</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>File sorted berhasil dibuat: NASA_html_status200_get_sorted.csv
+                           Remote host Request Protocol        Request time  \
+33253                   007.thegap.com        HTTP/1.0&quot; 1995-07-06 17:24:28   
+33289                   007.thegap.com        HTTP/1.0&quot; 1995-07-06 17:26:24   
+33338                   007.thegap.com        HTTP/1.0&quot; 1995-07-06 17:28:35   
+33548                   007.thegap.com        HTTP/1.0&quot; 1995-07-06 17:37:44   
+35309                   007.thegap.com        HTTP/1.0&quot; 1995-07-06 19:23:26   
+35352                   007.thegap.com        HTTP/1.0&quot; 1995-07-06 19:26:24   
+35480                   007.thegap.com        HTTP/1.0&quot; 1995-07-06 19:34:36   
+1465   01-dynamic-c.wokingham.luna.net        HTTP/1.0&quot; 1995-07-05 07:36:59   
+42250  02-dynamic-c.wokingham.luna.net        HTTP/1.0&quot; 1995-07-07 07:59:10   
+607    05-dynamic-c.rotterdam.luna.net        HTTP/1.0&quot; 1995-07-05 05:37:35   
+612    05-dynamic-c.rotterdam.luna.net        HTTP/1.0&quot; 1995-07-05 05:38:42   
+617    05-dynamic-c.rotterdam.luna.net        HTTP/1.0&quot; 1995-07-05 05:39:20   
+627    05-dynamic-c.rotterdam.luna.net        HTTP/1.0&quot; 1995-07-05 05:40:46   
+631    05-dynamic-c.rotterdam.luna.net        HTTP/1.0&quot; 1995-07-05 05:41:39   
+19717  05-dynamic-c.rotterdam.luna.net        HTTP/1.0&quot; 1995-07-06 03:56:35   
+14031  08-dynamic-c.rotterdam.luna.net        HTTP/1.0&quot; 1995-07-05 18:33:19   
+630    10-dynamic-c.rotterdam.luna.net        HTTP/1.0&quot; 1995-07-05 05:41:32   
+29336            100.144.med.umich.edu        HTTP/1.0&quot; 1995-07-06 14:31:09   
+31755            100.144.med.umich.edu        HTTP/1.0&quot; 1995-07-06 16:10:44   
+31807            100.144.med.umich.edu        HTTP/1.0&quot; 1995-07-06 16:12:54   
+
+      user_id                                        Request URI Status  
+33253       1       /shuttle/missions/sts-71/mission-sts-71.html    200  
+33289       1  /shuttle/missions/sts-71/sts-71-day-09-highlig...    200  
+33338       1       /shuttle/missions/sts-71/mission-sts-71.html    200  
+33548       1        /shuttle/missions/sts-71/images/images.html    200  
+35309       1                       /shuttle/countdown/tour.html    200  
+35352       1                              /facilities/mila.html    200  
+35480       1       /shuttle/technology/sts-newsref/sts-jsc.html    200  
+1465        2        /shuttle/missions/sts-71/movies/movies.html    200  
+42250       3        /shuttle/missions/sts-68/ksc-srl-image.html    200  
+607         4                    /shuttle/missions/missions.html    200  
+612         4       /shuttle/missions/sts-61/mission-sts-61.html    200  
+617         4                    /shuttle/missions/missions.html    200  
+627         4       /shuttle/missions/sts-67/mission-sts-67.html    200  
+631         4       /shuttle/missions/sts-71/mission-sts-71.html    200  
+19717       4          /shuttle/missions/sts-63/sts-63-info.html    200  
+14031       5           /history/apollo/apollo-11/apollo-11.html    200  
+630         6                              /history/history.html    200  
+29336       7        /shuttle/missions/sts-71/images/images.html    200  
+31755       7                        /history/apollo/apollo.html    200  
+31807       7                        /history/gemini/gemini.html    200  
+</pre></div>
+</div>
+</div>
+</div>
+<p>Sesi tiap 35 menit</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+
+<span class="c1"># Baca file sorted</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;NASA_html_status200_get_sorted.csv&quot;</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">str</span><span class="p">)</span>
+
+<span class="c1"># Konversi kolom waktu</span>
+<span class="n">df</span><span class="p">[</span><span class="s2">&quot;Request time&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">to_datetime</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s2">&quot;Request time&quot;</span><span class="p">],</span> <span class="n">errors</span><span class="o">=</span><span class="s2">&quot;coerce&quot;</span><span class="p">)</span>
+
+<span class="c1"># Sort ulang untuk memastikan benar (Host + Time)</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">by</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;Remote host&quot;</span><span class="p">,</span> <span class="s2">&quot;Request time&quot;</span><span class="p">])</span><span class="o">.</span><span class="n">reset_index</span><span class="p">(</span><span class="n">drop</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+<span class="c1"># Buat kolom session</span>
+<span class="n">df</span><span class="p">[</span><span class="s2">&quot;session&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span>
+
+<span class="c1"># Durasi timeout session = 35 menit</span>
+<span class="n">session_timeout</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Timedelta</span><span class="p">(</span><span class="n">minutes</span><span class="o">=</span><span class="mi">35</span><span class="p">)</span>
+
+<span class="c1"># Loop per host</span>
+<span class="k">for</span> <span class="n">host</span><span class="p">,</span> <span class="n">group</span> <span class="ow">in</span> <span class="n">df</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s2">&quot;Remote host&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">groups</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+
+    <span class="n">indices</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">group</span><span class="p">]</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span>  <span class="c1"># indeks baris untuk host ini</span>
+    <span class="n">current_session</span> <span class="o">=</span> <span class="mi">1</span>                     <span class="c1"># mulai dari sesi 1</span>
+
+    <span class="n">df</span><span class="o">.</span><span class="n">at</span><span class="p">[</span><span class="n">indices</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="s2">&quot;session&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">current_session</span>
+
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">indices</span><span class="p">)):</span>
+        <span class="n">prev_time</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">indices</span><span class="p">[</span><span class="n">i</span> <span class="o">-</span> <span class="mi">1</span><span class="p">],</span> <span class="s2">&quot;Request time&quot;</span><span class="p">]</span>
+        <span class="n">curr_time</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">indices</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="s2">&quot;Request time&quot;</span><span class="p">]</span>
+
+        <span class="c1"># Jika selisih waktu lebih dari 35 menit → session baru</span>
+        <span class="k">if</span> <span class="n">curr_time</span> <span class="o">-</span> <span class="n">prev_time</span> <span class="o">&gt;</span> <span class="n">session_timeout</span><span class="p">:</span>
+            <span class="n">current_session</span> <span class="o">+=</span> <span class="mi">1</span>
+
+        <span class="n">df</span><span class="o">.</span><span class="n">at</span><span class="p">[</span><span class="n">indices</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="s2">&quot;session&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">current_session</span>
+
+<span class="c1"># Simpan ke CSV baru</span>
+<span class="n">output_path</span> <span class="o">=</span> <span class="s2">&quot;NASA_html_status200_with_session.csv&quot;</span>
+<span class="n">df</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="n">output_path</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;✔ Session berhasil dihitung dan file disimpan ke: </span><span class="si">{</span><span class="n">output_path</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">20</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>✔ Session berhasil dihitung dan file disimpan ke: NASA_html_status200_with_session.csv
+                        Remote host Request Protocol        Request time  \
+0                    007.thegap.com        HTTP/1.0&quot; 1995-07-06 17:24:28   
+1                    007.thegap.com        HTTP/1.0&quot; 1995-07-06 17:26:24   
+2                    007.thegap.com        HTTP/1.0&quot; 1995-07-06 17:28:35   
+3                    007.thegap.com        HTTP/1.0&quot; 1995-07-06 17:37:44   
+4                    007.thegap.com        HTTP/1.0&quot; 1995-07-06 19:23:26   
+5                    007.thegap.com        HTTP/1.0&quot; 1995-07-06 19:26:24   
+6                    007.thegap.com        HTTP/1.0&quot; 1995-07-06 19:34:36   
+7   01-dynamic-c.wokingham.luna.net        HTTP/1.0&quot; 1995-07-05 07:36:59   
+8   02-dynamic-c.wokingham.luna.net        HTTP/1.0&quot; 1995-07-07 07:59:10   
+9   05-dynamic-c.rotterdam.luna.net        HTTP/1.0&quot; 1995-07-05 05:37:35   
+10  05-dynamic-c.rotterdam.luna.net        HTTP/1.0&quot; 1995-07-05 05:38:42   
+11  05-dynamic-c.rotterdam.luna.net        HTTP/1.0&quot; 1995-07-05 05:39:20   
+12  05-dynamic-c.rotterdam.luna.net        HTTP/1.0&quot; 1995-07-05 05:40:46   
+13  05-dynamic-c.rotterdam.luna.net        HTTP/1.0&quot; 1995-07-05 05:41:39   
+14  05-dynamic-c.rotterdam.luna.net        HTTP/1.0&quot; 1995-07-06 03:56:35   
+15  08-dynamic-c.rotterdam.luna.net        HTTP/1.0&quot; 1995-07-05 18:33:19   
+16  10-dynamic-c.rotterdam.luna.net        HTTP/1.0&quot; 1995-07-05 05:41:32   
+17            100.144.med.umich.edu        HTTP/1.0&quot; 1995-07-06 14:31:09   
+18            100.144.med.umich.edu        HTTP/1.0&quot; 1995-07-06 16:10:44   
+19            100.144.med.umich.edu        HTTP/1.0&quot; 1995-07-06 16:12:54   
+
+   user_id                                        Request URI Status  session  
+0        1       /shuttle/missions/sts-71/mission-sts-71.html    200        1  
+1        1  /shuttle/missions/sts-71/sts-71-day-09-highlig...    200        1  
+2        1       /shuttle/missions/sts-71/mission-sts-71.html    200        1  
+3        1        /shuttle/missions/sts-71/images/images.html    200        1  
+4        1                       /shuttle/countdown/tour.html    200        2  
+5        1                              /facilities/mila.html    200        2  
+6        1       /shuttle/technology/sts-newsref/sts-jsc.html    200        2  
+7        2        /shuttle/missions/sts-71/movies/movies.html    200        1  
+8        3        /shuttle/missions/sts-68/ksc-srl-image.html    200        1  
+9        4                    /shuttle/missions/missions.html    200        1  
+10       4       /shuttle/missions/sts-61/mission-sts-61.html    200        1  
+11       4                    /shuttle/missions/missions.html    200        1  
+12       4       /shuttle/missions/sts-67/mission-sts-67.html    200        1  
+13       4       /shuttle/missions/sts-71/mission-sts-71.html    200        1  
+14       4          /shuttle/missions/sts-63/sts-63-info.html    200        2  
+15       5           /history/apollo/apollo-11/apollo-11.html    200        1  
+16       6                              /history/history.html    200        1  
+17       7        /shuttle/missions/sts-71/images/images.html    200        1  
+18       7                        /history/apollo/apollo.html    200        2  
+19       7                        /history/gemini/gemini.html    200        2  
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Remote host</th>
+      <th>Request Protocol</th>
+      <th>Request time</th>
+      <th>user_id</th>
+      <th>Request URI</th>
+      <th>Status</th>
+      <th>session</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>007.thegap.com</td>
+      <td>HTTP/1.0"</td>
+      <td>1995-07-06 17:24:28</td>
+      <td>1</td>
+      <td>/shuttle/missions/sts-71/mission-sts-71.html</td>
+      <td>200</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>007.thegap.com</td>
+      <td>HTTP/1.0"</td>
+      <td>1995-07-06 17:26:24</td>
+      <td>1</td>
+      <td>/shuttle/missions/sts-71/sts-71-day-09-highlig...</td>
+      <td>200</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>007.thegap.com</td>
+      <td>HTTP/1.0"</td>
+      <td>1995-07-06 17:28:35</td>
+      <td>1</td>
+      <td>/shuttle/missions/sts-71/mission-sts-71.html</td>
+      <td>200</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>007.thegap.com</td>
+      <td>HTTP/1.0"</td>
+      <td>1995-07-06 17:37:44</td>
+      <td>1</td>
+      <td>/shuttle/missions/sts-71/images/images.html</td>
+      <td>200</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>007.thegap.com</td>
+      <td>HTTP/1.0"</td>
+      <td>1995-07-06 19:23:26</td>
+      <td>1</td>
+      <td>/shuttle/countdown/tour.html</td>
+      <td>200</td>
+      <td>2</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>Matrix sesi</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">scipy.sparse</span><span class="w"> </span><span class="kn">import</span> <span class="n">coo_matrix</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">create_matrix</span><span class="p">(</span><span class="n">df_sessionized</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Membuat matriks Sesi x Halaman dari data yang sudah disesikan.</span>
+<span class="sd">    Satu baris = satu sesi (user), satu kolom = halaman (Request URI).</span>
+<span class="sd">    Nilai 1 = halaman dikunjungi dalam sesi tersebut.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">if</span> <span class="n">df_sessionized</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="k">return</span> <span class="kc">None</span>
+
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Membuat matriks Sesi x Halaman ...&quot;</span><span class="p">)</span>
+
+    <span class="c1"># Perbaikan: gunakan kolom yang benar</span>
+    <span class="n">session_info</span> <span class="o">=</span> <span class="p">(</span>
+        <span class="n">df_sessionized</span><span class="p">[[</span><span class="s1">&#39;session&#39;</span><span class="p">,</span> <span class="s1">&#39;Remote host&#39;</span><span class="p">]]</span>
+        <span class="o">.</span><span class="n">drop_duplicates</span><span class="p">()</span>
+        <span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">by</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;session&#39;</span><span class="p">,</span> <span class="s1">&#39;Remote host&#39;</span><span class="p">])</span>
+        <span class="o">.</span><span class="n">reset_index</span><span class="p">(</span><span class="n">drop</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="p">)</span>
+
+    <span class="c1"># Membuat key unik antar sesi</span>
+    <span class="n">session_info</span><span class="p">[</span><span class="s1">&#39;Session_Key&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span>
+        <span class="n">session_info</span><span class="p">[</span><span class="s1">&#39;session&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">str</span><span class="p">)</span> <span class="o">+</span> <span class="s1">&#39;_&#39;</span> <span class="o">+</span> <span class="n">session_info</span><span class="p">[</span><span class="s1">&#39;Remote host&#39;</span><span class="p">]</span>
+    <span class="p">)</span>
+
+    <span class="c1"># Ambil semua URI unik</span>
+    <span class="n">unique_uris</span> <span class="o">=</span> <span class="n">df_sessionized</span><span class="p">[</span><span class="s1">&#39;Request URI&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">unique</span><span class="p">()</span>
+
+    <span class="c1"># Mapping SessionKey dan URI ke index</span>
+    <span class="n">session_key_to_idx</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="n">key</span><span class="p">:</span> <span class="n">i</span> <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">key</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">session_info</span><span class="p">[</span><span class="s1">&#39;Session_Key&#39;</span><span class="p">])</span>
+    <span class="p">}</span>
+    <span class="n">uri_to_idx</span> <span class="o">=</span> <span class="p">{</span><span class="n">uri</span><span class="p">:</span> <span class="n">i</span> <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">uri</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">unique_uris</span><span class="p">)}</span>
+
+    <span class="c1"># Mapping baris dataframe ke index</span>
+    <span class="n">df_temp</span> <span class="o">=</span> <span class="n">df_sessionized</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+    <span class="n">df_temp</span><span class="p">[</span><span class="s1">&#39;Session_Key&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span>
+        <span class="n">df_temp</span><span class="p">[</span><span class="s1">&#39;session&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">str</span><span class="p">)</span> <span class="o">+</span> <span class="s1">&#39;_&#39;</span> <span class="o">+</span> <span class="n">df_temp</span><span class="p">[</span><span class="s1">&#39;Remote host&#39;</span><span class="p">]</span>
+    <span class="p">)</span>
+
+    <span class="n">rows</span> <span class="o">=</span> <span class="n">df_temp</span><span class="p">[</span><span class="s1">&#39;Session_Key&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="n">session_key_to_idx</span><span class="p">)</span><span class="o">.</span><span class="n">to_numpy</span><span class="p">()</span>
+    <span class="n">cols</span> <span class="o">=</span> <span class="n">df_temp</span><span class="p">[</span><span class="s1">&#39;Request URI&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="n">uri_to_idx</span><span class="p">)</span><span class="o">.</span><span class="n">to_numpy</span><span class="p">()</span>
+    <span class="n">data</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">*</span> <span class="nb">len</span><span class="p">(</span><span class="n">df_temp</span><span class="p">)</span>   <span class="c1"># nilai matriks = 1</span>
+
+    <span class="c1"># Membuat sparse matrix COO</span>
+    <span class="n">sparse_matrix</span> <span class="o">=</span> <span class="n">coo_matrix</span><span class="p">(</span>
+        <span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="p">(</span><span class="n">rows</span><span class="p">,</span> <span class="n">cols</span><span class="p">)),</span>
+        <span class="n">shape</span><span class="o">=</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">session_info</span><span class="p">),</span> <span class="nb">len</span><span class="p">(</span><span class="n">unique_uris</span><span class="p">))</span>
+    <span class="p">)</span><span class="o">.</span><span class="n">tocsr</span><span class="p">()</span>
+
+    <span class="c1"># Convert ke DataFrame biasa</span>
+    <span class="n">final_output</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span>
+        <span class="n">sparse_matrix</span><span class="o">.</span><span class="n">toarray</span><span class="p">(),</span>
+        <span class="n">index</span><span class="o">=</span><span class="n">session_info</span><span class="p">[</span><span class="s1">&#39;Session_Key&#39;</span><span class="p">],</span>
+        <span class="n">columns</span><span class="o">=</span><span class="n">unique_uris</span>
+    <span class="p">)</span>
+
+    <span class="n">final_output</span> <span class="o">=</span> <span class="p">(</span><span class="n">final_output</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">)</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">int</span><span class="p">)</span>
+
+    <span class="c1"># Reset index untuk memecah SessionID dan IP</span>
+    <span class="n">final_output</span> <span class="o">=</span> <span class="n">final_output</span><span class="o">.</span><span class="n">reset_index</span><span class="p">()</span>
+    <span class="n">final_output</span><span class="p">[[</span><span class="s1">&#39;session&#39;</span><span class="p">,</span> <span class="s1">&#39;Remote host&#39;</span><span class="p">]]</span> <span class="o">=</span> \
+        <span class="n">final_output</span><span class="p">[</span><span class="s1">&#39;Session_Key&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;_&#39;</span><span class="p">,</span> <span class="n">n</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">expand</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+    <span class="n">final_output</span> <span class="o">=</span> <span class="n">final_output</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;Session_Key&#39;</span><span class="p">])</span>
+
+    <span class="c1"># Menempatkan Remote host di awal kolom</span>
+    <span class="n">cols_order</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;session&#39;</span><span class="p">,</span> <span class="s1">&#39;Remote host&#39;</span><span class="p">]</span> <span class="o">+</span> \
+                 <span class="p">[</span><span class="n">c</span> <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">final_output</span><span class="o">.</span><span class="n">columns</span> <span class="k">if</span> <span class="n">c</span> <span class="ow">not</span> <span class="ow">in</span> <span class="p">[</span><span class="s1">&#39;session&#39;</span><span class="p">,</span> <span class="s1">&#39;Remote host&#39;</span><span class="p">]]</span>
+    <span class="n">final_output</span> <span class="o">=</span> <span class="n">final_output</span><span class="p">[</span><span class="n">cols_order</span><span class="p">]</span>
+
+    <span class="c1"># Simpan ke CSV</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">final_output</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="s1">&#39;hasil_matriks_sesiNASA.csv&#39;</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">✔ Matriks berhasil disimpan menjadi: hasil_matriks_sesiNASA.csv&quot;</span><span class="p">)</span>
+    <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Gagal menyimpan file:&quot;</span><span class="p">,</span> <span class="n">e</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">final_output</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df_session</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;NASA_html_status200_with_session.csv&quot;</span><span class="p">)</span>
+
+<span class="n">final_matrix</span> <span class="o">=</span> <span class="n">create_matrix</span><span class="p">(</span><span class="n">df_session</span><span class="p">)</span>
+
+<span class="n">display</span><span class="p">(</span><span class="n">final_matrix</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Membuat matriks Sesi x Halaman ...
+
+✔ Matriks berhasil disimpan menjadi: hasil_matriks_sesiNASA.csv
+</pre></div>
+</div>
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>session</th>
+      <th>Remote host</th>
+      <th>/shuttle/missions/sts-71/mission-sts-71.html</th>
+      <th>/shuttle/missions/sts-71/sts-71-day-09-highlights.html</th>
+      <th>/shuttle/missions/sts-71/images/images.html</th>
+      <th>/shuttle/countdown/tour.html</th>
+      <th>/facilities/mila.html</th>
+      <th>/shuttle/technology/sts-newsref/sts-jsc.html</th>
+      <th>/shuttle/missions/sts-71/movies/movies.html</th>
+      <th>/shuttle/missions/sts-68/ksc-srl-image.html</th>
+      <th>...</th>
+      <th>/statistics/1994/Oct/Oct94_reverse_domains.html</th>
+      <th>/shuttle/missions/sts-39/sts-39-info.html</th>
+      <th>/shuttle/missions/41-b/41-b-info.html</th>
+      <th>/shuttle/missions/sts-47/sts-47-info.html</th>
+      <th>/shuttle/missions/61-c/61-c-info.html</th>
+      <th>/shuttle/missions/sts-33/sts-33-info.html</th>
+      <th>/msfc/visitor/visitors.html</th>
+      <th>/shuttle/missions/sts-2/sts-2-info.html</th>
+      <th>/shuttle/missions/sts-3/sts-3-info.html</th>
+      <th>/shuttle/missions/sts-5/sts-5-info.html</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>1</td>
+      <td>007.thegap.com</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>...</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>1</td>
+      <td>01-dynamic-c.wokingham.luna.net</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>...</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>1</td>
+      <td>02-dynamic-c.wokingham.luna.net</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>...</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>1</td>
+      <td>05-dynamic-c.rotterdam.luna.net</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>...</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>1</td>
+      <td>08-dynamic-c.rotterdam.luna.net</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>...</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>21410</th>
+      <td>37</td>
+      <td>www-b6.proxy.aol.com</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>...</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>21411</th>
+      <td>37</td>
+      <td>www-d1.proxy.aol.com</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>...</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>21412</th>
+      <td>38</td>
+      <td>www-b6.proxy.aol.com</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>...</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>21413</th>
+      <td>38</td>
+      <td>www-d1.proxy.aol.com</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>...</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>21414</th>
+      <td>39</td>
+      <td>www-d1.proxy.aol.com</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>...</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+  </tbody>
+</table>
+<p>21415 rows × 589 columns</p>
+</div></div></div>
+</div>
+<p>Hitung jumlah halaman untuk setiap sesi</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Hitung jumlah kunjungan tiap halaman dalam setiap sesi</span>
+<span class="n">page_count_per_session</span> <span class="o">=</span> <span class="p">(</span>
+    <span class="n">df_session</span><span class="o">.</span><span class="n">groupby</span><span class="p">([</span><span class="s1">&#39;session&#39;</span><span class="p">,</span> <span class="s1">&#39;Request URI&#39;</span><span class="p">])</span>
+              <span class="o">.</span><span class="n">size</span><span class="p">()</span>
+              <span class="o">.</span><span class="n">reset_index</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s1">&#39;page-view&#39;</span><span class="p">)</span>
+<span class="p">)</span>
+
+<span class="n">display</span><span class="p">(</span><span class="n">page_count_per_session</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>session</th>
+      <th>Request URI</th>
+      <th>page-view</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>1</td>
+      <td>//ksc.html</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>1</td>
+      <td>//shuttle/missions/missions.html</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>1</td>
+      <td>/base-ops/procurement/procurement.html</td>
+      <td>3</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>1</td>
+      <td>/biomed/bibliography/biblio.html</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>1</td>
+      <td>/biomed/climate/airqual.html</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>3985</th>
+      <td>38</td>
+      <td>/shuttle/missions/sts-71/images/images.html</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>3986</th>
+      <td>38</td>
+      <td>/shuttle/missions/sts-9/mission-sts-9.html</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>3987</th>
+      <td>38</td>
+      <td>/statistics/1995/Jun/Jun95.html</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>3988</th>
+      <td>38</td>
+      <td>/statistics/statistics.html</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>3989</th>
+      <td>39</td>
+      <td>/history/apollo/apollo-11/apollo-11.html</td>
+      <td>1</td>
+    </tr>
+  </tbody>
+</table>
+<p>3990 rows × 3 columns</p>
+</div></div></div>
+</div>
+<p>Identifikasi Halaman Dominan per Sesi</p>
+<p>Subtask:
+Berdasarkan jumlah kunjungan, tentukan URI mana yang paling dominan (paling sering dikunjungi) untuk setiap sesi. Jika ada lebih dari satu URI dengan jumlah kunjungan tertinggi, ambil yang pertama ditemui.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># 1. Hitung jumlah kunjungan tiap URI dalam setiap sesi</span>
+<span class="n">page_count_per_session</span> <span class="o">=</span> <span class="p">(</span>
+    <span class="n">df_session</span><span class="o">.</span><span class="n">groupby</span><span class="p">([</span><span class="s1">&#39;session&#39;</span><span class="p">,</span> <span class="s1">&#39;Request URI&#39;</span><span class="p">])</span>
+              <span class="o">.</span><span class="n">size</span><span class="p">()</span>
+              <span class="o">.</span><span class="n">reset_index</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s1">&#39;dominance-count&#39;</span><span class="p">)</span>
+<span class="p">)</span>
+
+<span class="c1"># 2. Untuk setiap sesi, ambil URI dengan jumlah kunjungan tertinggi</span>
+<span class="n">dominant_page_per_session</span> <span class="o">=</span> <span class="p">(</span>
+    <span class="n">page_count_per_session</span><span class="o">.</span><span class="n">sort_values</span><span class="p">([</span><span class="s1">&#39;session&#39;</span><span class="p">,</span> <span class="s1">&#39;dominance-count&#39;</span><span class="p">],</span> <span class="n">ascending</span><span class="o">=</span><span class="p">[</span><span class="kc">True</span><span class="p">,</span> <span class="kc">False</span><span class="p">])</span>
+                           <span class="o">.</span><span class="n">drop_duplicates</span><span class="p">(</span><span class="n">subset</span><span class="o">=</span><span class="s1">&#39;session&#39;</span><span class="p">,</span> <span class="n">keep</span><span class="o">=</span><span class="s1">&#39;first&#39;</span><span class="p">)</span>
+                           <span class="o">.</span><span class="n">reset_index</span><span class="p">(</span><span class="n">drop</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="p">)</span>
+
+<span class="n">display</span><span class="p">(</span><span class="n">dominant_page_per_session</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>session</th>
+      <th>Request URI</th>
+      <th>dominance-count</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>1</td>
+      <td>/shuttle/missions/sts-71/images/images.html</td>
+      <td>3947</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>2</td>
+      <td>/ksc.html</td>
+      <td>882</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>3</td>
+      <td>/ksc.html</td>
+      <td>454</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>4</td>
+      <td>/ksc.html</td>
+      <td>324</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>5</td>
+      <td>/ksc.html</td>
+      <td>215</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>6</td>
+      <td>/ksc.html</td>
+      <td>133</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>7</td>
+      <td>/ksc.html</td>
+      <td>109</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>8</td>
+      <td>/ksc.html</td>
+      <td>76</td>
+    </tr>
+    <tr>
+      <th>8</th>
+      <td>9</td>
+      <td>/ksc.html</td>
+      <td>60</td>
+    </tr>
+    <tr>
+      <th>9</th>
+      <td>10</td>
+      <td>/ksc.html</td>
+      <td>53</td>
+    </tr>
+    <tr>
+      <th>10</th>
+      <td>11</td>
+      <td>/ksc.html</td>
+      <td>31</td>
+    </tr>
+    <tr>
+      <th>11</th>
+      <td>12</td>
+      <td>/ksc.html</td>
+      <td>30</td>
+    </tr>
+    <tr>
+      <th>12</th>
+      <td>13</td>
+      <td>/ksc.html</td>
+      <td>62</td>
+    </tr>
+    <tr>
+      <th>13</th>
+      <td>14</td>
+      <td>/ksc.html</td>
+      <td>41</td>
+    </tr>
+    <tr>
+      <th>14</th>
+      <td>15</td>
+      <td>/ksc.html</td>
+      <td>22</td>
+    </tr>
+    <tr>
+      <th>15</th>
+      <td>16</td>
+      <td>/ksc.html</td>
+      <td>21</td>
+    </tr>
+    <tr>
+      <th>16</th>
+      <td>17</td>
+      <td>/shuttle/missions/sts-71/images/images.html</td>
+      <td>20</td>
+    </tr>
+    <tr>
+      <th>17</th>
+      <td>18</td>
+      <td>/ksc.html</td>
+      <td>18</td>
+    </tr>
+    <tr>
+      <th>18</th>
+      <td>19</td>
+      <td>/ksc.html</td>
+      <td>13</td>
+    </tr>
+    <tr>
+      <th>19</th>
+      <td>20</td>
+      <td>/ksc.html</td>
+      <td>10</td>
+    </tr>
+    <tr>
+      <th>20</th>
+      <td>21</td>
+      <td>/ksc.html</td>
+      <td>15</td>
+    </tr>
+    <tr>
+      <th>21</th>
+      <td>22</td>
+      <td>/ksc.html</td>
+      <td>14</td>
+    </tr>
+    <tr>
+      <th>22</th>
+      <td>23</td>
+      <td>/ksc.html</td>
+      <td>15</td>
+    </tr>
+    <tr>
+      <th>23</th>
+      <td>24</td>
+      <td>/shuttle/missions/missions.html</td>
+      <td>15</td>
+    </tr>
+    <tr>
+      <th>24</th>
+      <td>25</td>
+      <td>/ksc.html</td>
+      <td>17</td>
+    </tr>
+    <tr>
+      <th>25</th>
+      <td>26</td>
+      <td>/ksc.html</td>
+      <td>17</td>
+    </tr>
+    <tr>
+      <th>26</th>
+      <td>27</td>
+      <td>/history/apollo/apollo-13/apollo-13.html</td>
+      <td>10</td>
+    </tr>
+    <tr>
+      <th>27</th>
+      <td>28</td>
+      <td>/ksc.html</td>
+      <td>7</td>
+    </tr>
+    <tr>
+      <th>28</th>
+      <td>29</td>
+      <td>/ksc.html</td>
+      <td>13</td>
+    </tr>
+    <tr>
+      <th>29</th>
+      <td>30</td>
+      <td>/shuttle/missions/sts-71/images/images.html</td>
+      <td>9</td>
+    </tr>
+    <tr>
+      <th>30</th>
+      <td>31</td>
+      <td>/shuttle/missions/missions.html</td>
+      <td>7</td>
+    </tr>
+    <tr>
+      <th>31</th>
+      <td>32</td>
+      <td>/shuttle/countdown/countdown.html</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>32</th>
+      <td>33</td>
+      <td>/facilities/lcc.html</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>33</th>
+      <td>34</td>
+      <td>/facilities/mlp.html</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>34</th>
+      <td>35</td>
+      <td>/shuttle/missions/sts-71/images/images.html</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>35</th>
+      <td>36</td>
+      <td>/history/apollo/apollo-13/apollo-13-info.html</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>36</th>
+      <td>37</td>
+      <td>/shuttle/missions/sts-66/mission-sts-66.html</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>37</th>
+      <td>38</td>
+      <td>/history/history.html</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>38</th>
+      <td>39</td>
+      <td>/history/apollo/apollo-11/apollo-11.html</td>
+      <td>1</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+
+<span class="c1"># --- Gunakan dataframe hasilmu sendiri di sini ---</span>
+<span class="c1"># dominant_page_per_session = your_dataframe_here</span>
+
+<span class="c1"># Contoh struktur dataframe:</span>
+<span class="c1"># dominant_page_per_session:</span>
+<span class="c1">#   session | Request URI | dominance-count</span>
+
+<span class="c1"># --- Plot Diagram Batang Halaman Dominan per Sesi ---</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">bar</span><span class="p">(</span>
+    <span class="n">dominant_page_per_session</span><span class="p">[</span><span class="s2">&quot;session&quot;</span><span class="p">],</span>
+    <span class="n">dominant_page_per_session</span><span class="p">[</span><span class="s2">&quot;dominance-count&quot;</span><span class="p">]</span>
+<span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;Session&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;Jumlah Kunjungan (Dominance Count)&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Halaman Dominan per Sesi&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xticks</span><span class="p">(</span><span class="n">dominant_page_per_session</span><span class="p">[</span><span class="s2">&quot;session&quot;</span><span class="p">])</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/bfb92b92236982b052883b671f9ec1896fdf5a8667c410af7ac9156e7394213a.png" src="_images/bfb92b92236982b052883b671f9ec1896fdf5a8667c410af7ac9156e7394213a.png" />
+</div>
+</div>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="Nasa_fiks2.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">NASA 2</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="Crawling_Data_Twitter.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Crawling Twiter</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By The Jupyter Book Community
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2022.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
